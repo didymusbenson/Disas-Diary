@@ -1,0 +1,28 @@
+name: disas_diary
+description: A Magic the Gathering Tarmogoyf tracker with graveyard card type counting
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # State management
+  provider: ^6.1.1
+
+  # Persistence
+  shared_preferences: ^2.2.2
+
+  # Keep screen awake
+  wakelock_plus: ^1.2.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true

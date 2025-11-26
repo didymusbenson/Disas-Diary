@@ -1,0 +1,11 @@
+{
+    "name": "Disas Diary",
+    "short_name": "Disas Diary",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#2D5016",
+    "theme_color": "#2D5016",
+    "description": "A Magic the Gathering Tarmogoyf tracker",
+    "orientation": "portrait-primary",
+    "prefer_related_applications": false
+}
