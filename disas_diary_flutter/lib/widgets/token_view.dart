@@ -20,7 +20,7 @@ class TokenView extends StatelessWidget {
     return Card(
       margin: const EdgeInsets.all(2),
       child: Padding(
-        padding: const EdgeInsets.all(6),
+        padding: const EdgeInsets.all(12),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -35,16 +35,16 @@ class TokenView extends StatelessWidget {
                 ),
                 const Spacer(),
                 // Untapped icon and count
-                Icon(Icons.crop_portrait, color: theme.colorScheme.primary, size: 20),
-                const SizedBox(width: 2),
+                const Icon(Icons.mobile_friendly, size: 20),
+                const SizedBox(width: 4),
                 Text(
                   '${item.amount - item.tapped}',
                   style: theme.textTheme.titleLarge,
                 ),
                 const SizedBox(width: 8),
                 // Tapped icon and count
-                Icon(Icons.crop_landscape, color: theme.colorScheme.primary, size: 20),
-                const SizedBox(width: 2),
+                const Icon(Icons.screen_rotation, size: 20),
+                const SizedBox(width: 4),
                 Text(
                   '${item.tapped}',
                   style: theme.textTheme.titleLarge,
@@ -52,7 +52,7 @@ class TokenView extends StatelessWidget {
               ],
             ),
 
-            const SizedBox(height: 4),
+            const SizedBox(height: 8),
 
             // Middle row - abilities
             Text(
@@ -62,7 +62,7 @@ class TokenView extends StatelessWidget {
               ),
             ),
 
-            const SizedBox(height: 6),
+            const SizedBox(height: 8),
 
             // Bottom Row - buttons and P/T
             Row(
@@ -78,7 +78,7 @@ class TokenView extends StatelessWidget {
                   onLongPress: () => _showRemoveDialog(context, appState),
                 ),
 
-                const SizedBox(width: 4),
+                const SizedBox(width: 6),
 
                 // Add button
                 _TokenButton(
@@ -87,31 +87,30 @@ class TokenView extends StatelessWidget {
                   onLongPress: () => _showAddDialog(context, appState),
                 ),
 
-                const SizedBox(width: 4),
-
-                // Tap button
-                _TokenButton(
-                  icon: Icons.refresh,
-                  onTap: () {
-                    if (item.tapped < item.amount) {
-                      appState.tapTokens(1);
-                    }
-                  },
-                  onLongPress: () => _showTapDialog(context, appState),
-                ),
-
-                const SizedBox(width: 4),
+                const SizedBox(width: 6),
 
                 // Untap button
                 _TokenButton(
-                  icon: Icons.refresh,
-                  rotateIcon: true,
+                  icon: Icons.mobile_friendly,
                   onTap: () {
                     if (item.tapped > 0) {
                       appState.untapTokens(1);
                     }
                   },
                   onLongPress: () => _showUntapDialog(context, appState),
+                ),
+
+                const SizedBox(width: 6),
+
+                // Tap button
+                _TokenButton(
+                  icon: Icons.screen_rotation,
+                  onTap: () {
+                    if (item.tapped < item.amount) {
+                      appState.tapTokens(1);
+                    }
+                  },
+                  onLongPress: () => _showTapDialog(context, appState),
                 ),
 
                 const Spacer(),
@@ -283,13 +282,11 @@ class _TokenButton extends StatelessWidget {
   final IconData icon;
   final VoidCallback onTap;
   final VoidCallback onLongPress;
-  final bool rotateIcon;
 
   const _TokenButton({
     required this.icon,
     required this.onTap,
     required this.onLongPress,
-    this.rotateIcon = false,
   });
 
   @override
@@ -304,14 +301,11 @@ class _TokenButton extends StatelessWidget {
           ),
           borderRadius: BorderRadius.circular(6),
         ),
-        padding: const EdgeInsets.all(6),
-        child: Transform.rotate(
-          angle: rotateIcon ? 3.14159 : 0, // 180 degrees in radians
-          child: Icon(
-            icon,
-            size: 20,
-            color: Theme.of(context).colorScheme.secondary,
-          ),
+        padding: const EdgeInsets.all(8),
+        child: Icon(
+          icon,
+          size: 20,
+          color: Theme.of(context).colorScheme.secondary,
         ),
       ),
     );

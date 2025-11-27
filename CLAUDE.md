@@ -6,13 +6,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Disas Diary is a Magic: The Gathering companion app for tracking Tarmogoyf's power/toughness calculation and graveyard card type tracking.
 
-This repository contains two implementations:
-1. **Swift (iOS only)**: Original iOS SwiftUI application using SwiftData
-2. **Flutter (Cross-platform)**: Multi-platform version supporting iOS, Android, and Web
+**Active Development**: All work is now focused on the **Flutter (Cross-platform)** version in `disas_diary_flutter/`.
+
+**Deprecated**: The Swift version (`Disas Diary/` directory) is a deprecated artifact and will eventually be deleted. Do not make changes to the Swift version.
 
 ---
 
-# Flutter Version (Cross-Platform)
+# Flutter Version (Cross-Platform) - ACTIVE
 
 ## Location
 `disas_diary_flutter/`
@@ -114,8 +114,8 @@ appState.setCardType('creature', true);
 **Four Operations**:
 1. Add tokens (+ button)
 2. Remove tokens (- button) - long-press offers "Reset" to zero
-3. Tap tokens (refresh icon)
-4. Untap tokens (rotated refresh icon)
+3. Untap tokens (mobile_friendly icon)
+4. Tap tokens (screen_rotation icon)
 
 **State Validation**:
 - Tapped count clamped to [0, amount]
@@ -140,10 +140,16 @@ appState.setCardType('creature', true);
 
 ---
 
-# Swift Version (iOS Only)
+# Swift Version (iOS Only) - DEPRECATED ⚠️
+
+**DO NOT USE OR MODIFY THIS VERSION**
+
+This Swift implementation is deprecated and will eventually be deleted from the repository. All active development has moved to the Flutter version.
 
 ## Location
 Root directory: `Disas Diary/` and `Disas Diary.xcodeproj/`
+
+## Archived Documentation
 
 ## Building and Running
 

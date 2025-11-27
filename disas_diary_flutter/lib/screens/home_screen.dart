@@ -36,6 +36,21 @@ class HomeScreen extends StatelessWidget {
               // Token View
               if (item != null) TokenView(item: item),
 
+              const SizedBox(height: 8),
+
+              // Your Graveyard Header
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 4),
+                child: Text(
+                  'YOUR GRAVEYARD',
+                  style: theme.textTheme.labelSmall?.copyWith(
+                    color: theme.colorScheme.onSurfaceVariant,
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 1.2,
+                  ),
+                ),
+              ),
+
               const SizedBox(height: 4),
 
               // Row 0: Creature & Artifact
@@ -52,7 +67,7 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
 
-              const SizedBox(height: 4),
+              const SizedBox(height: 2),
 
               // Row 1: Enchantment & Instant
               Row(
@@ -68,7 +83,7 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
 
-              const SizedBox(height: 4),
+              const SizedBox(height: 2),
 
               // Row 2: Sorcery & Land
               Row(
@@ -84,7 +99,7 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
 
-              const SizedBox(height: 4),
+              const SizedBox(height: 2),
 
               // Row 3: Planeswalker & Battle
               Row(
@@ -100,7 +115,7 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
 
-              const SizedBox(height: 4),
+              const SizedBox(height: 2),
 
               // Row 4: Kindred
               Row(
@@ -189,7 +204,7 @@ class HomeScreen extends StatelessWidget {
           foregroundColor: isSelected
               ? theme.colorScheme.onPrimaryContainer
               : theme.colorScheme.onSurfaceVariant,
-          padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
+          padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 8),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),
             side: isSelected
