@@ -37,7 +37,7 @@ class AppTheme {
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
           foregroundColor: primaryGreen,
-          side: BorderSide(color: primaryGreen),
+          side: const BorderSide(color: primaryGreen),
         ),
       ),
 
@@ -64,16 +64,16 @@ class AppTheme {
       inputDecorationTheme: InputDecorationTheme(
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
-          borderSide: BorderSide(color: primaryGreen),
+          borderSide: const BorderSide(color: primaryGreen),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
-          borderSide: BorderSide(color: lightGreen, width: 2),
+          borderSide: const BorderSide(color: lightGreen, width: 2),
         ),
       ),
 
       // App bar theme
-      appBarTheme: AppBarTheme(
+      appBarTheme: const AppBarTheme(
         backgroundColor: primaryGreen,
         foregroundColor: Colors.white,
         elevation: 0,
@@ -109,7 +109,7 @@ class AppTheme {
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
           foregroundColor: lightGreen,
-          side: BorderSide(color: lightGreen),
+          side: const BorderSide(color: lightGreen),
         ),
       ),
 
@@ -126,7 +126,7 @@ class AppTheme {
       // Card theme
       cardTheme: CardThemeData(
         elevation: 2,
-        color: Color(0xFF2A2A2A),
+        color: const Color(0xFF2A2A2A),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
           side: BorderSide(color: colorScheme.outline, width: 2),
@@ -137,16 +137,16 @@ class AppTheme {
       inputDecorationTheme: InputDecorationTheme(
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
-          borderSide: BorderSide(color: lightGreen),
+          borderSide: const BorderSide(color: lightGreen),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
-          borderSide: BorderSide(color: lightGreen, width: 2),
+          borderSide: const BorderSide(color: lightGreen, width: 2),
         ),
       ),
 
       // App bar theme
-      appBarTheme: AppBarTheme(
+      appBarTheme: const AppBarTheme(
         backgroundColor: accentBlack,
         foregroundColor: lightGreen,
         elevation: 0,

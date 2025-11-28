@@ -1,0 +1,14 @@
+# Android Keystore Configuration
+# Copy this file to key.properties and fill in your actual values
+# DO NOT commit key.properties to version control!
+
+storePassword=YOUR_KEYSTORE_PASSWORD
+keyPassword=YOUR_KEY_PASSWORD
+keyAlias=YOUR_KEY_ALIAS
+storeFile=/path/to/your/keystore.jks
+
+# To generate a keystore, run:
+# keytool -genkey -v -keystore ~/upload-keystore.jks -keyalg RSA -keysize 2048 -validity 10000 -alias upload
+
+# Then reference the full path to your keystore file in storeFile above
+# Example: storeFile=/Users/yourusername/upload-keystore.jks

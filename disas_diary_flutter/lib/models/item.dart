@@ -11,13 +11,11 @@ class Item {
     required this.abilities,
     required this.name,
     required this.pt,
-    required this.colors,
+    required String colors,
     required this.amount,
     required bool createTapped,
-  }) : tapped = createTapped ? amount : 0 {
-    // Ensure colors are uppercase
-    this.colors = colors.toUpperCase();
-  }
+  }) : tapped = createTapped ? amount : 0,
+        colors = colors.toUpperCase();
 
   /// Convert to JSON for persistence
   Map<String, dynamic> toJson() {

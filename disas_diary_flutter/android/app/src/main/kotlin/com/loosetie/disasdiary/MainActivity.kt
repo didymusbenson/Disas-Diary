@@ -1,4 +1,4 @@
-package com.disasdiary
+package com.loosetie.disasdiary
 
 import io.flutter.embedding.android.FlutterActivity
 

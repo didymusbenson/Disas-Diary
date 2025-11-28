@@ -68,12 +68,14 @@ class PersistenceService {
       final list = jsonDecode(json) as List;
       final steppers = list.map((item) => GraveStepperData.fromJson(item as Map<String, dynamic>)).toList();
 
-      // Migrate old "My Types" and "My Creatures" labels to "Your Types" and "Your Creatures"
+      // Migrate old labels to current labels
       return steppers.map((stepper) {
         if (stepper.name == 'My Types') {
           return GraveStepperData(name: 'Your Types', value: stepper.value);
         } else if (stepper.name == 'My Creatures') {
           return GraveStepperData(name: 'Your Creatures', value: stepper.value);
+        } else if (stepper.name == 'Sorceriess') {
+          return GraveStepperData(name: 'Sorceries', value: stepper.value);
         }
         return stepper;
       }).toList();
@@ -132,7 +134,7 @@ class PersistenceService {
       GraveStepperData(name: 'Your Creatures'),
       GraveStepperData(name: 'All Creatures'),
       GraveStepperData(name: 'Instants'),
-      GraveStepperData(name: 'Sorceriess'), // Keep original typo for consistency
+      GraveStepperData(name: 'Sorceries'),
       GraveStepperData(name: 'Lands'),
       GraveStepperData(name: 'Nonbasic lands'),
       GraveStepperData(name: 'Enchantments'),

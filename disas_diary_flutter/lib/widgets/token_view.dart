@@ -148,13 +148,17 @@ class TokenView extends StatelessWidget {
         ),
         actions: [
           TextButton(
-            onPressed: () => Navigator.pop(context),
+            onPressed: () {
+              controller.dispose();
+              Navigator.pop(context);
+            },
             child: const Text('Cancel'),
           ),
           FilledButton(
             onPressed: () {
               final value = int.tryParse(controller.text) ?? 0;
               appState.addTokens(value);
+              controller.dispose();
               Navigator.pop(context);
             },
             child: const Text('Submit'),
@@ -182,12 +186,16 @@ class TokenView extends StatelessWidget {
         ),
         actions: [
           TextButton(
-            onPressed: () => Navigator.pop(context),
+            onPressed: () {
+              controller.dispose();
+              Navigator.pop(context);
+            },
             child: const Text('Cancel'),
           ),
           TextButton(
             onPressed: () {
               appState.resetTokens();
+              controller.dispose();
               Navigator.pop(context);
             },
             style: TextButton.styleFrom(
@@ -199,6 +207,7 @@ class TokenView extends StatelessWidget {
             onPressed: () {
               final value = int.tryParse(controller.text) ?? 0;
               appState.removeTokens(value);
+              controller.dispose();
               Navigator.pop(context);
             },
             child: const Text('Remove'),
@@ -226,13 +235,17 @@ class TokenView extends StatelessWidget {
         ),
         actions: [
           TextButton(
-            onPressed: () => Navigator.pop(context),
+            onPressed: () {
+              controller.dispose();
+              Navigator.pop(context);
+            },
             child: const Text('Cancel'),
           ),
           FilledButton(
             onPressed: () {
               final value = int.tryParse(controller.text) ?? 0;
               appState.tapTokens(value);
+              controller.dispose();
               Navigator.pop(context);
             },
             child: const Text('Tap'),
@@ -260,13 +273,17 @@ class TokenView extends StatelessWidget {
         ),
         actions: [
           TextButton(
-            onPressed: () => Navigator.pop(context),
+            onPressed: () {
+              controller.dispose();
+              Navigator.pop(context);
+            },
             child: const Text('Cancel'),
           ),
           FilledButton(
             onPressed: () {
               final value = int.tryParse(controller.text) ?? 0;
               appState.untapTokens(value);
+              controller.dispose();
               Navigator.pop(context);
             },
             child: const Text('Untap'),

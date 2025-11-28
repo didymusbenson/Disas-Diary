@@ -262,17 +262,27 @@ class HomeScreen extends StatelessWidget {
     showAboutDialog(
       context: context,
       applicationName: 'Disas Diary',
-      applicationVersion: '1.0.0',
-      applicationIcon: const Icon(Icons.style, size: 48),
-      applicationLegalese: '© 2024 Disas Diary',
+      applicationVersion: '2.0.0',
+      applicationIcon: ClipRRect(
+        borderRadius: BorderRadius.circular(12),
+        child: Image.asset(
+          'web/icons/Icon-192.png',
+          width: 64,
+          height: 64,
+        ),
+      ),
       children: [
-        const SizedBox(height: 16),
         const Text(
           'A Magic: The Gathering companion app for tracking Tarmogoyf\'s power/toughness and graveyard card types.',
         ),
         const SizedBox(height: 8),
         const Text(
           'Perfect for keeping tabs on your Tarmogoyf during gameplay.',
+        ),
+        const SizedBox(height: 16),
+        const Text(
+          '© 2024 Didymus Benson. All rights reserved.',
+          style: TextStyle(fontSize: 12),
         ),
       ],
     );
