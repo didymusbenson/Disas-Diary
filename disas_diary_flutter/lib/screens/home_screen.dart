@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import '../providers/app_state.dart';
 import '../widgets/token_view.dart';
 import '../widgets/grave_stepper.dart';
+import 'settings_screen.dart';
 
 /// Main home screen with Tarmogoyf tracker and card type toggles
 class HomeScreen extends StatelessWidget {
@@ -17,7 +18,30 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 40,
+        title: Text(
+          'Disas Diary',
+          style: theme.textTheme.titleMedium?.copyWith(
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+          ),
+        ),
         actions: [
+          IconButton(
+            icon: const Icon(Icons.help_outline, size: 20),
+            tooltip: 'About',
+            padding: EdgeInsets.zero,
+            constraints: const BoxConstraints(),
+            onPressed: () => _showAboutDialog(context),
+          ),
+          const SizedBox(width: 8),
+          IconButton(
+            icon: const Icon(Icons.settings, size: 20),
+            tooltip: 'Settings',
+            padding: EdgeInsets.zero,
+            constraints: const BoxConstraints(),
+            onPressed: () => _navigateToSettings(context),
+          ),
+          const SizedBox(width: 8),
           IconButton(
             icon: const Icon(Icons.refresh, size: 20),
             tooltip: 'Reset All',
@@ -222,6 +246,35 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  /// Navigate to settings screen
+  void _navigateToSettings(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const SettingsScreen()),
+    );
+  }
+
+  /// Show about dialog
+  void _showAboutDialog(BuildContext context) {
+    showAboutDialog(
+      context: context,
+      applicationName: 'Disas Diary',
+      applicationVersion: '1.0.0',
+      applicationIcon: const Icon(Icons.style, size: 48),
+      applicationLegalese: '© 2024 Disas Diary',
+      children: [
+        const SizedBox(height: 16),
+        const Text(
+          'A Magic: The Gathering companion app for tracking Tarmogoyf\'s power/toughness and graveyard card types.',
+        ),
+        const SizedBox(height: 8),
+        const Text(
+          'Perfect for keeping tabs on your Tarmogoyf during gameplay.',
+        ),
+      ],
     );
   }
 

@@ -8,6 +8,8 @@ class PersistenceService {
   static const String _itemKey = 'tarmogoyf_item';
   static const String _cardTypesKey = 'card_types';
   static const String _graveSteppersKey = 'grave_steppers';
+  static const String _useSystemThemeKey = 'use_system_theme';
+  static const String _useDarkModeKey = 'use_dark_mode';
 
   final SharedPreferences _prefs;
 
@@ -80,11 +82,32 @@ class PersistenceService {
     }
   }
 
+  /// Save use system theme preference
+  Future<void> saveUseSystemTheme(bool value) async {
+    await _prefs.setBool(_useSystemThemeKey, value);
+  }
+
+  /// Load use system theme preference
+  bool loadUseSystemTheme() {
+    return _prefs.getBool(_useSystemThemeKey) ?? true; // Default to system theme
+  }
+
+  /// Save use dark mode preference
+  Future<void> saveUseDarkMode(bool value) async {
+    await _prefs.setBool(_useDarkModeKey, value);
+  }
+
+  /// Load use dark mode preference
+  bool loadUseDarkMode() {
+    return _prefs.getBool(_useDarkModeKey) ?? false; // Default to light mode
+  }
+
   /// Clear all persisted data
   Future<void> clearAll() async {
     await _prefs.remove(_itemKey);
     await _prefs.remove(_cardTypesKey);
     await _prefs.remove(_graveSteppersKey);
+    // Note: Theme preferences are intentionally NOT cleared on reset
   }
 
   /// Default card types (all false)

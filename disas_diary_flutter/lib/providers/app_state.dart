@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import '../models/item.dart';
 import '../models/grave_stepper_data.dart';
 import '../services/persistence_service.dart';
@@ -10,6 +11,8 @@ class AppState extends ChangeNotifier {
   Item? _item;
   Map<String, bool> _cardTypes = {};
   List<GraveStepperData> _graveSteppers = [];
+  bool _useSystemTheme = true;
+  bool _useDarkMode = false;
 
   AppState(this._persistence) {
     _loadState();
@@ -19,12 +22,24 @@ class AppState extends ChangeNotifier {
   Item? get item => _item;
   Map<String, bool> get cardTypes => _cardTypes;
   List<GraveStepperData> get graveSteppers => _graveSteppers;
+  bool get useSystemTheme => _useSystemTheme;
+  bool get useDarkMode => _useDarkMode;
+
+  /// Get the current theme mode based on preferences
+  ThemeMode get themeMode {
+    if (_useSystemTheme) {
+      return ThemeMode.system;
+    }
+    return _useDarkMode ? ThemeMode.dark : ThemeMode.light;
+  }
 
   /// Load state from persistence
   void _loadState() {
     _item = _persistence.loadItem();
     _cardTypes = _persistence.loadCardTypes();
     _graveSteppers = _persistence.loadGraveSteppers();
+    _useSystemTheme = _persistence.loadUseSystemTheme();
+    _useDarkMode = _persistence.loadUseDarkMode();
 
     // If no item exists, create the default Tarmogoyf
     if (_item == null) {
@@ -162,6 +177,20 @@ class AppState extends ChangeNotifier {
   Future<void> resetAll() async {
     await _persistence.clearAll();
     _loadState();
+    notifyListeners();
+  }
+
+  /// Set use system theme preference
+  void setUseSystemTheme(bool value) {
+    _useSystemTheme = value;
+    _persistence.saveUseSystemTheme(value);
+    notifyListeners();
+  }
+
+  /// Set use dark mode preference
+  void setUseDarkMode(bool value) {
+    _useDarkMode = value;
+    _persistence.saveUseDarkMode(value);
     notifyListeners();
   }
 }

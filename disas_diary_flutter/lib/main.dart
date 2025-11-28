@@ -31,11 +31,13 @@ class DisasDiaryApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appState = context.watch<AppState>();
+
     return MaterialApp(
       title: 'Disas Diary',
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
-      themeMode: ThemeMode.system,
+      themeMode: appState.themeMode,
       home: const HomeScreen(),
       debugShowCheckedModeBanner: false,
     );
