@@ -12,6 +12,8 @@ class AppState extends ChangeNotifier {
   List<GraveStepperData> _graveSteppers = [];
   bool _useSystemTheme = true;
   bool _useDarkMode = false;
+  Map<String, int> _manaPoolCounts = {};
+  Map<String, bool> _manaPoolLocks = {};
 
   AppState(this._persistence) {
     _loadState();
@@ -23,6 +25,8 @@ class AppState extends ChangeNotifier {
   List<GraveStepperData> get graveSteppers => _graveSteppers;
   bool get useSystemTheme => _useSystemTheme;
   bool get useDarkMode => _useDarkMode;
+  Map<String, int> get manaPoolCounts => _manaPoolCounts;
+  Map<String, bool> get manaPoolLocks => _manaPoolLocks;
 
   /// Get the current theme mode based on preferences
   ThemeMode get themeMode {
@@ -39,6 +43,8 @@ class AppState extends ChangeNotifier {
     _graveSteppers = _persistence.loadGraveSteppers();
     _useSystemTheme = _persistence.loadUseSystemTheme();
     _useDarkMode = _persistence.loadUseDarkMode();
+    _manaPoolCounts = _persistence.loadManaPoolCounts();
+    _manaPoolLocks = _persistence.loadManaPoolLocks();
 
     // If no item exists, create the default Tarmogoyf
     if (_item == null) {
@@ -170,6 +176,68 @@ class AppState extends ChangeNotifier {
   void decrementGraveStepper(int index) {
     if (index < 0 || index >= _graveSteppers.length) return;
     updateGraveStepperValue(index, _graveSteppers[index].value - 1);
+  }
+
+  // --- Mana Pool ---
+
+  /// Increment mana for a color
+  void incrementMana(String color, int amount) {
+    _manaPoolCounts[color] = (_manaPoolCounts[color] ?? 0) + amount;
+    _persistence.saveManaPoolCounts(_manaPoolCounts);
+    notifyListeners();
+  }
+
+  /// Decrement mana for a color (clamped to 0)
+  void decrementMana(String color, int amount) {
+    final current = _manaPoolCounts[color] ?? 0;
+    _manaPoolCounts[color] = (current - amount).clamp(0, current);
+    _persistence.saveManaPoolCounts(_manaPoolCounts);
+    notifyListeners();
+  }
+
+  /// Toggle lock state for a mana color
+  void toggleManaLock(String color) {
+    _manaPoolLocks[color] = !(_manaPoolLocks[color] ?? false);
+    _persistence.saveManaPoolLocks(_manaPoolLocks);
+    notifyListeners();
+  }
+
+  /// Empty all unlocked mana pools
+  void emptyManaPool() {
+    for (final color in _manaPoolCounts.keys) {
+      if (_manaPoolLocks[color] != true) {
+        _manaPoolCounts[color] = 0;
+      }
+    }
+    _persistence.saveManaPoolCounts(_manaPoolCounts);
+    notifyListeners();
+  }
+
+  /// Convert all colored mana to colorless
+  void convertToColorless() {
+    final coloredKeys = ['W', 'U', 'B', 'R', 'G'];
+    int sum = 0;
+    for (final key in coloredKeys) {
+      sum += _manaPoolCounts[key] ?? 0;
+      _manaPoolCounts[key] = 0;
+    }
+    _manaPoolCounts['C'] = (_manaPoolCounts['C'] ?? 0) + sum;
+    _persistence.saveManaPoolCounts(_manaPoolCounts);
+    notifyListeners();
+  }
+
+  /// Convert all mana to a target color
+  void convertToColor(String targetColor) {
+    int sum = 0;
+    for (final key in _manaPoolCounts.keys) {
+      if (key != targetColor) {
+        sum += _manaPoolCounts[key] ?? 0;
+        _manaPoolCounts[key] = 0;
+      }
+    }
+    _manaPoolCounts[targetColor] = (_manaPoolCounts[targetColor] ?? 0) + sum;
+    _persistence.saveManaPoolCounts(_manaPoolCounts);
+    notifyListeners();
   }
 
   /// Reset all state to defaults

@@ -10,6 +10,8 @@ class PersistenceService {
   static const String _graveSteppersKey = 'grave_steppers';
   static const String _useSystemThemeKey = 'use_system_theme';
   static const String _useDarkModeKey = 'use_dark_mode';
+  static const String _manaPoolCountsKey = 'mana_pool_counts';
+  static const String _manaPoolLocksKey = 'mana_pool_locks';
 
   final SharedPreferences _prefs;
 
@@ -104,11 +106,51 @@ class PersistenceService {
     return _prefs.getBool(_useDarkModeKey) ?? false; // Default to light mode
   }
 
+  /// Save mana pool counts
+  Future<void> saveManaPoolCounts(Map<String, int> counts) async {
+    final json = jsonEncode(counts);
+    await _prefs.setString(_manaPoolCountsKey, json);
+  }
+
+  /// Load mana pool counts
+  Map<String, int> loadManaPoolCounts() {
+    final json = _prefs.getString(_manaPoolCountsKey);
+    if (json == null) return _defaultManaPoolCounts();
+
+    try {
+      final map = jsonDecode(json) as Map<String, dynamic>;
+      return map.map((key, value) => MapEntry(key, value as int));
+    } catch (e) {
+      return _defaultManaPoolCounts();
+    }
+  }
+
+  /// Save mana pool lock states
+  Future<void> saveManaPoolLocks(Map<String, bool> locks) async {
+    final json = jsonEncode(locks);
+    await _prefs.setString(_manaPoolLocksKey, json);
+  }
+
+  /// Load mana pool lock states
+  Map<String, bool> loadManaPoolLocks() {
+    final json = _prefs.getString(_manaPoolLocksKey);
+    if (json == null) return _defaultManaPoolLocks();
+
+    try {
+      final map = jsonDecode(json) as Map<String, dynamic>;
+      return map.map((key, value) => MapEntry(key, value as bool));
+    } catch (e) {
+      return _defaultManaPoolLocks();
+    }
+  }
+
   /// Clear all persisted data
   Future<void> clearAll() async {
     await _prefs.remove(_itemKey);
     await _prefs.remove(_cardTypesKey);
     await _prefs.remove(_graveSteppersKey);
+    await _prefs.remove(_manaPoolCountsKey);
+    await _prefs.remove(_manaPoolLocksKey);
     // Note: Theme preferences are intentionally NOT cleared on reset
   }
 
@@ -125,6 +167,16 @@ class PersistenceService {
       'battle': false,
       'kindred': false,
     };
+  }
+
+  /// Default mana pool counts (all zero)
+  Map<String, int> _defaultManaPoolCounts() {
+    return {'W': 0, 'U': 0, 'B': 0, 'R': 0, 'G': 0, 'C': 0};
+  }
+
+  /// Default mana pool locks (all unlocked)
+  Map<String, bool> _defaultManaPoolLocks() {
+    return {'W': false, 'U': false, 'B': false, 'R': false, 'G': false, 'C': false};
   }
 
   /// Default grave steppers

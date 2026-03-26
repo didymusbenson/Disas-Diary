@@ -21,3 +21,7 @@
 
 # Wakelock plugin
 -keep class ** extends io.flutter.embedding.engine.plugins.FlutterPlugin { *; }
+
+# Play Core library (for deferred components)
+-dontwarn com.google.android.play.core.**
+-keep class com.google.android.play.core.** { *; }

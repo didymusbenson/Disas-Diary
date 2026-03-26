@@ -1,25 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import '../providers/app_state.dart';
-import '../widgets/token_view.dart';
-import '../widgets/grave_stepper.dart';
+import 'attractions_screen.dart';
+import 'disas_diary_screen.dart';
+import 'dungeons_screen.dart';
+import 'mana_pool_screen.dart';
 import 'settings_screen.dart';
 
-/// Main home screen with Tarmogoyf tracker and card type toggles
+/// Home screen - toolkit menu listing all available tools
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final appState = context.watch<AppState>();
-    final item = appState.item;
     final theme = Theme.of(context);
 
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 40,
         title: Text(
-          'Disas Diary',
+          'Mana Burn',
           style: theme.textTheme.titleMedium?.copyWith(
             fontWeight: FontWeight.bold,
             color: Colors.white,
@@ -39,229 +37,72 @@ class HomeScreen extends StatelessWidget {
             tooltip: 'Settings',
             padding: EdgeInsets.zero,
             constraints: const BoxConstraints(),
-            onPressed: () => _navigateToSettings(context),
-          ),
-          const SizedBox(width: 8),
-          IconButton(
-            icon: const Icon(Icons.refresh, size: 20),
-            tooltip: 'Reset All',
-            padding: EdgeInsets.zero,
-            constraints: const BoxConstraints(),
-            onPressed: () => _showResetDialog(context, appState),
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const SettingsScreen()),
+            ),
           ),
           const SizedBox(width: 12),
         ],
       ),
       body: SafeArea(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 4),
-          child: Column(
-            children: [
-              // Token View
-              if (item != null) TokenView(item: item),
-
-              const SizedBox(height: 8),
-
-              // Your Graveyard Header
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 4),
-                child: Text(
-                  'YOUR GRAVEYARD',
-                  style: theme.textTheme.labelSmall?.copyWith(
-                    color: theme.colorScheme.onSurfaceVariant,
-                    fontWeight: FontWeight.bold,
-                    letterSpacing: 1.2,
-                  ),
+        child: ListView(
+          padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+          children: [
+            _ToolListItem(
+              title: "Disa's Diary",
+              subtitle: 'Tarmogoyf P/T tracker & graveyard card types',
+              icon: Icons.auto_stories,
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const DisasDiaryScreen(),
                 ),
               ),
-
-              const SizedBox(height: 4),
-
-              // Row 0: Creature & Artifact
-              Row(
-                children: [
-                  Expanded(
-                    child: _buildCardTypeToggle(
-                        context, appState, 'Creature', 'creature'),
-                  ),
-                  Expanded(
-                    child: _buildCardTypeToggle(
-                        context, appState, 'Artifact', 'artifact'),
-                  ),
-                ],
-              ),
-
-              const SizedBox(height: 2),
-
-              // Row 1: Enchantment & Instant
-              Row(
-                children: [
-                  Expanded(
-                    child: _buildCardTypeToggle(
-                        context, appState, 'Enchantment', 'enchantment'),
-                  ),
-                  Expanded(
-                    child: _buildCardTypeToggle(
-                        context, appState, 'Instant', 'instant'),
-                  ),
-                ],
-              ),
-
-              const SizedBox(height: 2),
-
-              // Row 2: Sorcery & Land
-              Row(
-                children: [
-                  Expanded(
-                    child: _buildCardTypeToggle(
-                        context, appState, 'Sorcery', 'sorcery'),
-                  ),
-                  Expanded(
-                    child:
-                        _buildCardTypeToggle(context, appState, 'Land', 'land'),
-                  ),
-                ],
-              ),
-
-              const SizedBox(height: 2),
-
-              // Row 3: Planeswalker & Battle
-              Row(
-                children: [
-                  Expanded(
-                    child: _buildCardTypeToggle(
-                        context, appState, 'Planeswalker', 'planeswalker'),
-                  ),
-                  Expanded(
-                    child: _buildCardTypeToggle(
-                        context, appState, 'Battle', 'battle'),
-                  ),
-                ],
-              ),
-
-              const SizedBox(height: 2),
-
-              // Row 4: Kindred
-              Row(
-                children: [
-                  Expanded(
-                    child: _buildCardTypeToggle(
-                        context, appState, 'Kindred', 'kindred'),
-                  ),
-                ],
-              ),
-
-              const SizedBox(height: 6),
-
-              // Graveyard Trackers Header
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 4),
-                child: Text(
-                  'GRAVEYARD TRACKERS',
-                  style: theme.textTheme.labelSmall?.copyWith(
-                    color: theme.colorScheme.onSurfaceVariant,
-                    fontWeight: FontWeight.bold,
-                    letterSpacing: 1.2,
-                  ),
+            ),
+            _ToolListItem(
+              title: 'Mana Pool',
+              subtitle: 'Track available mana across colors',
+              icon: Icons.water_drop,
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const ManaPoolScreen(),
                 ),
               ),
-
-              // Grave Steppers - 2 per row
-              ...List.generate(
-                (appState.graveSteppers.length / 2).ceil(),
-                (rowIndex) {
-                  final leftIndex = rowIndex * 2;
-                  final rightIndex = leftIndex + 1;
-
-                  return Row(
-                    children: [
-                      Expanded(
-                        child: GraveStepper(
-                          name: appState.graveSteppers[leftIndex].name,
-                          value: appState.graveSteppers[leftIndex].value,
-                          onIncrement: () => appState.incrementGraveStepper(leftIndex),
-                          onDecrement: () => appState.decrementGraveStepper(leftIndex),
-                        ),
-                      ),
-                      if (rightIndex < appState.graveSteppers.length)
-                        Expanded(
-                          child: GraveStepper(
-                            name: appState.graveSteppers[rightIndex].name,
-                            value: appState.graveSteppers[rightIndex].value,
-                            onIncrement: () => appState.incrementGraveStepper(rightIndex),
-                            onDecrement: () => appState.decrementGraveStepper(rightIndex),
-                          ),
-                        )
-                      else
-                        const Expanded(child: SizedBox()),
-                    ],
-                  );
-                },
+            ),
+            _ToolListItem(
+              title: 'Dungeons',
+              subtitle: 'Dungeon progress tracking',
+              icon: Icons.door_front_door,
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const DungeonsScreen(),
+                ),
               ),
-
-              const SizedBox(height: 4),
-            ],
-          ),
+            ),
+            _ToolListItem(
+              title: 'Attractions Deck',
+              subtitle: 'Attraction management for Unfinity',
+              icon: Icons.attractions,
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const AttractionsScreen(),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
   }
 
-  /// Build a card type toggle button
-  Widget _buildCardTypeToggle(
-    BuildContext context,
-    AppState appState,
-    String label,
-    String type,
-  ) {
-    final isSelected = appState.cardTypes[type] ?? false;
-    final theme = Theme.of(context);
-
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 3),
-      child: FilledButton.tonal(
-        onPressed: () => appState.setCardType(type, !isSelected),
-        style: FilledButton.styleFrom(
-          backgroundColor: isSelected
-              ? theme.colorScheme.primaryContainer
-              : theme.colorScheme.surfaceContainerHighest,
-          foregroundColor: isSelected
-              ? theme.colorScheme.onPrimaryContainer
-              : theme.colorScheme.onSurfaceVariant,
-          padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 8),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8),
-            side: isSelected
-                ? BorderSide(
-                    color: theme.colorScheme.primary,
-                    width: 2,
-                  )
-                : BorderSide.none,
-          ),
-        ),
-        child: Text(
-          label,
-          style: theme.textTheme.titleSmall?.copyWith(
-            fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
-          ),
-        ),
-      ),
-    );
-  }
-
-  /// Navigate to settings screen
-  void _navigateToSettings(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const SettingsScreen()),
-    );
-  }
-
-  /// Show about dialog
   void _showAboutDialog(BuildContext context) {
     showAboutDialog(
       context: context,
-      applicationName: 'Disas Diary',
+      applicationName: 'Mana Burn',
       applicationVersion: '2.0.0',
       applicationIcon: ClipRRect(
         borderRadius: BorderRadius.circular(12),
@@ -273,11 +114,11 @@ class HomeScreen extends StatelessWidget {
       ),
       children: [
         const Text(
-          'A Magic: The Gathering companion app for tracking Tarmogoyf\'s power/toughness and graveyard card types.',
+          'A Magic: The Gathering toolkit for gameplay tracking.',
         ),
         const SizedBox(height: 8),
         const Text(
-          'Perfect for keeping tabs on your Tarmogoyf during gameplay.',
+          "Disa's Diary: Tarmogoyf P/T calculator and graveyard card type tracker.",
         ),
         const SizedBox(height: 16),
         const Text(
@@ -287,33 +128,32 @@ class HomeScreen extends StatelessWidget {
       ],
     );
   }
+}
 
-  /// Show reset confirmation dialog
-  void _showResetDialog(BuildContext context, AppState appState) {
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: const Text('Reset All'),
-        content: const Text(
-          'This will reset all card type toggles, token counts, and grave stepper values to their defaults. Are you sure?',
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: const Text('Cancel'),
-          ),
-          FilledButton(
-            onPressed: () {
-              appState.resetAll();
-              Navigator.pop(context);
-            },
-            style: FilledButton.styleFrom(
-              backgroundColor: Theme.of(context).colorScheme.error,
-              foregroundColor: Theme.of(context).colorScheme.onError,
-            ),
-            child: const Text('Reset'),
-          ),
-        ],
+class _ToolListItem extends StatelessWidget {
+  final String title;
+  final String subtitle;
+  final IconData icon;
+  final VoidCallback onTap;
+
+  const _ToolListItem({
+    required this.title,
+    required this.subtitle,
+    required this.icon,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
+    return Card(
+      child: ListTile(
+        leading: Icon(icon, color: theme.colorScheme.primary, size: 28),
+        title: Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
+        subtitle: Text(subtitle),
+        trailing: Icon(Icons.chevron_right, color: theme.colorScheme.onSurfaceVariant),
+        onTap: onTap,
       ),
     );
   }

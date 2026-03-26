@@ -21,20 +21,20 @@ void main() async {
   runApp(
     ChangeNotifierProvider(
       create: (_) => AppState(persistenceService),
-      child: const DisasDiaryApp(),
+      child: const ManaBurnApp(),
     ),
   );
 }
 
-class DisasDiaryApp extends StatelessWidget {
-  const DisasDiaryApp({super.key});
+class ManaBurnApp extends StatelessWidget {
+  const ManaBurnApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     final appState = context.watch<AppState>();
 
     return MaterialApp(
-      title: 'Disas Diary',
+      title: 'Mana Burn',
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       themeMode: appState.themeMode,
