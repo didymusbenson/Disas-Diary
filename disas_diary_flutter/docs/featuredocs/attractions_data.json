@@ -7,7 +7,9 @@
       6
     ],
     "collector_number": "200a",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Balloon Stand",
@@ -17,7 +19,9 @@
       6
     ],
     "collector_number": "200b",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Balloon Stand",
@@ -27,7 +31,9 @@
       6
     ],
     "collector_number": "200c",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Balloon Stand",
@@ -37,7 +43,9 @@
       6
     ],
     "collector_number": "200d",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Bounce Chamber",
@@ -47,7 +55,9 @@
       6
     ],
     "collector_number": "201a",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Bounce Chamber",
@@ -57,7 +67,9 @@
       6
     ],
     "collector_number": "201b",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Bounce Chamber",
@@ -67,7 +79,9 @@
       6
     ],
     "collector_number": "201c",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Bounce Chamber",
@@ -77,7 +91,9 @@
       6
     ],
     "collector_number": "201d",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Bumper Cars",
@@ -88,7 +104,9 @@
       6
     ],
     "collector_number": "202a",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Bumper Cars",
@@ -99,7 +117,9 @@
       6
     ],
     "collector_number": "202b",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Bumper Cars",
@@ -110,7 +130,9 @@
       6
     ],
     "collector_number": "202c",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Bumper Cars",
@@ -121,7 +143,9 @@
       6
     ],
     "collector_number": "202d",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Bumper Cars",
@@ -132,7 +156,9 @@
       6
     ],
     "collector_number": "202e",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Bumper Cars",
@@ -143,7 +169,9 @@
       6
     ],
     "collector_number": "202f",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Centrifuge",
@@ -153,7 +181,9 @@
       6
     ],
     "collector_number": "203a",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "acorn",
+    "commander_legal": false
   },
   {
     "name": "Centrifuge",
@@ -163,7 +193,9 @@
       6
     ],
     "collector_number": "203b",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "acorn",
+    "commander_legal": false
   },
   {
     "name": "Clown Extruder",
@@ -173,7 +205,9 @@
       6
     ],
     "collector_number": "204a",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Clown Extruder",
@@ -183,7 +217,9 @@
       6
     ],
     "collector_number": "204b",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Clown Extruder",
@@ -193,7 +229,9 @@
       6
     ],
     "collector_number": "204c",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Clown Extruder",
@@ -203,7 +241,9 @@
       6
     ],
     "collector_number": "204d",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Concession Stand",
@@ -213,7 +253,9 @@
       6
     ],
     "collector_number": "205a",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Concession Stand",
@@ -223,7 +265,9 @@
       6
     ],
     "collector_number": "205b",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Concession Stand",
@@ -233,7 +277,9 @@
       6
     ],
     "collector_number": "205c",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Concession Stand",
@@ -243,7 +289,9 @@
       6
     ],
     "collector_number": "205d",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Costume Shop",
@@ -254,7 +302,9 @@
       6
     ],
     "collector_number": "206a",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Costume Shop",
@@ -265,7 +315,9 @@
       6
     ],
     "collector_number": "206b",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Costume Shop",
@@ -276,7 +328,9 @@
       6
     ],
     "collector_number": "206c",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Costume Shop",
@@ -287,7 +341,9 @@
       6
     ],
     "collector_number": "206d",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Costume Shop",
@@ -298,7 +354,9 @@
       6
     ],
     "collector_number": "206e",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Costume Shop",
@@ -309,7 +367,9 @@
       6
     ],
     "collector_number": "206f",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Cover the Spot",
@@ -321,7 +381,9 @@
       6
     ],
     "collector_number": "207a",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "acorn",
+    "commander_legal": false
   },
   {
     "name": "Cover the Spot",
@@ -333,7 +395,9 @@
       6
     ],
     "collector_number": "207b",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "acorn",
+    "commander_legal": false
   },
   {
     "name": "Cover the Spot",
@@ -345,7 +409,9 @@
       6
     ],
     "collector_number": "207c",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "acorn",
+    "commander_legal": false
   },
   {
     "name": "Cover the Spot",
@@ -357,7 +423,9 @@
       6
     ],
     "collector_number": "207d",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "acorn",
+    "commander_legal": false
   },
   {
     "name": "Dart Throw",
@@ -369,7 +437,9 @@
       6
     ],
     "collector_number": "208a",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "acorn",
+    "commander_legal": false
   },
   {
     "name": "Dart Throw",
@@ -381,7 +451,9 @@
       6
     ],
     "collector_number": "208b",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "acorn",
+    "commander_legal": false
   },
   {
     "name": "Dart Throw",
@@ -393,7 +465,9 @@
       6
     ],
     "collector_number": "208c",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "acorn",
+    "commander_legal": false
   },
   {
     "name": "Dart Throw",
@@ -405,7 +479,9 @@
       6
     ],
     "collector_number": "208d",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "acorn",
+    "commander_legal": false
   },
   {
     "name": "Drop Tower",
@@ -416,7 +492,9 @@
       6
     ],
     "collector_number": "209a",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Drop Tower",
@@ -427,7 +505,9 @@
       6
     ],
     "collector_number": "209b",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Drop Tower",
@@ -438,7 +518,9 @@
       6
     ],
     "collector_number": "209c",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Drop Tower",
@@ -449,7 +531,9 @@
       6
     ],
     "collector_number": "209d",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Drop Tower",
@@ -460,7 +544,9 @@
       6
     ],
     "collector_number": "209e",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Drop Tower",
@@ -471,7 +557,9 @@
       6
     ],
     "collector_number": "209f",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Ferris Wheel",
@@ -482,7 +570,9 @@
       6
     ],
     "collector_number": "210",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "oval",
+    "commander_legal": true
   },
   {
     "name": "Foam Weapons Kiosk",
@@ -492,7 +582,9 @@
       6
     ],
     "collector_number": "211a",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Foam Weapons Kiosk",
@@ -502,7 +594,9 @@
       6
     ],
     "collector_number": "211b",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Foam Weapons Kiosk",
@@ -512,7 +606,9 @@
       6
     ],
     "collector_number": "211c",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Foam Weapons Kiosk",
@@ -522,7 +618,9 @@
       6
     ],
     "collector_number": "211d",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Fortune Teller",
@@ -533,7 +631,9 @@
       6
     ],
     "collector_number": "212a",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Fortune Teller",
@@ -544,7 +644,9 @@
       6
     ],
     "collector_number": "212b",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Fortune Teller",
@@ -555,7 +657,9 @@
       6
     ],
     "collector_number": "212c",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Fortune Teller",
@@ -566,7 +670,9 @@
       6
     ],
     "collector_number": "212d",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Fortune Teller",
@@ -577,7 +683,9 @@
       6
     ],
     "collector_number": "212e",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Fortune Teller",
@@ -588,7 +696,9 @@
       6
     ],
     "collector_number": "212f",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Gallery of Legends",
@@ -598,7 +708,9 @@
       6
     ],
     "collector_number": "213a",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "acorn",
+    "commander_legal": false
   },
   {
     "name": "Gallery of Legends",
@@ -608,7 +720,9 @@
       6
     ],
     "collector_number": "213b",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "acorn",
+    "commander_legal": false
   },
   {
     "name": "Gift Shop",
@@ -619,7 +733,9 @@
       6
     ],
     "collector_number": "214a",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "acorn",
+    "commander_legal": false
   },
   {
     "name": "Gift Shop",
@@ -630,7 +746,9 @@
       6
     ],
     "collector_number": "214b",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "acorn",
+    "commander_legal": false
   },
   {
     "name": "Guess Your Fate",
@@ -642,7 +760,9 @@
       6
     ],
     "collector_number": "215a",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "acorn",
+    "commander_legal": false
   },
   {
     "name": "Guess Your Fate",
@@ -654,7 +774,9 @@
       6
     ],
     "collector_number": "215b",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "acorn",
+    "commander_legal": false
   },
   {
     "name": "Guess Your Fate",
@@ -666,7 +788,9 @@
       6
     ],
     "collector_number": "215c",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "acorn",
+    "commander_legal": false
   },
   {
     "name": "Guess Your Fate",
@@ -678,7 +802,9 @@
       6
     ],
     "collector_number": "215d",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "acorn",
+    "commander_legal": false
   },
   {
     "name": "Hall of Mirrors",
@@ -688,7 +814,9 @@
       6
     ],
     "collector_number": "216a",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "oval",
+    "commander_legal": true
   },
   {
     "name": "Hall of Mirrors",
@@ -698,7 +826,9 @@
       6
     ],
     "collector_number": "216b",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "oval",
+    "commander_legal": true
   },
   {
     "name": "Haunted House",
@@ -708,7 +838,9 @@
       6
     ],
     "collector_number": "217a",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "oval",
+    "commander_legal": true
   },
   {
     "name": "Haunted House",
@@ -718,7 +850,9 @@
       6
     ],
     "collector_number": "217b",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "oval",
+    "commander_legal": true
   },
   {
     "name": "Information Booth",
@@ -728,7 +862,9 @@
       6
     ],
     "collector_number": "218a",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Information Booth",
@@ -738,7 +874,9 @@
       6
     ],
     "collector_number": "218b",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Information Booth",
@@ -748,7 +886,9 @@
       6
     ],
     "collector_number": "218c",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Information Booth",
@@ -758,7 +898,9 @@
       6
     ],
     "collector_number": "218d",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Kiddie Coaster",
@@ -769,7 +911,9 @@
       6
     ],
     "collector_number": "219a",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Kiddie Coaster",
@@ -780,7 +924,9 @@
       6
     ],
     "collector_number": "219b",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Kiddie Coaster",
@@ -791,7 +937,9 @@
       6
     ],
     "collector_number": "219c",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Kiddie Coaster",
@@ -802,7 +950,9 @@
       6
     ],
     "collector_number": "219d",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Kiddie Coaster",
@@ -813,7 +963,9 @@
       6
     ],
     "collector_number": "219e",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Kiddie Coaster",
@@ -824,7 +976,9 @@
       6
     ],
     "collector_number": "219f",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Log Flume",
@@ -834,7 +988,9 @@
       6
     ],
     "collector_number": "220a",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "acorn",
+    "commander_legal": false
   },
   {
     "name": "Log Flume",
@@ -844,7 +1000,9 @@
       6
     ],
     "collector_number": "220b",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "acorn",
+    "commander_legal": false
   },
   {
     "name": "Memory Test",
@@ -854,7 +1012,9 @@
       6
     ],
     "collector_number": "221a",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "acorn",
+    "commander_legal": false
   },
   {
     "name": "Memory Test",
@@ -864,7 +1024,9 @@
       6
     ],
     "collector_number": "221b",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "acorn",
+    "commander_legal": false
   },
   {
     "name": "Merry-Go-Round",
@@ -874,7 +1036,9 @@
       6
     ],
     "collector_number": "222a",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "oval",
+    "commander_legal": true
   },
   {
     "name": "Merry-Go-Round",
@@ -884,7 +1048,9 @@
       6
     ],
     "collector_number": "222b",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "oval",
+    "commander_legal": true
   },
   {
     "name": "Pick-a-Beeble",
@@ -895,7 +1061,9 @@
       6
     ],
     "collector_number": "223a",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Pick-a-Beeble",
@@ -906,7 +1074,9 @@
       6
     ],
     "collector_number": "223b",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Pick-a-Beeble",
@@ -917,7 +1087,9 @@
       6
     ],
     "collector_number": "223c",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Pick-a-Beeble",
@@ -928,7 +1100,9 @@
       6
     ],
     "collector_number": "223d",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Pick-a-Beeble",
@@ -939,7 +1113,9 @@
       6
     ],
     "collector_number": "223e",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Pick-a-Beeble",
@@ -950,7 +1126,9 @@
       6
     ],
     "collector_number": "223f",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Push Your Luck",
@@ -961,7 +1139,9 @@
       6
     ],
     "collector_number": "224a",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "acorn",
+    "commander_legal": false
   },
   {
     "name": "Push Your Luck",
@@ -972,7 +1152,9 @@
       6
     ],
     "collector_number": "224b",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "acorn",
+    "commander_legal": false
   },
   {
     "name": "Roller Coaster",
@@ -982,7 +1164,9 @@
       6
     ],
     "collector_number": "225a",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Roller Coaster",
@@ -992,7 +1176,9 @@
       6
     ],
     "collector_number": "225b",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Roller Coaster",
@@ -1002,7 +1188,9 @@
       6
     ],
     "collector_number": "225c",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Roller Coaster",
@@ -1012,7 +1200,9 @@
       6
     ],
     "collector_number": "225d",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Scavenger Hunt",
@@ -1023,7 +1213,9 @@
       6
     ],
     "collector_number": "226c",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "acorn",
+    "commander_legal": false
   },
   {
     "name": "Scavenger Hunt",
@@ -1034,7 +1226,9 @@
       6
     ],
     "collector_number": "226f",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "acorn",
+    "commander_legal": false
   },
   {
     "name": "Scavenger Hunt",
@@ -1045,7 +1239,9 @@
       6
     ],
     "collector_number": "226a",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "acorn",
+    "commander_legal": false
   },
   {
     "name": "Scavenger Hunt",
@@ -1056,7 +1252,9 @@
       6
     ],
     "collector_number": "226b",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "acorn",
+    "commander_legal": false
   },
   {
     "name": "Scavenger Hunt",
@@ -1067,7 +1265,9 @@
       6
     ],
     "collector_number": "226e",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "acorn",
+    "commander_legal": false
   },
   {
     "name": "Scavenger Hunt",
@@ -1078,7 +1278,9 @@
       6
     ],
     "collector_number": "226d",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "acorn",
+    "commander_legal": false
   },
   {
     "name": "Spinny Ride",
@@ -1089,7 +1291,9 @@
       6
     ],
     "collector_number": "227a",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Spinny Ride",
@@ -1100,7 +1304,9 @@
       6
     ],
     "collector_number": "227b",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Spinny Ride",
@@ -1111,7 +1317,9 @@
       6
     ],
     "collector_number": "227c",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Spinny Ride",
@@ -1122,7 +1330,9 @@
       6
     ],
     "collector_number": "227d",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Spinny Ride",
@@ -1133,7 +1343,9 @@
       6
     ],
     "collector_number": "227e",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Spinny Ride",
@@ -1144,7 +1356,9 @@
       6
     ],
     "collector_number": "227f",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Squirrel Stack",
@@ -1155,7 +1369,9 @@
       6
     ],
     "collector_number": "228a",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "acorn",
+    "commander_legal": false
   },
   {
     "name": "Squirrel Stack",
@@ -1166,7 +1382,9 @@
       6
     ],
     "collector_number": "228b",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "acorn",
+    "commander_legal": false
   },
   {
     "name": "Squirrel Stack",
@@ -1177,7 +1395,9 @@
       6
     ],
     "collector_number": "228c",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "acorn",
+    "commander_legal": false
   },
   {
     "name": "Squirrel Stack",
@@ -1188,7 +1408,9 @@
       6
     ],
     "collector_number": "228d",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "acorn",
+    "commander_legal": false
   },
   {
     "name": "Squirrel Stack",
@@ -1199,7 +1421,9 @@
       6
     ],
     "collector_number": "228e",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "acorn",
+    "commander_legal": false
   },
   {
     "name": "Squirrel Stack",
@@ -1210,7 +1434,9 @@
       6
     ],
     "collector_number": "228f",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "acorn",
+    "commander_legal": false
   },
   {
     "name": "Storybook Ride",
@@ -1221,7 +1447,9 @@
       6
     ],
     "collector_number": "229a",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "oval",
+    "commander_legal": true
   },
   {
     "name": "Storybook Ride",
@@ -1232,7 +1460,9 @@
       6
     ],
     "collector_number": "229b",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "oval",
+    "commander_legal": true
   },
   {
     "name": "Swinging Ship",
@@ -1242,7 +1472,9 @@
       6
     ],
     "collector_number": "231a",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "oval",
+    "commander_legal": true
   },
   {
     "name": "Swinging Ship",
@@ -1252,7 +1484,9 @@
       6
     ],
     "collector_number": "231b",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "oval",
+    "commander_legal": true
   },
   {
     "name": "The Superlatorium",
@@ -1263,7 +1497,9 @@
       6
     ],
     "collector_number": "230d",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "acorn",
+    "commander_legal": false
   },
   {
     "name": "The Superlatorium",
@@ -1274,7 +1510,9 @@
       6
     ],
     "collector_number": "230b",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "acorn",
+    "commander_legal": false
   },
   {
     "name": "The Superlatorium",
@@ -1285,7 +1523,9 @@
       6
     ],
     "collector_number": "230a",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "acorn",
+    "commander_legal": false
   },
   {
     "name": "The Superlatorium",
@@ -1296,7 +1536,9 @@
       6
     ],
     "collector_number": "230e",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "acorn",
+    "commander_legal": false
   },
   {
     "name": "The Superlatorium",
@@ -1307,7 +1549,9 @@
       6
     ],
     "collector_number": "230f",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "acorn",
+    "commander_legal": false
   },
   {
     "name": "The Superlatorium",
@@ -1318,7 +1562,9 @@
       6
     ],
     "collector_number": "230c",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "acorn",
+    "commander_legal": false
   },
   {
     "name": "Trash Bin",
@@ -1328,7 +1574,9 @@
       6
     ],
     "collector_number": "232a",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Trash Bin",
@@ -1338,7 +1586,9 @@
       6
     ],
     "collector_number": "232b",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Trash Bin",
@@ -1348,7 +1598,9 @@
       6
     ],
     "collector_number": "232c",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Trash Bin",
@@ -1358,7 +1610,9 @@
       6
     ],
     "collector_number": "232d",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "none",
+    "commander_legal": true
   },
   {
     "name": "Trivia Contest",
@@ -1369,7 +1623,9 @@
       6
     ],
     "collector_number": "233c",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "acorn",
+    "commander_legal": false
   },
   {
     "name": "Trivia Contest",
@@ -1380,7 +1636,9 @@
       6
     ],
     "collector_number": "233b",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "acorn",
+    "commander_legal": false
   },
   {
     "name": "Trivia Contest",
@@ -1391,7 +1649,9 @@
       6
     ],
     "collector_number": "233f",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "acorn",
+    "commander_legal": false
   },
   {
     "name": "Trivia Contest",
@@ -1402,7 +1662,9 @@
       6
     ],
     "collector_number": "233e",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "acorn",
+    "commander_legal": false
   },
   {
     "name": "Trivia Contest",
@@ -1413,7 +1675,9 @@
       6
     ],
     "collector_number": "233d",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "acorn",
+    "commander_legal": false
   },
   {
     "name": "Trivia Contest",
@@ -1424,7 +1688,9 @@
       6
     ],
     "collector_number": "233a",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "acorn",
+    "commander_legal": false
   },
   {
     "name": "Tunnel of Love",
@@ -1434,7 +1700,9 @@
       6
     ],
     "collector_number": "234a",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "oval",
+    "commander_legal": true
   },
   {
     "name": "Tunnel of Love",
@@ -1444,6 +1712,8 @@
       6
     ],
     "collector_number": "234b",
-    "set": "unf"
+    "set": "unf",
+    "security_stamp": "oval",
+    "commander_legal": true
   }
 ]

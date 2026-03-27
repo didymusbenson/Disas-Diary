@@ -296,34 +296,39 @@ Players should be able to:
 ### State
 - Which dungeon is active (or none)
 - Current room position
-- Number of dungeons completed (for "completed a dungeon" triggers)
+- Initiative toggle (on/off)
+- Global session completion count (total dungeons completed)
+- Per-dungeon completion counts (e.g., Tomb of Annihilation: 2, Undercity: 1)
 
 ---
 
 ## Open Questions
 
+### Data
+- **Q0**: ~~Do we bundle dungeon data as a static asset or fetch at runtime?~~ **RESOLVED** — Bundle as a static asset. The dungeon card pool is fixed and updates are extremely rare.
+
 ### Scope & Interaction
-- **Q1**: Do we support tracking initiative status (who has it), or just dungeon progress? The initiative rules (725) mainly matter in multiplayer — probably out of scope.
-- **Q2**: Should the tool enforce that Undercity can only be entered via initiative, or just let the user pick any dungeon freely? (Flexibility vs. rules accuracy)
-- **Q3**: Do we track dungeon completion count? Some cards care about "if you've completed a dungeon" — a simple counter could be useful.
-- **Q4**: Should we support multiple players tracking dungeons simultaneously, or just one player?
+- **Q1**: ~~Do we support tracking initiative status (who has it), or just dungeon progress?~~ **RESOLVED** — Yes. A toggle for the player to indicate they have the initiative. When initiative is on and no dungeon is active, Undercity is auto-selected.
+- **Q2**: ~~Should the tool enforce that Undercity can only be entered via initiative, or just let the user pick any dungeon freely?~~ **RESOLVED** — Enforce it. Undercity only available when initiative toggle is on. Regular "venture into the dungeon" cannot select Undercity.
+- **Q3**: ~~Do we track dungeon completion count?~~ **RESOLVED** — Yes, track and display completion count.
+- **Q4**: ~~Should we support multiple players tracking dungeons simultaneously, or just one player?~~ **RESOLVED** — Single player only.
 
 ### UI/UX
-- **Q5**: What does the dungeon map look like? Visual flowchart with nodes and arrows? Or a vertical list with indentation for branches?
-- **Q6**: How does the user advance? Tap the next room? Tap a "venture" button and then choose a path if branching?
-- **Q7**: How do we highlight the current room vs. visited rooms vs. unvisited rooms?
-- **Q8**: Do we show room ability text inline on the map, or in a detail area when a room is selected?
-- **Q9**: What happens visually when a dungeon is completed? Animation? Confirmation dialog? Auto-prompt for next dungeon?
-- **Q10**: Should we show a "dungeon completed" count somewhere on screen?
-- **Q11**: How does the user go back to dungeon selection after completing one? Automatic? Manual button?
+- **Q5**: ~~What does the dungeon map look like?~~ **RESOLVED** — Vertical list layout. Each "tier" of the dungeon is a row (HStack) of rooms, stacked vertically (VStack). Rooms at the same depth sit side by side in their row.
+- **Q6**: ~~How does the user advance?~~ **RESOLVED** — Tap a "Venture" button. This presents the available next rooms as a list of options; the player chooses which room to enter. (If only one option, it advances directly.)
+- **Q7**: ~~How do we highlight the current room vs. visited rooms vs. unvisited rooms?~~ **RESOLVED** — Active room gets a glowing border. Visited/unvisited distinction left to default styling (no special treatment specified yet).
+- **Q8**: ~~Do we show room ability text inline on the map, or in a detail area when a room is selected?~~ **RESOLVED** — Inline but truncated. Long-press on a room expands it as an overlay modal (room visually grows from its current position on top of the UI, background darkens). The modal shows the full ability text and dismisses on tap-away. Nothing underneath repositions or moves.
+- **Q9**: ~~What happens visually when a dungeon is completed?~~ **RESOLVED** — When the player ventures into the bottommost room, the room ability displays, completion count increments, and the player returns to dungeon selection (no active dungeon). On the next venture they choose again (can be the same dungeon). Follows rules 309.7 and 701.49c.
+- **Q10**: ~~Should we show a "dungeon completed" count somewhere on screen?~~ **RESOLVED** — Yes. Track both a **global session completion count** (total dungeons completed) and **per-dungeon completion counts** (how many times each specific dungeon has been completed). Some cards care about specific dungeon completions.
+- **Q11**: ~~How does the user go back to dungeon selection after completing one?~~ **RESOLVED** — Automatic. Completing a dungeon returns to dungeon selection.
 
 ### Persistence
-- **Q12**: Do we persist dungeon progress between app sessions? (Player might close the app mid-dungeon)
-- **Q13**: Do we persist the completion count?
+- **Q12**: ~~Do we persist dungeon progress between app sessions?~~ **RESOLVED** — Yes. Full state persists (active dungeon, current room, initiative toggle). Player picks up where they left off.
+- **Q13**: ~~Do we persist the completion count?~~ **RESOLVED** — Yes, both global and per-dungeon counts persist. Resettable from the tool's home view.
 
 ### Design
-- **Q14**: Each dungeon has a different visual flavor in the real cards. Do we try to match that aesthetic, or use a consistent app theme?
-- **Q15**: The dungeon maps vary in complexity (Tomb of Annihilation is more linear, Mad Mage has more branches). Do we use a single layout approach that works for all, or custom layouts per dungeon?
-- **Q16**: Should the dungeon selector show the full map as a preview, or just the name?
-- **Q17**: Is there a "reset" to restart a dungeon mid-way, or must the player always complete it? (Rules say you can only be in one dungeon at a time and must complete it, but for a tracker tool, a reset might be useful.)
-- **Q18**: Do we support Baldur's Gate Wilderness? It's significantly larger (19 rooms, 3 exits) than the other 4 dungeons (5-10 rooms). The branching 3-wide layout will need different visual treatment. It's also from a 2024 Commander product so may be less commonly used.
+- **Q14**: ~~Each dungeon has a different visual flavor in the real cards. Do we try to match that aesthetic, or use a consistent app theme?~~ **RESOLVED** — Consistent dungeon-themed aesthetic across all dungeons. No per-dungeon unique styling.
+- **Q15**: ~~The dungeon maps vary in complexity. Do we use a single layout approach that works for all, or custom layouts per dungeon?~~ **RESOLVED** — Single consistent layout approach (VStack of HStack tiers). Iterate if needed for larger dungeons.
+- **Q16**: ~~Should the dungeon selector show the full map as a preview, or just the name?~~ **RESOLVED** — Show dungeon names with a "Preview" button. Preview fetches the dungeon's card image from Scryfall's CDN and displays it. If the fetch fails, show a modal with "Failed to fetch from Scryfall. Card text:" followed by the dungeon's oracle text.
+- **Q17**: ~~Is there a "reset" to restart a dungeon mid-way, or must the player always complete it?~~ **RESOLVED** — Yes, allow reset/abandon from the tool's home view. Per rules (309.3), only one dungeon at a time — player must complete or abandon before starting another.
+- **Q18**: ~~Do we support Baldur's Gate Wilderness?~~ **RESOLVED** — Yes, support all 5 dungeons including Baldur's Gate Wilderness.
