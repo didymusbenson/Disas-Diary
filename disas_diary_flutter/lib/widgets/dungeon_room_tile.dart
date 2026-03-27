@@ -13,6 +13,7 @@ class DungeonRoomTile extends StatelessWidget {
   final DungeonRoom room;
   final bool isActive;
   final bool isVisited;
+  final VoidCallback? onTap;
   final VoidCallback? onLongPress;
 
   const DungeonRoomTile({
@@ -20,6 +21,7 @@ class DungeonRoomTile extends StatelessWidget {
     required this.room,
     required this.isActive,
     required this.isVisited,
+    this.onTap,
     this.onLongPress,
   });
 
@@ -29,6 +31,7 @@ class DungeonRoomTile extends StatelessWidget {
     final primaryGreen = theme.colorScheme.primary;
 
     return GestureDetector(
+      onTap: onTap,
       onLongPress: () => _showRoomDetail(context),
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 300),

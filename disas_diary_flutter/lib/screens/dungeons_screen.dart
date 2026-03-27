@@ -338,6 +338,9 @@ class _ActiveDungeonView extends StatelessWidget {
                 child: _DungeonMap(
                   dungeon: dungeon,
                   currentRoom: currentRoom,
+                  nextRoomIds: state.nextRooms.map((r) => r.id).toSet(),
+                  onVenture: (roomId) =>
+                      context.read<DungeonsState>().venture(roomId),
                 ),
               ),
             ),
@@ -398,10 +401,14 @@ class _ActiveDungeonView extends StatelessWidget {
 class _DungeonMap extends StatelessWidget {
   final Dungeon dungeon;
   final DungeonRoom? currentRoom;
+  final Set<String> nextRoomIds;
+  final ValueChanged<String> onVenture;
 
   const _DungeonMap({
     required this.dungeon,
     required this.currentRoom,
+    required this.nextRoomIds,
+    required this.onVenture,
   });
 
   @override
@@ -427,6 +434,9 @@ class _DungeonMap extends StatelessWidget {
                   room: rooms[j],
                   isActive: rooms[j].id == currentRoom?.id,
                   isVisited: currentTier != null && tierKey < currentTier,
+                  onTap: nextRoomIds.contains(rooms[j].id)
+                      ? () => onVenture(rooms[j].id)
+                      : null,
                 ),
               ),
             ],
