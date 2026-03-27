@@ -175,8 +175,8 @@ class _ManaPoolScreenState extends State<ManaPoolScreen> {
       mode: _mode,
       onIncrement: () => appState.incrementMana(mana.symbol, 1),
       onDecrement: () => appState.decrementMana(mana.symbol, 1),
-      onIncrementLarge: () => appState.incrementMana(mana.symbol, 5),
-      onDecrementLarge: () => appState.decrementMana(mana.symbol, 5),
+      onIncrementLarge: () => appState.incrementMana(mana.symbol, 10),
+      onDecrementLarge: () => appState.decrementMana(mana.symbol, 10),
       onToggleLock: () => appState.toggleManaLock(mana.symbol),
       onConvert: () {
         appState.convertToColor(mana.symbol);

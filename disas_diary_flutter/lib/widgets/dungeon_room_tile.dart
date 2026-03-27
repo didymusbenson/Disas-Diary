@@ -45,8 +45,7 @@ class DungeonRoomTile extends StatelessWidget {
               ? [
                   BoxShadow(
                     color: primaryGreen.withValues(alpha: 0.5),
-                    blurRadius: 8,
-                    spreadRadius: 1,
+                    blurRadius: 6,
                   ),
                 ]
               : null,
@@ -65,6 +64,7 @@ class DungeonRoomTile extends StatelessWidget {
                 style: theme.textTheme.bodySmall?.copyWith(
                   fontWeight: isActive ? FontWeight.bold : FontWeight.w600,
                   fontSize: 11,
+                  color: isActive ? theme.colorScheme.onSurface : null,
                 ),
               ),
               const SizedBox(height: 2),
@@ -76,7 +76,9 @@ class DungeonRoomTile extends StatelessWidget {
                 style: theme.textTheme.labelSmall?.copyWith(
                   fontStyle: FontStyle.italic,
                   fontSize: 9,
-                  color: theme.colorScheme.onSurfaceVariant,
+                  color: isActive
+                      ? theme.colorScheme.onSurface.withValues(alpha: 0.8)
+                      : theme.colorScheme.onSurfaceVariant,
                 ),
               ),
             ],
@@ -87,9 +89,6 @@ class DungeonRoomTile extends StatelessWidget {
   }
 
   Color _backgroundColor(ThemeData theme) {
-    if (isActive) {
-      return theme.colorScheme.primary.withValues(alpha: 0.08);
-    }
     if (isVisited) {
       return theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.3);
     }
@@ -167,9 +166,7 @@ class _RoomDetailDialog extends StatelessWidget {
                   const SizedBox(height: 12),
                   Text(
                     room.effect,
-                    style: theme.textTheme.bodyMedium?.copyWith(
-                      fontStyle: FontStyle.italic,
-                    ),
+                    style: theme.textTheme.bodyMedium,
                   ),
                   if (isActive) ...[
                     const SizedBox(height: 12),

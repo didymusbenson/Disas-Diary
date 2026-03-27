@@ -296,7 +296,7 @@ class _ActiveDungeonView extends StatelessWidget {
         toolbarHeight: 40,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, size: 20),
-          onPressed: () => Navigator.pop(context),
+          onPressed: () => context.read<DungeonsState>().abandonDungeon(),
         ),
         title: Text(
           dungeon.name,
@@ -523,6 +523,7 @@ class _TierConnectors extends StatelessWidget {
   Widget _buildArrows(BuildContext context, DungeonRoom from,
       List<DungeonRoom> targets, int totalConnections) {
     final theme = Theme.of(context);
+    final arrowColor = theme.colorScheme.onSurfaceVariant.withValues(alpha: 0.6);
     final targetIds =
         from.leadsTo.where((id) => targets.any((t) => t.id == id)).toList();
 
@@ -530,23 +531,23 @@ class _TierConnectors extends StatelessWidget {
       return Icon(
         Icons.arrow_downward,
         size: 16,
-        color: theme.colorScheme.onSurfaceVariant.withValues(alpha: 0.6),
+        color: arrowColor,
       );
     }
 
-    // Branching: show a small fork indicator
+    // Branching: evenly spaced containers with centered arrows
     return Row(
-      mainAxisSize: MainAxisSize.min,
-      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        for (int i = 0; i < targetIds.length; i++) ...[
-          if (i > 0) const SizedBox(width: 4),
-          Icon(
-            Icons.arrow_downward,
-            size: 14,
-            color: theme.colorScheme.onSurfaceVariant.withValues(alpha: 0.6),
+        for (int i = 0; i < targetIds.length; i++)
+          Expanded(
+            child: Center(
+              child: Icon(
+                Icons.arrow_downward,
+                size: 14,
+                color: arrowColor,
+              ),
+            ),
           ),
-        ],
       ],
     );
   }
