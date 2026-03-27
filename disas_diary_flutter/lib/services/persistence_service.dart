@@ -2,6 +2,8 @@ import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../models/item.dart';
 import '../models/grave_stepper_data.dart';
+import '../models/attraction_deck.dart';
+import '../models/attraction_game_state.dart';
 
 /// Service for persisting application state
 class PersistenceService {
@@ -12,6 +14,8 @@ class PersistenceService {
   static const String _useDarkModeKey = 'use_dark_mode';
   static const String _manaPoolCountsKey = 'mana_pool_counts';
   static const String _manaPoolLocksKey = 'mana_pool_locks';
+  static const String _attractionDecksKey = 'attraction_decks';
+  static const String _attractionGameStateKey = 'attraction_game_state';
 
   final SharedPreferences _prefs;
 
@@ -144,6 +148,52 @@ class PersistenceService {
     }
   }
 
+  /// Save attraction decks
+  Future<void> saveAttractionDecks(List<AttractionDeck> decks) async {
+    final json = jsonEncode(decks.map((d) => d.toJson()).toList());
+    await _prefs.setString(_attractionDecksKey, json);
+  }
+
+  /// Load attraction decks
+  List<AttractionDeck> loadAttractionDecks() {
+    final json = _prefs.getString(_attractionDecksKey);
+    if (json == null) return [];
+
+    try {
+      final list = jsonDecode(json) as List;
+      return list
+          .map((item) =>
+              AttractionDeck.fromJson(item as Map<String, dynamic>))
+          .toList();
+    } catch (e) {
+      return [];
+    }
+  }
+
+  /// Save attraction game state
+  Future<void> saveAttractionGameState(AttractionGameState state) async {
+    final json = jsonEncode(state.toJson());
+    await _prefs.setString(_attractionGameStateKey, json);
+  }
+
+  /// Load attraction game state (null means no game in progress)
+  AttractionGameState? loadAttractionGameState() {
+    final json = _prefs.getString(_attractionGameStateKey);
+    if (json == null) return null;
+
+    try {
+      final map = jsonDecode(json) as Map<String, dynamic>;
+      return AttractionGameState.fromJson(map);
+    } catch (e) {
+      return null;
+    }
+  }
+
+  /// Clear attraction game state
+  Future<void> clearAttractionGameState() async {
+    await _prefs.remove(_attractionGameStateKey);
+  }
+
   /// Clear all persisted data
   Future<void> clearAll() async {
     await _prefs.remove(_itemKey);
@@ -151,7 +201,8 @@ class PersistenceService {
     await _prefs.remove(_graveSteppersKey);
     await _prefs.remove(_manaPoolCountsKey);
     await _prefs.remove(_manaPoolLocksKey);
-    // Note: Theme preferences are intentionally NOT cleared on reset
+    await _prefs.remove(_attractionGameStateKey);
+    // Note: Theme preferences and attraction decks are intentionally NOT cleared on reset
   }
 
   /// Default card types (all false)

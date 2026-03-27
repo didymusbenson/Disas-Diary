@@ -4,6 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
 
 import 'providers/app_state.dart';
+import 'providers/attractions_state.dart';
 import 'services/persistence_service.dart';
 import 'screens/home_screen.dart';
 import 'theme/app_theme.dart';
@@ -18,9 +19,19 @@ void main() async {
   final prefs = await SharedPreferences.getInstance();
   final persistenceService = PersistenceService(prefs);
 
+  final attractionsState = AttractionsState(persistenceService);
+  attractionsState.initialize();
+
   runApp(
-    ChangeNotifierProvider(
-      create: (_) => AppState(persistenceService),
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => AppState(persistenceService),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => attractionsState,
+        ),
+      ],
       child: const ManaBurnApp(),
     ),
   );
