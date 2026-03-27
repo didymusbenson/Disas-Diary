@@ -5,6 +5,7 @@ import 'package:wakelock_plus/wakelock_plus.dart';
 
 import 'providers/app_state.dart';
 import 'providers/attractions_state.dart';
+import 'providers/dungeons_state.dart';
 import 'services/persistence_service.dart';
 import 'screens/home_screen.dart';
 import 'theme/app_theme.dart';
@@ -22,6 +23,9 @@ void main() async {
   final attractionsState = AttractionsState(persistenceService);
   attractionsState.initialize();
 
+  final dungeonsState = DungeonsState(persistenceService);
+  dungeonsState.initialize();
+
   runApp(
     MultiProvider(
       providers: [
@@ -30,6 +34,9 @@ void main() async {
         ),
         ChangeNotifierProvider(
           create: (_) => attractionsState,
+        ),
+        ChangeNotifierProvider(
+          create: (_) => dungeonsState,
         ),
       ],
       child: const ManaBurnApp(),
