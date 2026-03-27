@@ -1,17 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/app_state.dart';
+import '../theme/mtg_colors.dart';
+import '../widgets/mana_icons.dart';
 import '../widgets/mana_tile.dart';
 
 class _ManaDefinition {
   final String symbol;
   final String name;
   final Color color;
+  final Color symbolColor;
+  final IconData icon;
+  final Offset symbolOffset;
 
   const _ManaDefinition({
     required this.symbol,
     required this.name,
     required this.color,
+    required this.symbolColor,
+    required this.icon,
+    this.symbolOffset = Offset.zero,
   });
 }
 
@@ -27,12 +35,12 @@ class _ManaPoolScreenState extends State<ManaPoolScreen> {
   ManaPoolMode _mode = ManaPoolMode.normal;
 
   static const List<_ManaDefinition> _manaTypes = [
-    _ManaDefinition(symbol: 'W', name: 'White', color: Color(0xFFF9FAF4)),
-    _ManaDefinition(symbol: 'U', name: 'Blue', color: Color(0xFF0E68AB)),
-    _ManaDefinition(symbol: 'B', name: 'Black', color: Color(0xFF150B00)),
-    _ManaDefinition(symbol: 'R', name: 'Red', color: Color(0xFFD3202A)),
-    _ManaDefinition(symbol: 'G', name: 'Green', color: Color(0xFF00733E)),
-    _ManaDefinition(symbol: 'C', name: 'Colorless', color: Color(0xFFCBC2BF)),
+    _ManaDefinition(symbol: 'W', name: 'White', color: MtgColors.white, symbolColor: MtgColors.whiteSymbol, icon: ManaIcons.white, symbolOffset: Offset(0, -0.03)),
+    _ManaDefinition(symbol: 'U', name: 'Blue', color: MtgColors.blue, symbolColor: MtgColors.blueSymbol, icon: ManaIcons.blue, symbolOffset: Offset(0, -0.03)),
+    _ManaDefinition(symbol: 'B', name: 'Black', color: MtgColors.black, symbolColor: MtgColors.blackSymbol, icon: ManaIcons.black, symbolOffset: Offset(0, -0.03)),
+    _ManaDefinition(symbol: 'R', name: 'Red', color: MtgColors.red, symbolColor: MtgColors.redSymbol, icon: ManaIcons.red, symbolOffset: Offset(0, -0.03)),
+    _ManaDefinition(symbol: 'G', name: 'Green', color: MtgColors.green, symbolColor: MtgColors.greenSymbol, icon: ManaIcons.green, symbolOffset: Offset(0, -0.03)),
+    _ManaDefinition(symbol: 'C', name: 'Colorless', color: MtgColors.colorless, symbolColor: MtgColors.colorlessSymbol, icon: ManaIcons.colorless, symbolOffset: Offset(0, -0.03)),
   ];
 
   void _showEmptyDialog(BuildContext context, AppState appState) {
@@ -159,6 +167,9 @@ class _ManaPoolScreenState extends State<ManaPoolScreen> {
       colorSymbol: mana.symbol,
       colorName: mana.name,
       backgroundColor: mana.color,
+      symbolColor: mana.symbolColor,
+      icon: mana.icon,
+      symbolOffset: mana.symbolOffset,
       value: appState.manaPoolCounts[mana.symbol] ?? 0,
       isLocked: appState.manaPoolLocks[mana.symbol] ?? false,
       mode: _mode,

@@ -9,6 +9,9 @@ class ManaTile extends StatefulWidget {
   final String colorSymbol;
   final String colorName;
   final Color backgroundColor;
+  final Color symbolColor;
+  final IconData icon;
+  final Offset symbolOffset;
   final int value;
   final bool isLocked;
   final ManaPoolMode mode;
@@ -24,6 +27,9 @@ class ManaTile extends StatefulWidget {
     required this.colorSymbol,
     required this.colorName,
     required this.backgroundColor,
+    required this.symbolColor,
+    required this.icon,
+    this.symbolOffset = Offset.zero,
     required this.value,
     required this.isLocked,
     required this.mode,
@@ -52,12 +58,6 @@ class _ManaTileState extends State<ManaTile> {
     return widget.backgroundColor.computeLuminance() > 0.5
         ? Colors.black87
         : Colors.white;
-  }
-
-  Color get _secondaryTextColor {
-    return widget.backgroundColor.computeLuminance() > 0.5
-        ? Colors.black54
-        : Colors.white70;
   }
 
   String _formatCount(int value) {
@@ -116,6 +116,21 @@ class _ManaTileState extends State<ManaTile> {
   Widget _buildNormalMode() {
     return Stack(
       children: [
+        // Large background mana symbol
+        Positioned.fill(
+          child: IgnorePointer(
+            child: FractionalTranslation(
+              translation: widget.symbolOffset,
+              child: FittedBox(
+                fit: BoxFit.contain,
+                child: Icon(
+                  widget.icon,
+                  color: widget.symbolColor,
+                ),
+              ),
+            ),
+          ),
+        ),
         // Left and right tap zones
         Row(
           children: [
@@ -151,40 +166,20 @@ class _ManaTileState extends State<ManaTile> {
             ),
           ],
         ),
-        // Visual overlay
+        // Count overlay
         Positioned.fill(
           child: IgnorePointer(
-            child: Padding(
-              padding: const EdgeInsets.all(8),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  // Mana symbol top-left
-                  Text(
-                    widget.colorSymbol,
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: _secondaryTextColor,
-                    ),
+            child: Center(
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Text(
+                  _formatCount(widget.value),
+                  style: const TextStyle(
+                    fontSize: 72,
+                    fontWeight: FontWeight.w900,
+                    color: Colors.black,
                   ),
-                  // Big centered number
-                  Expanded(
-                    child: Center(
-                      child: FittedBox(
-                        fit: BoxFit.scaleDown,
-                        child: Text(
-                          _formatCount(widget.value),
-                          style: TextStyle(
-                            fontSize: 72,
-                            fontWeight: FontWeight.bold,
-                            color: _textColor,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
+                ),
               ),
             ),
           ),
