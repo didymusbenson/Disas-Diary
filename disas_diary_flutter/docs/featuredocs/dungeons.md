@@ -6,7 +6,7 @@ A dungeon progress tracker for the Venture into the Dungeon mechanic from Advent
 
 ## Status
 
-Investigation phase. Rules extracted, open questions drafted.
+**Implemented.** All open questions resolved. Initial implementation complete and passing `flutter analyze`. See `dungeons_implementation_review.md` for details.
 
 ---
 

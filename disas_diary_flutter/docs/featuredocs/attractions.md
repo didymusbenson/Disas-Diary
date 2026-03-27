@@ -6,7 +6,7 @@ An attraction management tool for the Unfinity set's Attractions mechanic. Playe
 
 ## Status
 
-Investigation phase. Rules extracted, open questions drafted.
+**Implemented.** All open questions resolved. Initial implementation complete and passing `flutter analyze`. See `attractions_implementation_review.md` for details.
 
 ---
 
