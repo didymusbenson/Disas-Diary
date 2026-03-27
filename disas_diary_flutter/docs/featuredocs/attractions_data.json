@@ -1,0 +1,1449 @@
+[
+  {
+    "name": "Balloon Stand",
+    "oracle_text": "Visit \u2014 Choose one.\n\u2022 Create a 1/1 red Balloon creature token with flying.\n\u2022 Sacrifice a Balloon. If you do, target creature gains flying until end of turn.",
+    "attraction_lights": [
+      2,
+      6
+    ],
+    "collector_number": "200a",
+    "set": "unf"
+  },
+  {
+    "name": "Balloon Stand",
+    "oracle_text": "Visit \u2014 Choose one.\n\u2022 Create a 1/1 red Balloon creature token with flying.\n\u2022 Sacrifice a Balloon. If you do, target creature gains flying until end of turn.",
+    "attraction_lights": [
+      3,
+      6
+    ],
+    "collector_number": "200b",
+    "set": "unf"
+  },
+  {
+    "name": "Balloon Stand",
+    "oracle_text": "Visit \u2014 Choose one.\n\u2022 Create a 1/1 red Balloon creature token with flying.\n\u2022 Sacrifice a Balloon. If you do, target creature gains flying until end of turn.",
+    "attraction_lights": [
+      4,
+      6
+    ],
+    "collector_number": "200c",
+    "set": "unf"
+  },
+  {
+    "name": "Balloon Stand",
+    "oracle_text": "Visit \u2014 Choose one.\n\u2022 Create a 1/1 red Balloon creature token with flying.\n\u2022 Sacrifice a Balloon. If you do, target creature gains flying until end of turn.",
+    "attraction_lights": [
+      5,
+      6
+    ],
+    "collector_number": "200d",
+    "set": "unf"
+  },
+  {
+    "name": "Bounce Chamber",
+    "oracle_text": "Visit \u2014 Return a creature you don't control with the lowest toughness among creatures you don't control to its owner's hand. (If multiple creatures are tied, choose any one of them.)",
+    "attraction_lights": [
+      2,
+      6
+    ],
+    "collector_number": "201a",
+    "set": "unf"
+  },
+  {
+    "name": "Bounce Chamber",
+    "oracle_text": "Visit \u2014 Return a creature you don't control with the lowest toughness among creatures you don't control to its owner's hand. (If multiple creatures are tied, choose any one of them.)",
+    "attraction_lights": [
+      3,
+      6
+    ],
+    "collector_number": "201b",
+    "set": "unf"
+  },
+  {
+    "name": "Bounce Chamber",
+    "oracle_text": "Visit \u2014 Return a creature you don't control with the lowest toughness among creatures you don't control to its owner's hand. (If multiple creatures are tied, choose any one of them.)",
+    "attraction_lights": [
+      4,
+      6
+    ],
+    "collector_number": "201c",
+    "set": "unf"
+  },
+  {
+    "name": "Bounce Chamber",
+    "oracle_text": "Visit \u2014 Return a creature you don't control with the lowest toughness among creatures you don't control to its owner's hand. (If multiple creatures are tied, choose any one of them.)",
+    "attraction_lights": [
+      5,
+      6
+    ],
+    "collector_number": "201d",
+    "set": "unf"
+  },
+  {
+    "name": "Bumper Cars",
+    "oracle_text": "Visit \u2014 Target creature must be blocked this turn if able.",
+    "attraction_lights": [
+      2,
+      3,
+      6
+    ],
+    "collector_number": "202a",
+    "set": "unf"
+  },
+  {
+    "name": "Bumper Cars",
+    "oracle_text": "Visit \u2014 Target creature must be blocked this turn if able.",
+    "attraction_lights": [
+      2,
+      4,
+      6
+    ],
+    "collector_number": "202b",
+    "set": "unf"
+  },
+  {
+    "name": "Bumper Cars",
+    "oracle_text": "Visit \u2014 Target creature must be blocked this turn if able.",
+    "attraction_lights": [
+      2,
+      5,
+      6
+    ],
+    "collector_number": "202c",
+    "set": "unf"
+  },
+  {
+    "name": "Bumper Cars",
+    "oracle_text": "Visit \u2014 Target creature must be blocked this turn if able.",
+    "attraction_lights": [
+      3,
+      4,
+      6
+    ],
+    "collector_number": "202d",
+    "set": "unf"
+  },
+  {
+    "name": "Bumper Cars",
+    "oracle_text": "Visit \u2014 Target creature must be blocked this turn if able.",
+    "attraction_lights": [
+      3,
+      5,
+      6
+    ],
+    "collector_number": "202e",
+    "set": "unf"
+  },
+  {
+    "name": "Bumper Cars",
+    "oracle_text": "Visit \u2014 Target creature must be blocked this turn if able.",
+    "attraction_lights": [
+      4,
+      5,
+      6
+    ],
+    "collector_number": "202f",
+    "set": "unf"
+  },
+  {
+    "name": "Centrifuge",
+    "oracle_text": "Visit \u2014 Each player draws a card from the library of the player to their right. You create three Treasure tokens.",
+    "attraction_lights": [
+      3,
+      6
+    ],
+    "collector_number": "203a",
+    "set": "unf"
+  },
+  {
+    "name": "Centrifuge",
+    "oracle_text": "Visit \u2014 Each player draws a card from the library of the player to their right. You create three Treasure tokens.",
+    "attraction_lights": [
+      4,
+      6
+    ],
+    "collector_number": "203b",
+    "set": "unf"
+  },
+  {
+    "name": "Clown Extruder",
+    "oracle_text": "Visit \u2014 Create a 1/1 white Clown Robot artifact creature token.",
+    "attraction_lights": [
+      2,
+      6
+    ],
+    "collector_number": "204a",
+    "set": "unf"
+  },
+  {
+    "name": "Clown Extruder",
+    "oracle_text": "Visit \u2014 Create a 1/1 white Clown Robot artifact creature token.",
+    "attraction_lights": [
+      3,
+      6
+    ],
+    "collector_number": "204b",
+    "set": "unf"
+  },
+  {
+    "name": "Clown Extruder",
+    "oracle_text": "Visit \u2014 Create a 1/1 white Clown Robot artifact creature token.",
+    "attraction_lights": [
+      4,
+      6
+    ],
+    "collector_number": "204c",
+    "set": "unf"
+  },
+  {
+    "name": "Clown Extruder",
+    "oracle_text": "Visit \u2014 Create a 1/1 white Clown Robot artifact creature token.",
+    "attraction_lights": [
+      5,
+      6
+    ],
+    "collector_number": "204d",
+    "set": "unf"
+  },
+  {
+    "name": "Concession Stand",
+    "oracle_text": "Visit \u2014 Create a Food token. (It's an artifact with \"{2}, {T}, Sacrifice this artifact: You gain 3 life.\")",
+    "attraction_lights": [
+      2,
+      6
+    ],
+    "collector_number": "205a",
+    "set": "unf"
+  },
+  {
+    "name": "Concession Stand",
+    "oracle_text": "Visit \u2014 Create a Food token. (It's an artifact with \"{2}, {T}, Sacrifice this artifact: You gain 3 life.\")",
+    "attraction_lights": [
+      3,
+      6
+    ],
+    "collector_number": "205b",
+    "set": "unf"
+  },
+  {
+    "name": "Concession Stand",
+    "oracle_text": "Visit \u2014 Create a Food token. (It's an artifact with \"{2}, {T}, Sacrifice this artifact: You gain 3 life.\")",
+    "attraction_lights": [
+      4,
+      6
+    ],
+    "collector_number": "205c",
+    "set": "unf"
+  },
+  {
+    "name": "Concession Stand",
+    "oracle_text": "Visit \u2014 Create a Food token. (It's an artifact with \"{2}, {T}, Sacrifice this artifact: You gain 3 life.\")",
+    "attraction_lights": [
+      5,
+      6
+    ],
+    "collector_number": "205d",
+    "set": "unf"
+  },
+  {
+    "name": "Costume Shop",
+    "oracle_text": "Visit \u2014 You may put a sticker on a nonland permanent you own.",
+    "attraction_lights": [
+      2,
+      3,
+      6
+    ],
+    "collector_number": "206a",
+    "set": "unf"
+  },
+  {
+    "name": "Costume Shop",
+    "oracle_text": "Visit \u2014 You may put a sticker on a nonland permanent you own.",
+    "attraction_lights": [
+      2,
+      4,
+      6
+    ],
+    "collector_number": "206b",
+    "set": "unf"
+  },
+  {
+    "name": "Costume Shop",
+    "oracle_text": "Visit \u2014 You may put a sticker on a nonland permanent you own.",
+    "attraction_lights": [
+      2,
+      5,
+      6
+    ],
+    "collector_number": "206c",
+    "set": "unf"
+  },
+  {
+    "name": "Costume Shop",
+    "oracle_text": "Visit \u2014 You may put a sticker on a nonland permanent you own.",
+    "attraction_lights": [
+      3,
+      4,
+      6
+    ],
+    "collector_number": "206d",
+    "set": "unf"
+  },
+  {
+    "name": "Costume Shop",
+    "oracle_text": "Visit \u2014 You may put a sticker on a nonland permanent you own.",
+    "attraction_lights": [
+      3,
+      5,
+      6
+    ],
+    "collector_number": "206e",
+    "set": "unf"
+  },
+  {
+    "name": "Costume Shop",
+    "oracle_text": "Visit \u2014 You may put a sticker on a nonland permanent you own.",
+    "attraction_lights": [
+      4,
+      5,
+      6
+    ],
+    "collector_number": "206f",
+    "set": "unf"
+  },
+  {
+    "name": "Cover the Spot",
+    "oracle_text": "Visit \u2014 Drop three cards you own from outside the game one at a time onto the playing area from a height of at least one foot (about 0.3 meters). If those cards completely cover this Attraction, claim the prize!\nPrize \u2014 You get {TK}{TK}{TK}{TK}, then you may put a sticker on a nonland permanent you own. Sacrifice this Attraction, then open an Attraction.",
+    "attraction_lights": [
+      2,
+      3,
+      4,
+      6
+    ],
+    "collector_number": "207a",
+    "set": "unf"
+  },
+  {
+    "name": "Cover the Spot",
+    "oracle_text": "Visit \u2014 Drop three cards you own from outside the game one at a time onto the playing area from a height of at least one foot (about 0.3 meters). If those cards completely cover this Attraction, claim the prize!\nPrize \u2014 You get {TK}{TK}{TK}{TK}, then you may put a sticker on a nonland permanent you own. Sacrifice this Attraction, then open an Attraction.",
+    "attraction_lights": [
+      2,
+      3,
+      5,
+      6
+    ],
+    "collector_number": "207b",
+    "set": "unf"
+  },
+  {
+    "name": "Cover the Spot",
+    "oracle_text": "Visit \u2014 Drop three cards you own from outside the game one at a time onto the playing area from a height of at least one foot (about 0.3 meters). If those cards completely cover this Attraction, claim the prize!\nPrize \u2014 You get {TK}{TK}{TK}{TK}, then you may put a sticker on a nonland permanent you own. Sacrifice this Attraction, then open an Attraction.",
+    "attraction_lights": [
+      2,
+      4,
+      5,
+      6
+    ],
+    "collector_number": "207c",
+    "set": "unf"
+  },
+  {
+    "name": "Cover the Spot",
+    "oracle_text": "Visit \u2014 Drop three cards you own from outside the game one at a time onto the playing area from a height of at least one foot (about 0.3 meters). If those cards completely cover this Attraction, claim the prize!\nPrize \u2014 You get {TK}{TK}{TK}{TK}, then you may put a sticker on a nonland permanent you own. Sacrifice this Attraction, then open an Attraction.",
+    "attraction_lights": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "collector_number": "207d",
+    "set": "unf"
+  },
+  {
+    "name": "Dart Throw",
+    "oracle_text": "Visit \u2014 Throw a card you own from outside the game onto the playing area from a distance of three feet (about one meter). If that card touches this Attraction, claim the prize!\nPrize \u2014 Create two 2/2 pink Teddy Bear creature tokens. Sacrifice this Attraction, then open an Attraction.",
+    "attraction_lights": [
+      2,
+      3,
+      4,
+      6
+    ],
+    "collector_number": "208a",
+    "set": "unf"
+  },
+  {
+    "name": "Dart Throw",
+    "oracle_text": "Visit \u2014 Throw a card you own from outside the game onto the playing area from a distance of three feet (about one meter). If that card touches this Attraction, claim the prize!\nPrize \u2014 Create two 2/2 pink Teddy Bear creature tokens. Sacrifice this Attraction, then open an Attraction.",
+    "attraction_lights": [
+      2,
+      3,
+      5,
+      6
+    ],
+    "collector_number": "208b",
+    "set": "unf"
+  },
+  {
+    "name": "Dart Throw",
+    "oracle_text": "Visit \u2014 Throw a card you own from outside the game onto the playing area from a distance of three feet (about one meter). If that card touches this Attraction, claim the prize!\nPrize \u2014 Create two 2/2 pink Teddy Bear creature tokens. Sacrifice this Attraction, then open an Attraction.",
+    "attraction_lights": [
+      2,
+      4,
+      5,
+      6
+    ],
+    "collector_number": "208c",
+    "set": "unf"
+  },
+  {
+    "name": "Dart Throw",
+    "oracle_text": "Visit \u2014 Throw a card you own from outside the game onto the playing area from a distance of three feet (about one meter). If that card touches this Attraction, claim the prize!\nPrize \u2014 Create two 2/2 pink Teddy Bear creature tokens. Sacrifice this Attraction, then open an Attraction.",
+    "attraction_lights": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "collector_number": "208d",
+    "set": "unf"
+  },
+  {
+    "name": "Drop Tower",
+    "oracle_text": "Visit \u2014 Target creature gains flying until end of turn, or until any player rolls a 1, whichever comes first.",
+    "attraction_lights": [
+      2,
+      3,
+      6
+    ],
+    "collector_number": "209a",
+    "set": "unf"
+  },
+  {
+    "name": "Drop Tower",
+    "oracle_text": "Visit \u2014 Target creature gains flying until end of turn, or until any player rolls a 1, whichever comes first.",
+    "attraction_lights": [
+      2,
+      4,
+      6
+    ],
+    "collector_number": "209b",
+    "set": "unf"
+  },
+  {
+    "name": "Drop Tower",
+    "oracle_text": "Visit \u2014 Target creature gains flying until end of turn, or until any player rolls a 1, whichever comes first.",
+    "attraction_lights": [
+      2,
+      5,
+      6
+    ],
+    "collector_number": "209c",
+    "set": "unf"
+  },
+  {
+    "name": "Drop Tower",
+    "oracle_text": "Visit \u2014 Target creature gains flying until end of turn, or until any player rolls a 1, whichever comes first.",
+    "attraction_lights": [
+      3,
+      4,
+      6
+    ],
+    "collector_number": "209d",
+    "set": "unf"
+  },
+  {
+    "name": "Drop Tower",
+    "oracle_text": "Visit \u2014 Target creature gains flying until end of turn, or until any player rolls a 1, whichever comes first.",
+    "attraction_lights": [
+      3,
+      5,
+      6
+    ],
+    "collector_number": "209e",
+    "set": "unf"
+  },
+  {
+    "name": "Drop Tower",
+    "oracle_text": "Visit \u2014 Target creature gains flying until end of turn, or until any player rolls a 1, whichever comes first.",
+    "attraction_lights": [
+      4,
+      5,
+      6
+    ],
+    "collector_number": "209f",
+    "set": "unf"
+  },
+  {
+    "name": "Ferris Wheel",
+    "oracle_text": "Visit \u2014 Choose target creature that hasn't been phased out with this Attraction. That creature phases out until you roll a 3 or less while rolling to visit your Attractions.",
+    "attraction_lights": [
+      4,
+      5,
+      6
+    ],
+    "collector_number": "210",
+    "set": "unf"
+  },
+  {
+    "name": "Foam Weapons Kiosk",
+    "oracle_text": "Visit \u2014 Put a +1/+1 counter on target creature you control. That creature gains vigilance until end of turn.",
+    "attraction_lights": [
+      2,
+      6
+    ],
+    "collector_number": "211a",
+    "set": "unf"
+  },
+  {
+    "name": "Foam Weapons Kiosk",
+    "oracle_text": "Visit \u2014 Put a +1/+1 counter on target creature you control. That creature gains vigilance until end of turn.",
+    "attraction_lights": [
+      3,
+      6
+    ],
+    "collector_number": "211b",
+    "set": "unf"
+  },
+  {
+    "name": "Foam Weapons Kiosk",
+    "oracle_text": "Visit \u2014 Put a +1/+1 counter on target creature you control. That creature gains vigilance until end of turn.",
+    "attraction_lights": [
+      4,
+      6
+    ],
+    "collector_number": "211c",
+    "set": "unf"
+  },
+  {
+    "name": "Foam Weapons Kiosk",
+    "oracle_text": "Visit \u2014 Put a +1/+1 counter on target creature you control. That creature gains vigilance until end of turn.",
+    "attraction_lights": [
+      5,
+      6
+    ],
+    "collector_number": "211d",
+    "set": "unf"
+  },
+  {
+    "name": "Fortune Teller",
+    "oracle_text": "Visit \u2014 Scry 1.",
+    "attraction_lights": [
+      2,
+      3,
+      6
+    ],
+    "collector_number": "212a",
+    "set": "unf"
+  },
+  {
+    "name": "Fortune Teller",
+    "oracle_text": "Visit \u2014 Scry 1.",
+    "attraction_lights": [
+      2,
+      4,
+      6
+    ],
+    "collector_number": "212b",
+    "set": "unf"
+  },
+  {
+    "name": "Fortune Teller",
+    "oracle_text": "Visit \u2014 Scry 1.",
+    "attraction_lights": [
+      2,
+      5,
+      6
+    ],
+    "collector_number": "212c",
+    "set": "unf"
+  },
+  {
+    "name": "Fortune Teller",
+    "oracle_text": "Visit \u2014 Scry 1.",
+    "attraction_lights": [
+      3,
+      4,
+      6
+    ],
+    "collector_number": "212d",
+    "set": "unf"
+  },
+  {
+    "name": "Fortune Teller",
+    "oracle_text": "Visit \u2014 Scry 1.",
+    "attraction_lights": [
+      3,
+      5,
+      6
+    ],
+    "collector_number": "212e",
+    "set": "unf"
+  },
+  {
+    "name": "Fortune Teller",
+    "oracle_text": "Visit \u2014 Scry 1.",
+    "attraction_lights": [
+      4,
+      5,
+      6
+    ],
+    "collector_number": "212f",
+    "set": "unf"
+  },
+  {
+    "name": "Gallery of Legends",
+    "oracle_text": "Visit \u2014 Exile cards from the top of your library until you exile a nonland card, then choose a legendary creature card name with the same mana value as that card. Create a token that's a copy of the card with the chosen name. That token gains haste. Exile it at the beginning of the next end step.",
+    "attraction_lights": [
+      3,
+      6
+    ],
+    "collector_number": "213a",
+    "set": "unf"
+  },
+  {
+    "name": "Gallery of Legends",
+    "oracle_text": "Visit \u2014 Exile cards from the top of your library until you exile a nonland card, then choose a legendary creature card name with the same mana value as that card. Create a token that's a copy of the card with the chosen name. That token gains haste. Exile it at the beginning of the next end step.",
+    "attraction_lights": [
+      5,
+      6
+    ],
+    "collector_number": "213b",
+    "set": "unf"
+  },
+  {
+    "name": "Gift Shop",
+    "oracle_text": "Visit \u2014 Choose one that hasn't been chosen.\n\u2022 Create a 1/1 red Balloon creature token with flying.\n\u2022 Create a 2/2 pink Teddy Bear creature token.\n\u2022 Create two Food tokens.\n\u2022 You get {TK}{TK}{TK}.\n\u2022 You may put a sticker on a nonland permanent you own.",
+    "attraction_lights": [
+      2,
+      3,
+      6
+    ],
+    "collector_number": "214a",
+    "set": "unf"
+  },
+  {
+    "name": "Gift Shop",
+    "oracle_text": "Visit \u2014 Choose one that hasn't been chosen.\n\u2022 Create a 1/1 red Balloon creature token with flying.\n\u2022 Create a 2/2 pink Teddy Bear creature token.\n\u2022 Create two Food tokens.\n\u2022 You get {TK}{TK}{TK}.\n\u2022 You may put a sticker on a nonland permanent you own.",
+    "attraction_lights": [
+      4,
+      5,
+      6
+    ],
+    "collector_number": "214b",
+    "set": "unf"
+  },
+  {
+    "name": "Guess Your Fate",
+    "oracle_text": "Visit \u2014 Look at the bottom card of your library, then give a person outside the game a one-word clue not on that card. They guess a word. If their guess appears in that card's name, claim the prize!\nPrize \u2014 Reveal the card, put it into your hand, then sacrifice this Attraction and open an Attraction.",
+    "attraction_lights": [
+      2,
+      3,
+      4,
+      6
+    ],
+    "collector_number": "215a",
+    "set": "unf"
+  },
+  {
+    "name": "Guess Your Fate",
+    "oracle_text": "Visit \u2014 Look at the bottom card of your library, then give a person outside the game a one-word clue not on that card. They guess a word. If their guess appears in that card's name, claim the prize!\nPrize \u2014 Reveal the card, put it into your hand, then sacrifice this Attraction and open an Attraction.",
+    "attraction_lights": [
+      2,
+      3,
+      5,
+      6
+    ],
+    "collector_number": "215b",
+    "set": "unf"
+  },
+  {
+    "name": "Guess Your Fate",
+    "oracle_text": "Visit \u2014 Look at the bottom card of your library, then give a person outside the game a one-word clue not on that card. They guess a word. If their guess appears in that card's name, claim the prize!\nPrize \u2014 Reveal the card, put it into your hand, then sacrifice this Attraction and open an Attraction.",
+    "attraction_lights": [
+      2,
+      4,
+      5,
+      6
+    ],
+    "collector_number": "215c",
+    "set": "unf"
+  },
+  {
+    "name": "Guess Your Fate",
+    "oracle_text": "Visit \u2014 Look at the bottom card of your library, then give a person outside the game a one-word clue not on that card. They guess a word. If their guess appears in that card's name, claim the prize!\nPrize \u2014 Reveal the card, put it into your hand, then sacrifice this Attraction and open an Attraction.",
+    "attraction_lights": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "collector_number": "215d",
+    "set": "unf"
+  },
+  {
+    "name": "Hall of Mirrors",
+    "oracle_text": "Visit \u2014 Choose target creature you control. Each other creature you control becomes a copy of that creature until end of turn, except it isn't legendary.",
+    "attraction_lights": [
+      2,
+      6
+    ],
+    "collector_number": "216a",
+    "set": "unf"
+  },
+  {
+    "name": "Hall of Mirrors",
+    "oracle_text": "Visit \u2014 Choose target creature you control. Each other creature you control becomes a copy of that creature until end of turn, except it isn't legendary.",
+    "attraction_lights": [
+      4,
+      6
+    ],
+    "collector_number": "216b",
+    "set": "unf"
+  },
+  {
+    "name": "Haunted House",
+    "oracle_text": "Visit \u2014 Return target creature card from your graveyard to the battlefield. It gains haste. Exile it at the beginning of your next end step.",
+    "attraction_lights": [
+      3,
+      6
+    ],
+    "collector_number": "217a",
+    "set": "unf"
+  },
+  {
+    "name": "Haunted House",
+    "oracle_text": "Visit \u2014 Return target creature card from your graveyard to the battlefield. It gains haste. Exile it at the beginning of your next end step.",
+    "attraction_lights": [
+      4,
+      6
+    ],
+    "collector_number": "217b",
+    "set": "unf"
+  },
+  {
+    "name": "Information Booth",
+    "oracle_text": "Visit \u2014 Draw a card.",
+    "attraction_lights": [
+      2,
+      6
+    ],
+    "collector_number": "218a",
+    "set": "unf"
+  },
+  {
+    "name": "Information Booth",
+    "oracle_text": "Visit \u2014 Draw a card.",
+    "attraction_lights": [
+      3,
+      6
+    ],
+    "collector_number": "218b",
+    "set": "unf"
+  },
+  {
+    "name": "Information Booth",
+    "oracle_text": "Visit \u2014 Draw a card.",
+    "attraction_lights": [
+      4,
+      6
+    ],
+    "collector_number": "218c",
+    "set": "unf"
+  },
+  {
+    "name": "Information Booth",
+    "oracle_text": "Visit \u2014 Draw a card.",
+    "attraction_lights": [
+      5,
+      6
+    ],
+    "collector_number": "218d",
+    "set": "unf"
+  },
+  {
+    "name": "Kiddie Coaster",
+    "oracle_text": "Visit \u2014 Creatures you control get +1/+0 until end of turn.",
+    "attraction_lights": [
+      2,
+      3,
+      6
+    ],
+    "collector_number": "219a",
+    "set": "unf"
+  },
+  {
+    "name": "Kiddie Coaster",
+    "oracle_text": "Visit \u2014 Creatures you control get +1/+0 until end of turn.",
+    "attraction_lights": [
+      2,
+      4,
+      6
+    ],
+    "collector_number": "219b",
+    "set": "unf"
+  },
+  {
+    "name": "Kiddie Coaster",
+    "oracle_text": "Visit \u2014 Creatures you control get +1/+0 until end of turn.",
+    "attraction_lights": [
+      2,
+      5,
+      6
+    ],
+    "collector_number": "219c",
+    "set": "unf"
+  },
+  {
+    "name": "Kiddie Coaster",
+    "oracle_text": "Visit \u2014 Creatures you control get +1/+0 until end of turn.",
+    "attraction_lights": [
+      3,
+      4,
+      6
+    ],
+    "collector_number": "219d",
+    "set": "unf"
+  },
+  {
+    "name": "Kiddie Coaster",
+    "oracle_text": "Visit \u2014 Creatures you control get +1/+0 until end of turn.",
+    "attraction_lights": [
+      3,
+      5,
+      6
+    ],
+    "collector_number": "219e",
+    "set": "unf"
+  },
+  {
+    "name": "Kiddie Coaster",
+    "oracle_text": "Visit \u2014 Creatures you control get +1/+0 until end of turn.",
+    "attraction_lights": [
+      4,
+      5,
+      6
+    ],
+    "collector_number": "219f",
+    "set": "unf"
+  },
+  {
+    "name": "Log Flume",
+    "oracle_text": "Visit \u2014 Choose up to four creatures you control. Those creatures jump in a log until end of turn. (Creatures in a log together can't be blocked unless they're all blocked. If a spell or ability you control targets one of them, it targets all of them.)",
+    "attraction_lights": [
+      3,
+      6
+    ],
+    "collector_number": "220a",
+    "set": "unf"
+  },
+  {
+    "name": "Log Flume",
+    "oracle_text": "Visit \u2014 Choose up to four creatures you control. Those creatures jump in a log until end of turn. (Creatures in a log together can't be blocked unless they're all blocked. If a spell or ability you control targets one of them, it targets all of them.)",
+    "attraction_lights": [
+      5,
+      6
+    ],
+    "collector_number": "220b",
+    "set": "unf"
+  },
+  {
+    "name": "Memory Test",
+    "oracle_text": "When this Attraction enters, target opponent exiles cards from the bottom of their library until they exile five nonland cards, then turns those nonland cards face down.\nVisit \u2014 Name the exiled face-down cards, then look at them. If you named them correctly, turn them face up, then claim the prize!\nPrize \u2014 Create three 1/1 red Balloon creature tokens with flying, then sacrifice this Attraction and open an Attraction.",
+    "attraction_lights": [
+      4,
+      6
+    ],
+    "collector_number": "221a",
+    "set": "unf"
+  },
+  {
+    "name": "Memory Test",
+    "oracle_text": "When this Attraction enters, target opponent exiles cards from the bottom of their library until they exile five nonland cards, then turns those nonland cards face down.\nVisit \u2014 Name the exiled face-down cards, then look at them. If you named them correctly, turn them face up, then claim the prize!\nPrize \u2014 Create three 1/1 red Balloon creature tokens with flying, then sacrifice this Attraction and open an Attraction.",
+    "attraction_lights": [
+      5,
+      6
+    ],
+    "collector_number": "221b",
+    "set": "unf"
+  },
+  {
+    "name": "Merry-Go-Round",
+    "oracle_text": "Visit \u2014 Creatures you control with power 2 or less gain horsemanship until end of turn. (They can't be blocked except by creatures with horsemanship.)",
+    "attraction_lights": [
+      2,
+      6
+    ],
+    "collector_number": "222a",
+    "set": "unf"
+  },
+  {
+    "name": "Merry-Go-Round",
+    "oracle_text": "Visit \u2014 Creatures you control with power 2 or less gain horsemanship until end of turn. (They can't be blocked except by creatures with horsemanship.)",
+    "attraction_lights": [
+      5,
+      6
+    ],
+    "collector_number": "222b",
+    "set": "unf"
+  },
+  {
+    "name": "Pick-a-Beeble",
+    "oracle_text": "Visit \u2014 Roll a six-sided die. Put a number of luck counters on Pick-a-Beeble equal to the result and create a Treasure token. Then if there are six or more luck counters on Pick-a-Beeble, claim the prize!\nPrize \u2014 Create two Treasure tokens, then sacrifice Pick-a-Beeble and open an Attraction.",
+    "attraction_lights": [
+      2,
+      3,
+      6
+    ],
+    "collector_number": "223a",
+    "set": "unf"
+  },
+  {
+    "name": "Pick-a-Beeble",
+    "oracle_text": "Visit \u2014 Roll a six-sided die. Put a number of luck counters on Pick-a-Beeble equal to the result and create a Treasure token. Then if there are six or more luck counters on Pick-a-Beeble, claim the prize!\nPrize \u2014 Create two Treasure tokens, then sacrifice Pick-a-Beeble and open an Attraction.",
+    "attraction_lights": [
+      2,
+      4,
+      6
+    ],
+    "collector_number": "223b",
+    "set": "unf"
+  },
+  {
+    "name": "Pick-a-Beeble",
+    "oracle_text": "Visit \u2014 Roll a six-sided die. Put a number of luck counters on Pick-a-Beeble equal to the result and create a Treasure token. Then if there are six or more luck counters on Pick-a-Beeble, claim the prize!\nPrize \u2014 Create two Treasure tokens, then sacrifice Pick-a-Beeble and open an Attraction.",
+    "attraction_lights": [
+      2,
+      5,
+      6
+    ],
+    "collector_number": "223c",
+    "set": "unf"
+  },
+  {
+    "name": "Pick-a-Beeble",
+    "oracle_text": "Visit \u2014 Roll a six-sided die. Put a number of luck counters on Pick-a-Beeble equal to the result and create a Treasure token. Then if there are six or more luck counters on Pick-a-Beeble, claim the prize!\nPrize \u2014 Create two Treasure tokens, then sacrifice Pick-a-Beeble and open an Attraction.",
+    "attraction_lights": [
+      3,
+      4,
+      6
+    ],
+    "collector_number": "223d",
+    "set": "unf"
+  },
+  {
+    "name": "Pick-a-Beeble",
+    "oracle_text": "Visit \u2014 Roll a six-sided die. Put a number of luck counters on Pick-a-Beeble equal to the result and create a Treasure token. Then if there are six or more luck counters on Pick-a-Beeble, claim the prize!\nPrize \u2014 Create two Treasure tokens, then sacrifice Pick-a-Beeble and open an Attraction.",
+    "attraction_lights": [
+      3,
+      5,
+      6
+    ],
+    "collector_number": "223e",
+    "set": "unf"
+  },
+  {
+    "name": "Pick-a-Beeble",
+    "oracle_text": "Visit \u2014 Roll a six-sided die. Put a number of luck counters on Pick-a-Beeble equal to the result and create a Treasure token. Then if there are six or more luck counters on Pick-a-Beeble, claim the prize!\nPrize \u2014 Create two Treasure tokens, then sacrifice Pick-a-Beeble and open an Attraction.",
+    "attraction_lights": [
+      4,
+      5,
+      6
+    ],
+    "collector_number": "223f",
+    "set": "unf"
+  },
+  {
+    "name": "Push Your Luck",
+    "oracle_text": "Visit \u2014 Reveal cards from the top of your library until you decide to stop. If the total mana value of the cards revealed this way is 7 or less, create a 2/2 pink Teddy Bear creature token. If the total is exactly 7, claim the prize Shuffle the revealed cards into your library.\nPrize \u2014 Put five +1/+1 counters on a Teddy Bear you control. It gains haste. Sacrifice this Attraction and open an Attraction.",
+    "attraction_lights": [
+      2,
+      3,
+      6
+    ],
+    "collector_number": "224a",
+    "set": "unf"
+  },
+  {
+    "name": "Push Your Luck",
+    "oracle_text": "Visit \u2014 Reveal cards from the top of your library until you decide to stop. If the total mana value of the cards revealed this way is 7 or less, create a 2/2 pink Teddy Bear creature token. If the total is exactly 7, claim the prize Shuffle the revealed cards into your library.\nPrize \u2014 Put five +1/+1 counters on a Teddy Bear you control. It gains haste. Sacrifice this Attraction and open an Attraction.",
+    "attraction_lights": [
+      4,
+      5,
+      6
+    ],
+    "collector_number": "224b",
+    "set": "unf"
+  },
+  {
+    "name": "Roller Coaster",
+    "oracle_text": "Visit \u2014 Creatures you control get +2/+0 until end of turn.",
+    "attraction_lights": [
+      2,
+      6
+    ],
+    "collector_number": "225a",
+    "set": "unf"
+  },
+  {
+    "name": "Roller Coaster",
+    "oracle_text": "Visit \u2014 Creatures you control get +2/+0 until end of turn.",
+    "attraction_lights": [
+      3,
+      6
+    ],
+    "collector_number": "225b",
+    "set": "unf"
+  },
+  {
+    "name": "Roller Coaster",
+    "oracle_text": "Visit \u2014 Creatures you control get +2/+0 until end of turn.",
+    "attraction_lights": [
+      4,
+      6
+    ],
+    "collector_number": "225c",
+    "set": "unf"
+  },
+  {
+    "name": "Roller Coaster",
+    "oracle_text": "Visit \u2014 Creatures you control get +2/+0 until end of turn.",
+    "attraction_lights": [
+      5,
+      6
+    ],
+    "collector_number": "225d",
+    "set": "unf"
+  },
+  {
+    "name": "Scavenger Hunt",
+    "oracle_text": "Visit \u2014 Choose \"a creature wearing a hat,\" \"a book or scroll,\" or \"teeth\" at random. You have ten seconds to search your library and reveal a card with the chosen item in its art. If you do, claim the prize! Then shuffle.\nPrize \u2014 You get {TK}{TK}, then you may put a sticker on a nonland permanent you own. Sacrifice Scavenger Hunt and open an Attraction.",
+    "attraction_lights": [
+      2,
+      5,
+      6
+    ],
+    "collector_number": "226c",
+    "set": "unf"
+  },
+  {
+    "name": "Scavenger Hunt",
+    "oracle_text": "Visit \u2014 Choose \"a four-legged creature,\" \"a liquid other than water,\" or \"a door\" at random. You have ten seconds to search your library and reveal a card with the chosen item in its art. If you do, claim the prize! Then shuffle.\nPrize \u2014 You get {TK}{TK}, then you may put a sticker on a nonland permanent you own. Sacrifice Scavenger Hunt and open an Attraction.",
+    "attraction_lights": [
+      4,
+      5,
+      6
+    ],
+    "collector_number": "226f",
+    "set": "unf"
+  },
+  {
+    "name": "Scavenger Hunt",
+    "oracle_text": "Visit \u2014 Choose \"a humanoid animal or alien,\" \"food,\" or \"horns and tusks\" at random. You have ten seconds to search your library and reveal a card with the chosen item in its art. If you do, claim the prize! Then shuffle.\nPrize \u2014 You get {TK}{TK}, then you may put a sticker on a nonland permanent you own. Sacrifice Scavenger Hunt and open an Attraction.",
+    "attraction_lights": [
+      2,
+      3,
+      6
+    ],
+    "collector_number": "226a",
+    "set": "unf"
+  },
+  {
+    "name": "Scavenger Hunt",
+    "oracle_text": "Visit \u2014 Choose \"an elf or goblin,\" \"a tail,\" or \"a flying creature or flying vehicle\" at random. You have ten seconds to search your library and reveal a card with the chosen item in its art. If you do, claim the prize! Then shuffle.\nPrize \u2014 You get {TK}{TK}, then you may put a sticker on a nonland permanent you own. Sacrifice Scavenger Hunt and open an Attraction.",
+    "attraction_lights": [
+      2,
+      4,
+      6
+    ],
+    "collector_number": "226b",
+    "set": "unf"
+  },
+  {
+    "name": "Scavenger Hunt",
+    "oracle_text": "Visit \u2014 Choose \"a vampire or zombie,\" \"fire, lightning, or an explosion,\" or \"a metallic creature\" at random. You have ten seconds to search your library and reveal a card with the chosen item in its art. If you do, claim the prize! Then shuffle.\nPrize \u2014 You get {TK}{TK}, then you may put a sticker on a nonland permanent you own. Sacrifice Scavenger Hunt and open an Attraction.",
+    "attraction_lights": [
+      3,
+      5,
+      6
+    ],
+    "collector_number": "226e",
+    "set": "unf"
+  },
+  {
+    "name": "Scavenger Hunt",
+    "oracle_text": "Visit \u2014 Choose \"a weapon,\" \"five or more creatures,\" or \"words or numbers\" at random. You have ten seconds to search your library and reveal a card with the chosen item in its art. If you do, claim the prize Then shuffle.\nPrize \u2014 You get {TK}{TK}, then you may put a sticker on a nonland permanent you own. Sacrifice this Attraction and open an Attraction.",
+    "attraction_lights": [
+      3,
+      4,
+      6
+    ],
+    "collector_number": "226d",
+    "set": "unf"
+  },
+  {
+    "name": "Spinny Ride",
+    "oracle_text": "Visit \u2014 Tap target creature an opponent controls.",
+    "attraction_lights": [
+      2,
+      3,
+      6
+    ],
+    "collector_number": "227a",
+    "set": "unf"
+  },
+  {
+    "name": "Spinny Ride",
+    "oracle_text": "Visit \u2014 Tap target creature an opponent controls.",
+    "attraction_lights": [
+      2,
+      4,
+      6
+    ],
+    "collector_number": "227b",
+    "set": "unf"
+  },
+  {
+    "name": "Spinny Ride",
+    "oracle_text": "Visit \u2014 Tap target creature an opponent controls.",
+    "attraction_lights": [
+      2,
+      5,
+      6
+    ],
+    "collector_number": "227c",
+    "set": "unf"
+  },
+  {
+    "name": "Spinny Ride",
+    "oracle_text": "Visit \u2014 Tap target creature an opponent controls.",
+    "attraction_lights": [
+      3,
+      4,
+      6
+    ],
+    "collector_number": "227d",
+    "set": "unf"
+  },
+  {
+    "name": "Spinny Ride",
+    "oracle_text": "Visit \u2014 Tap target creature an opponent controls.",
+    "attraction_lights": [
+      3,
+      5,
+      6
+    ],
+    "collector_number": "227e",
+    "set": "unf"
+  },
+  {
+    "name": "Spinny Ride",
+    "oracle_text": "Visit \u2014 Tap target creature an opponent controls.",
+    "attraction_lights": [
+      4,
+      5,
+      6
+    ],
+    "collector_number": "227f",
+    "set": "unf"
+  },
+  {
+    "name": "Squirrel Stack",
+    "oracle_text": "Visit \u2014 You have five seconds to stack dice on top of one another. If you stack at least five dice, claim the prize\nPrize \u2014 Create a 1/1 green Squirrel creature token for each die you stacked above the fourth, then sacrifice this Attraction and open an Attraction.",
+    "attraction_lights": [
+      2,
+      3,
+      6
+    ],
+    "collector_number": "228a",
+    "set": "unf"
+  },
+  {
+    "name": "Squirrel Stack",
+    "oracle_text": "Visit \u2014 You have five seconds to stack dice on top of one another. If you stack at least five dice, claim the prize\nPrize \u2014 Create a 1/1 green Squirrel creature token for each die you stacked above the fourth, then sacrifice this Attraction and open an Attraction.",
+    "attraction_lights": [
+      2,
+      4,
+      6
+    ],
+    "collector_number": "228b",
+    "set": "unf"
+  },
+  {
+    "name": "Squirrel Stack",
+    "oracle_text": "Visit \u2014 You have five seconds to stack dice on top of one another. If you stack at least five dice, claim the prize\nPrize \u2014 Create a 1/1 green Squirrel creature token for each die you stacked above the fourth, then sacrifice this Attraction and open an Attraction.",
+    "attraction_lights": [
+      2,
+      5,
+      6
+    ],
+    "collector_number": "228c",
+    "set": "unf"
+  },
+  {
+    "name": "Squirrel Stack",
+    "oracle_text": "Visit \u2014 You have five seconds to stack dice on top of one another. If you stack at least five dice, claim the prize\nPrize \u2014 Create a 1/1 green Squirrel creature token for each die you stacked above the fourth, then sacrifice this Attraction and open an Attraction.",
+    "attraction_lights": [
+      3,
+      4,
+      6
+    ],
+    "collector_number": "228d",
+    "set": "unf"
+  },
+  {
+    "name": "Squirrel Stack",
+    "oracle_text": "Visit \u2014 You have five seconds to stack dice on top of one another. If you stack at least five dice, claim the prize\nPrize \u2014 Create a 1/1 green Squirrel creature token for each die you stacked above the fourth, then sacrifice this Attraction and open an Attraction.",
+    "attraction_lights": [
+      3,
+      5,
+      6
+    ],
+    "collector_number": "228e",
+    "set": "unf"
+  },
+  {
+    "name": "Squirrel Stack",
+    "oracle_text": "Visit \u2014 You have five seconds to stack dice on top of one another. If you stack at least five dice, claim the prize\nPrize \u2014 Create a 1/1 green Squirrel creature token for each die you stacked above the fourth, then sacrifice this Attraction and open an Attraction.",
+    "attraction_lights": [
+      4,
+      5,
+      6
+    ],
+    "collector_number": "228f",
+    "set": "unf"
+  },
+  {
+    "name": "Storybook Ride",
+    "oracle_text": "Visit \u2014 Exile the top X cards of your library, where X is the number of Attractions you've visited this turn (including this one). You may play those cards this turn. At the beginning of the next end step, if any of those cards remain exiled, put them on the bottom of your library in any order.",
+    "attraction_lights": [
+      2,
+      5,
+      6
+    ],
+    "collector_number": "229a",
+    "set": "unf"
+  },
+  {
+    "name": "Storybook Ride",
+    "oracle_text": "Visit \u2014 Exile the top X cards of your library, where X is the number of Attractions you've visited this turn (including this one). You may play those cards this turn. At the beginning of the next end step, if any of those cards remain exiled, put them on the bottom of your library in any order.",
+    "attraction_lights": [
+      3,
+      4,
+      6
+    ],
+    "collector_number": "229b",
+    "set": "unf"
+  },
+  {
+    "name": "Swinging Ship",
+    "oracle_text": "Visit \u2014 After the first combat phase this turn, there's an additional combat phase. At the beginning of that combat, untap all creatures that attacked this turn.",
+    "attraction_lights": [
+      2,
+      6
+    ],
+    "collector_number": "231a",
+    "set": "unf"
+  },
+  {
+    "name": "Swinging Ship",
+    "oracle_text": "Visit \u2014 After the first combat phase this turn, there's an additional combat phase. At the beginning of that combat, untap all creatures that attacked this turn.",
+    "attraction_lights": [
+      4,
+      6
+    ],
+    "collector_number": "231b",
+    "set": "unf"
+  },
+  {
+    "name": "The Superlatorium",
+    "oracle_text": "Visit \u2014 An opponent chooses \"the cleanest,\" \"the hungriest,\" or \"the strangest.\" You choose a creature, then ask a person outside the game to choose the creature that best fits the chosen criteria. If they chose the same creature you chose, claim the prize!\nPrize \u2014 Create two 1/1 red Balloon creature tokens with flying, then sacrifice The Superlatorium and open an Attraction.",
+    "attraction_lights": [
+      3,
+      4,
+      6
+    ],
+    "collector_number": "230d",
+    "set": "unf"
+  },
+  {
+    "name": "The Superlatorium",
+    "oracle_text": "Visit \u2014 An opponent chooses \"the cutest,\" \"the loudest,\" or \"the strongest.\" You choose a creature, then ask a person outside the game to choose the creature that best fits the chosen criteria. If they chose the same creature you chose, claim the prize!\nPrize \u2014 Create two 1/1 red Balloon creature tokens with flying, then sacrifice The Superlatorium and open an Attraction.",
+    "attraction_lights": [
+      2,
+      4,
+      6
+    ],
+    "collector_number": "230b",
+    "set": "unf"
+  },
+  {
+    "name": "The Superlatorium",
+    "oracle_text": "Visit \u2014 An opponent chooses \"the fastest,\" \"the scariest,\" or \"the weakest.\" You choose a creature, then ask a person outside the game to choose the creature that best fits the chosen criteria. If they chose the same creature you chose, claim the prize!\nPrize \u2014 Create two 1/1 red Balloon creature tokens with flying, then sacrifice The Superlatorium and open an Attraction.",
+    "attraction_lights": [
+      2,
+      3,
+      6
+    ],
+    "collector_number": "230a",
+    "set": "unf"
+  },
+  {
+    "name": "The Superlatorium",
+    "oracle_text": "Visit \u2014 An opponent chooses \"the friendliest,\" \"the smartest,\" or \"the wildest.\" You choose a creature, then ask a person outside the game to choose the creature that best fits the chosen criteria. If they chose the same creature you chose, claim the prize!\nPrize \u2014 Create two 1/1 red Balloon creature tokens with flying, then sacrifice The Superlatorium and open an Attraction.",
+    "attraction_lights": [
+      3,
+      5,
+      6
+    ],
+    "collector_number": "230e",
+    "set": "unf"
+  },
+  {
+    "name": "The Superlatorium",
+    "oracle_text": "Visit \u2014 An opponent chooses \"the funniest,\" \"the smelliest,\" or \"the sturdiest.\" You choose a creature, then ask a person outside the game to choose the creature that best fits the chosen criteria. If they chose the same creature you chose, claim the prize!\nPrize \u2014 Create two 1/1 red Balloon creature tokens with flying, then sacrifice The Superlatorium and open an Attraction.",
+    "attraction_lights": [
+      4,
+      5,
+      6
+    ],
+    "collector_number": "230f",
+    "set": "unf"
+  },
+  {
+    "name": "The Superlatorium",
+    "oracle_text": "Visit \u2014 An opponent chooses \"the quietest,\" \"the slowest,\" or \"the ugliest.\" You choose a creature, then ask a person outside the game to choose the creature that best fits the chosen criteria. If they chose the same creature you chose, claim the prize!\nPrize \u2014 Create two 1/1 red Balloon creature tokens with flying, then sacrifice this Attraction and open an Attraction.",
+    "attraction_lights": [
+      2,
+      5,
+      6
+    ],
+    "collector_number": "230c",
+    "set": "unf"
+  },
+  {
+    "name": "Trash Bin",
+    "oracle_text": "Visit \u2014 Mill two cards, then return a card at random from your graveyard to your hand. (To mill a card, a player puts the top card of their library into their graveyard.)",
+    "attraction_lights": [
+      2,
+      6
+    ],
+    "collector_number": "232a",
+    "set": "unf"
+  },
+  {
+    "name": "Trash Bin",
+    "oracle_text": "Visit \u2014 Mill two cards, then return a card at random from your graveyard to your hand. (To mill a card, a player puts the top card of their library into their graveyard.)",
+    "attraction_lights": [
+      3,
+      6
+    ],
+    "collector_number": "232b",
+    "set": "unf"
+  },
+  {
+    "name": "Trash Bin",
+    "oracle_text": "Visit \u2014 Mill two cards, then return a card at random from your graveyard to your hand. (To mill a card, a player puts the top card of their library into their graveyard.)",
+    "attraction_lights": [
+      4,
+      6
+    ],
+    "collector_number": "232c",
+    "set": "unf"
+  },
+  {
+    "name": "Trash Bin",
+    "oracle_text": "Visit \u2014 Mill two cards, then return a card at random from your graveyard to your hand. (To mill a card, a player puts the top card of their library into their graveyard.)",
+    "attraction_lights": [
+      5,
+      6
+    ],
+    "collector_number": "232d",
+    "set": "unf"
+  },
+  {
+    "name": "Trivia Contest",
+    "oracle_text": "Visit \u2014 An opponent chooses black card, artifact card, or expansion, then mills a card. You have ten seconds to name something from the chosen category that starts with the same letter as the milled card. If you do, claim the prize!\nPrize \u2014 You get {TK}{TK}{TK}, then you may put a sticker on a nonland permanent you own. Sacrifice Trivia Contest and open an Attraction.",
+    "attraction_lights": [
+      2,
+      5,
+      6
+    ],
+    "collector_number": "233c",
+    "set": "unf"
+  },
+  {
+    "name": "Trivia Contest",
+    "oracle_text": "Visit \u2014 An opponent chooses blue card, enchantment card, or creature type, then mills a card. You have ten seconds to name something from the chosen category that starts with the same letter as the milled card. If you do, claim the prize!\nPrize \u2014 You get {TK}{TK}{TK}, then you may put a sticker on a nonland permanent you own. Sacrifice Trivia Contest and open an Attraction.",
+    "attraction_lights": [
+      2,
+      4,
+      6
+    ],
+    "collector_number": "233b",
+    "set": "unf"
+  },
+  {
+    "name": "Trivia Contest",
+    "oracle_text": "Visit \u2014 An opponent chooses colorless card, creature card, or plane, then mills a card. You have ten seconds to name something from the chosen category that starts with the same letter as the milled card. If you do, claim the prize!\nPrize \u2014 You get {TK}{TK}{TK}, then you may put a sticker on a nonland permanent you own. Sacrifice Trivia Contest and open an Attraction.",
+    "attraction_lights": [
+      4,
+      5,
+      6
+    ],
+    "collector_number": "233f",
+    "set": "unf"
+  },
+  {
+    "name": "Trivia Contest",
+    "oracle_text": "Visit \u2014 An opponent chooses green card, instant card, or named mechanic, then mills a card. You have ten seconds to name something from the chosen category that starts with the same letter as the milled card. If you do, claim the prize!\nPrize \u2014 You get {TK}{TK}{TK}, then you may put a sticker on a nonland permanent you own. Sacrifice Trivia Contest and open an Attraction.",
+    "attraction_lights": [
+      3,
+      5,
+      6
+    ],
+    "collector_number": "233e",
+    "set": "unf"
+  },
+  {
+    "name": "Trivia Contest",
+    "oracle_text": "Visit \u2014 An opponent chooses red card, sorcery card, or legendary card, then mills a card. You have ten seconds to name something from the chosen category that starts with the same letter as the milled card. If you do, claim the prize!\nPrize \u2014 You get {TK}{TK}{TK}, then you may put a sticker on a nonland permanent you own. Sacrifice this Attraction and open an Attraction.",
+    "attraction_lights": [
+      3,
+      4,
+      6
+    ],
+    "collector_number": "233d",
+    "set": "unf"
+  },
+  {
+    "name": "Trivia Contest",
+    "oracle_text": "Visit \u2014 An opponent chooses white card, land card, or planeswalker card, then mills a card. You have ten seconds to name something from the chosen category that starts with the same letter as the milled card. If you do, claim the prize!\nPrize \u2014 You get {TK}{TK}{TK}, then you may put a sticker on a nonland permanent you own. Sacrifice Trivia Contest and open an Attraction.",
+    "attraction_lights": [
+      2,
+      3,
+      6
+    ],
+    "collector_number": "233a",
+    "set": "unf"
+  },
+  {
+    "name": "Tunnel of Love",
+    "oracle_text": "Visit \u2014 Choose an opponent. They choose a creature they control, then you choose a creature you control. You may exile the chosen creatures. If you do, return them to the battlefield under their owners' control at the beginning of the next end step. Otherwise, the chosen creatures fight each other.",
+    "attraction_lights": [
+      2,
+      6
+    ],
+    "collector_number": "234a",
+    "set": "unf"
+  },
+  {
+    "name": "Tunnel of Love",
+    "oracle_text": "Visit \u2014 Choose an opponent. They choose a creature they control, then you choose a creature you control. You may exile the chosen creatures. If you do, return them to the battlefield under their owners' control at the beginning of the next end step. Otherwise, the chosen creatures fight each other.",
+    "attraction_lights": [
+      3,
+      6
+    ],
+    "collector_number": "234b",
+    "set": "unf"
+  }
+]
