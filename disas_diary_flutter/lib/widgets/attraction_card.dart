@@ -26,80 +26,81 @@ class AttractionCard extends StatelessWidget {
     final theme = Theme.of(context);
     final entry = openAttraction.entry;
 
-    return Dismissible(
-      key: ValueKey('attraction_${index}_${entry.attractionName}'),
-      direction: DismissDirection.endToStart,
-      background: Container(
-        alignment: Alignment.centerRight,
-        padding: const EdgeInsets.only(right: 20),
-        decoration: BoxDecoration(
-          color: theme.colorScheme.error,
-          borderRadius: BorderRadius.circular(20),
-        ),
-        child: const Icon(Icons.delete, color: Colors.white),
-      ),
-      onDismissed: (_) => onJunkyard(),
-      child: GestureDetector(
-        onLongPress: () => _showZoneDialog(context),
-        child: Card(
-          margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-          child: Padding(
-            padding: const EdgeInsets.all(12),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // Top row: name + lit-up numbers
-                Row(
-                  children: [
-                    Expanded(
-                      child: Text(
-                        entry.attractionName,
-                        style: theme.textTheme.titleMedium?.copyWith(
-                          fontWeight: FontWeight.bold,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+      child: Card(
+        margin: EdgeInsets.zero,
+        clipBehavior: Clip.antiAlias,
+        child: Dismissible(
+          key: ValueKey('attraction_${index}_${entry.attractionName}'),
+          direction: DismissDirection.endToStart,
+          background: Container(
+            alignment: Alignment.centerRight,
+            padding: const EdgeInsets.only(right: 20),
+            color: theme.colorScheme.error,
+            child: const Icon(Icons.delete, color: Colors.white),
+          ),
+          onDismissed: (_) => onJunkyard(),
+          child: GestureDetector(
+            onLongPress: () => _showZoneDialog(context),
+            child: Padding(
+              padding: const EdgeInsets.all(12),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // Top row: name + lit-up numbers
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Text(
+                          entry.attractionName,
+                          style: theme.textTheme.titleMedium?.copyWith(
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
+                      _AttractionLights(lights: entry.attractionLights),
+                    ],
+                  ),
+                  const SizedBox(height: 6),
+                  // Oracle text
+                  Text(
+                    entry.oracleText,
+                    maxLines: 3,
+                    overflow: TextOverflow.ellipsis,
+                    style: theme.textTheme.bodySmall?.copyWith(
+                      fontStyle: FontStyle.italic,
                     ),
-                    _AttractionLights(lights: entry.attractionLights),
+                  ),
+                  // Prize chip
+                  if (_hasPrize) ...[
+                    const SizedBox(height: 8),
+                    GestureDetector(
+                      onTap: onTogglePrize,
+                      child: Chip(
+                        label: Text(
+                          openAttraction.prizeClaimed
+                              ? 'Prize Claimed'
+                              : 'Prize',
+                        ),
+                        avatar: Icon(
+                          openAttraction.prizeClaimed
+                              ? Icons.check_circle
+                              : Icons.circle_outlined,
+                          size: 18,
+                          color: openAttraction.prizeClaimed
+                              ? theme.colorScheme.primary
+                              : theme.colorScheme.onSurfaceVariant,
+                        ),
+                        backgroundColor: openAttraction.prizeClaimed
+                            ? theme.colorScheme.primaryContainer
+                            : null,
+                        visualDensity: VisualDensity.compact,
+                      ),
+                    ),
                   ],
-                ),
-                const SizedBox(height: 6),
-                // Oracle text
-                Text(
-                  entry.oracleText,
-                  maxLines: 3,
-                  overflow: TextOverflow.ellipsis,
-                  style: theme.textTheme.bodySmall?.copyWith(
-                    fontStyle: FontStyle.italic,
-                  ),
-                ),
-                // Prize chip
-                if (_hasPrize) ...[
-                  const SizedBox(height: 8),
-                  GestureDetector(
-                    onTap: onTogglePrize,
-                    child: Chip(
-                      label: Text(
-                        openAttraction.prizeClaimed
-                            ? 'Prize Claimed'
-                            : 'Prize',
-                      ),
-                      avatar: Icon(
-                        openAttraction.prizeClaimed
-                            ? Icons.check_circle
-                            : Icons.circle_outlined,
-                        size: 18,
-                        color: openAttraction.prizeClaimed
-                            ? theme.colorScheme.primary
-                            : theme.colorScheme.onSurfaceVariant,
-                      ),
-                      backgroundColor: openAttraction.prizeClaimed
-                          ? theme.colorScheme.primaryContainer
-                          : null,
-                      visualDensity: VisualDensity.compact,
-                    ),
-                  ),
                 ],
-              ],
+              ),
             ),
           ),
         ),

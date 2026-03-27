@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/attractions_state.dart';
+import '../widgets/mana_icons.dart';
 import 'attraction_deck_builder_screen.dart';
 
 /// Screen for selecting, managing, and loading attraction decks
@@ -50,17 +51,20 @@ class AttractionDeckSelectorScreen extends StatelessWidget {
                   child: ListTile(
                     title: Row(
                       children: [
-                        Expanded(
+                        Flexible(
                           child: Text(
                             deck.name,
                             style: const TextStyle(fontWeight: FontWeight.bold),
                           ),
                         ),
                         if (deck.containsAcorn)
-                          Icon(
-                            Icons.warning_amber,
-                            size: 18,
-                            color: theme.colorScheme.error,
+                          Padding(
+                            padding: const EdgeInsets.only(left: 6),
+                            child: Icon(
+                              ManaIcons.acorn,
+                              size: 14,
+                              color: theme.colorScheme.onSurfaceVariant,
+                            ),
                           ),
                       ],
                     ),

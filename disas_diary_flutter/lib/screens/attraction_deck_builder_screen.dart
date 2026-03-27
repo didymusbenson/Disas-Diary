@@ -4,6 +4,7 @@ import '../models/attraction.dart';
 import '../models/attraction_deck.dart';
 import '../providers/attractions_state.dart';
 import '../widgets/attraction_card.dart';
+import '../widgets/mana_icons.dart';
 
 /// Screen for creating or editing an attraction deck
 class AttractionDeckBuilderScreen extends StatefulWidget {
@@ -254,7 +255,9 @@ class _AttractionDeckBuilderScreenState
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    '$_uniqueNamesSelected/10 attractions selected',
+                    _uniqueNamesSelected >= 10
+                        ? '$_uniqueNamesSelected attractions selected'
+                        : '$_uniqueNamesSelected attractions selected (10 minimum)',
                     style: theme.textTheme.bodyMedium?.copyWith(
                       fontWeight: FontWeight.bold,
                       color: _uniqueNamesSelected >= 10
@@ -312,36 +315,58 @@ class _AttractionListItem extends StatelessWidget {
             child: Row(
               children: [
                 // Checkbox indicator
-                Icon(
-                  isSelected
-                      ? Icons.check_box
-                      : Icons.check_box_outline_blank,
-                  size: 20,
-                  color: isSelected
-                      ? theme.colorScheme.primary
-                      : theme.colorScheme.onSurfaceVariant,
+                GestureDetector(
+                  onTap: isSelected ? onDeselect : null,
+                  child: Icon(
+                    isSelected
+                        ? Icons.check_box
+                        : Icons.check_box_outline_blank,
+                    size: 20,
+                    color: isSelected
+                        ? theme.colorScheme.primary
+                        : theme.colorScheme.onSurfaceVariant,
+                  ),
                 ),
                 const SizedBox(width: 12),
-                // Name
+                // Name and oracle text
                 Expanded(
-                  child: Text(
-                    name,
-                    style: theme.textTheme.bodyMedium?.copyWith(
-                      fontWeight:
-                          isSelected ? FontWeight.bold : FontWeight.normal,
-                    ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          Flexible(
+                            child: Text(
+                              name,
+                              style: theme.textTheme.bodyMedium?.copyWith(
+                                fontWeight:
+                                    isSelected ? FontWeight.bold : FontWeight.normal,
+                              ),
+                            ),
+                          ),
+                          if (_hasAcorn)
+                            Padding(
+                              padding: const EdgeInsets.only(left: 6),
+                              child: Icon(
+                                ManaIcons.acorn,
+                                size: 14,
+                                color: theme.colorScheme.onSurfaceVariant,
+                              ),
+                            ),
+                        ],
+                      ),
+                      Text(
+                        variants.first.oracleText,
+                        style: theme.textTheme.bodySmall?.copyWith(
+                          fontStyle: FontStyle.italic,
+                          color: theme.colorScheme.onSurfaceVariant,
+                        ),
+                        maxLines: isExpanded ? null : 2,
+                        overflow: isExpanded ? TextOverflow.clip : TextOverflow.ellipsis,
+                      ),
+                    ],
                   ),
                 ),
-                // Acorn indicator
-                if (_hasAcorn)
-                  Padding(
-                    padding: const EdgeInsets.only(right: 8),
-                    child: Icon(
-                      Icons.warning_amber,
-                      size: 16,
-                      color: theme.colorScheme.error,
-                    ),
-                  ),
                 // Selected variant lights (when collapsed and selected)
                 if (isSelected && !isExpanded && selectedVariant != null)
                   AttractionLightsRow(
@@ -359,6 +384,15 @@ class _AttractionListItem extends StatelessWidget {
         ),
         // Expanded variant list
         if (isExpanded) ...[
+          // Variant rows
+          for (final variant in variants)
+            _VariantRow(
+              variant: variant,
+              isSelected: selectedVariant != null &&
+                  _listsEqual(selectedVariant!.attractionLights,
+                      variant.attractionLights),
+              onTap: () => onSelectVariant(variant),
+            ),
           // Deselect option if already selected
           if (isSelected)
             InkWell(
@@ -375,7 +409,7 @@ class _AttractionListItem extends StatelessWidget {
                     ),
                     const SizedBox(width: 8),
                     Text(
-                      'Deselect',
+                      'Remove',
                       style: theme.textTheme.bodySmall?.copyWith(
                         color: theme.colorScheme.error,
                       ),
@@ -383,15 +417,6 @@ class _AttractionListItem extends StatelessWidget {
                   ],
                 ),
               ),
-            ),
-          // Variant rows
-          for (final variant in variants)
-            _VariantRow(
-              variant: variant,
-              isSelected: selectedVariant != null &&
-                  _listsEqual(selectedVariant!.attractionLights,
-                      variant.attractionLights),
-              onTap: () => onSelectVariant(variant),
             ),
           const SizedBox(height: 4),
         ],

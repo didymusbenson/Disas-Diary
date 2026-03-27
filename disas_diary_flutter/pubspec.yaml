@@ -35,3 +35,8 @@ flutter:
   assets:
     - web/icons/Icon-192.png
     - docs/featuredocs/attractions_data.json
+
+  fonts:
+    - family: Mana
+      fonts:
+        - asset: assets/fonts/mana.ttf

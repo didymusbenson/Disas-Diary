@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'about_screen.dart';
 import 'attractions_screen.dart';
 import 'disas_diary_screen.dart';
 import 'dungeons_screen.dart';
@@ -29,7 +30,10 @@ class HomeScreen extends StatelessWidget {
             tooltip: 'About',
             padding: EdgeInsets.zero,
             constraints: const BoxConstraints(),
-            onPressed: () => _showAboutDialog(context),
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const AboutScreen()),
+            ),
           ),
           const SizedBox(width: 8),
           IconButton(
@@ -99,35 +103,6 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  void _showAboutDialog(BuildContext context) {
-    showAboutDialog(
-      context: context,
-      applicationName: 'Mana Burn',
-      applicationVersion: '2.0.0',
-      applicationIcon: ClipRRect(
-        borderRadius: BorderRadius.circular(12),
-        child: Image.asset(
-          'web/icons/Icon-192.png',
-          width: 64,
-          height: 64,
-        ),
-      ),
-      children: [
-        const Text(
-          'A Magic: The Gathering toolkit for gameplay tracking.',
-        ),
-        const SizedBox(height: 8),
-        const Text(
-          "Disa's Diary: Tarmogoyf P/T calculator and graveyard card type tracker.",
-        ),
-        const SizedBox(height: 16),
-        const Text(
-          '© 2024 Didymus Benson. All rights reserved.',
-          style: TextStyle(fontSize: 12),
-        ),
-      ],
-    );
-  }
 }
 
 class _ToolListItem extends StatelessWidget {
