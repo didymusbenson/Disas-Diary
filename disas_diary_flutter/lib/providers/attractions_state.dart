@@ -17,6 +17,7 @@ class AttractionsState extends ChangeNotifier {
   AttractionGameState? _gameState;
   bool _commanderLegalFilter = false;
   bool _isLoaded = false;
+  int _diceCount = 1;
 
   AttractionsState(this._persistence);
 
@@ -29,6 +30,7 @@ class AttractionsState extends ChangeNotifier {
   bool get commanderLegalFilter => _commanderLegalFilter;
   bool get isLoaded => _isLoaded;
   bool get hasActiveGame => _gameState != null;
+  int get diceCount => _diceCount;
 
   int get deckRemaining => _gameState?.drawPile.length ?? 0;
   bool get canOpenAttraction => (_gameState?.drawPile.isNotEmpty) ?? false;
@@ -54,6 +56,7 @@ class AttractionsState extends ChangeNotifier {
     _attractionsByName = Attraction.groupByName(_allAttractions);
     _decks = _persistence.loadAttractionDecks();
     _gameState = _persistence.loadAttractionGameState();
+    _diceCount = _persistence.loadAttractionDiceCount();
     _isLoaded = true;
     notifyListeners();
   }
@@ -154,6 +157,37 @@ class AttractionsState extends ChangeNotifier {
       entry: entry,
       prizeClaimed: false,
     ));
+
+    _persistence.saveAttractionGameState(_gameState!);
+    notifyListeners();
+  }
+
+  /// Set the number of dice to roll
+  void setDiceCount(int count) {
+    if (count < 1) count = 1;
+    _diceCount = count;
+    _persistence.saveAttractionDiceCount(count);
+    notifyListeners();
+  }
+
+  /// Roll multiple d6s, returning all results
+  List<int> rollDice() {
+    return List.generate(_diceCount, (_) => _random.nextInt(6) + 1);
+  }
+
+  /// Apply a chosen roll result as the lastRoll
+  void applyRoll(int roll) {
+    if (_gameState == null) return;
+
+    _gameState = AttractionGameState(
+      deckId: _gameState!.deckId,
+      deckName: _gameState!.deckName,
+      drawPile: _gameState!.drawPile,
+      battlefield: _gameState!.battlefield,
+      junkyard: _gameState!.junkyard,
+      exile: _gameState!.exile,
+      lastRoll: roll,
+    );
 
     _persistence.saveAttractionGameState(_gameState!);
     notifyListeners();

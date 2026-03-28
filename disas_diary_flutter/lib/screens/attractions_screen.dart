@@ -406,7 +406,7 @@ class _JunkyardSheet extends StatelessWidget {
   }
 }
 
-/// Sticky action buttons at the bottom
+/// Sticky action buttons at the bottom with dice count control
 class _ActionButtons extends StatelessWidget {
   final AttractionsState state;
 
@@ -414,26 +414,64 @@ class _ActionButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-      child: Row(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
-          Expanded(
-            child: FilledButton(
-              onPressed: state.canOpenAttraction
-                  ? () => context.read<AttractionsState>().openAttraction()
-                  : null,
-              child: const Text('Open an Attraction'),
-            ),
+          // Dice count control
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              IconButton(
+                onPressed: state.diceCount > 1
+                    ? () => context.read<AttractionsState>().setDiceCount(
+                          state.diceCount - 1,
+                        )
+                    : null,
+                icon: const Icon(Icons.remove),
+                visualDensity: VisualDensity.compact,
+              ),
+              Text(
+                'Roll ${state.diceCount} ${state.diceCount == 1 ? 'die' : 'dice'}',
+                style: theme.textTheme.titleMedium?.copyWith(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              IconButton(
+                onPressed: () => context.read<AttractionsState>().setDiceCount(
+                      state.diceCount + 1,
+                    ),
+                icon: const Icon(Icons.add),
+                visualDensity: VisualDensity.compact,
+              ),
+            ],
           ),
-          const SizedBox(width: 12),
-          Expanded(
-            child: OutlinedButton(
-              onPressed: state.battlefield.isNotEmpty
-                  ? () => _rollToVisit(context)
-                  : null,
-              child: const Text('Roll to Visit'),
-            ),
+          const SizedBox(height: 4),
+          // Action buttons
+          Row(
+            children: [
+              Expanded(
+                child: FilledButton(
+                  onPressed: state.canOpenAttraction
+                      ? () =>
+                          context.read<AttractionsState>().openAttraction()
+                      : null,
+                  child: const Text('Open an Attraction'),
+                ),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: OutlinedButton(
+                  onPressed: state.battlefield.isNotEmpty
+                      ? () => _rollToVisit(context)
+                      : null,
+                  child: const Text('Roll to Visit'),
+                ),
+              ),
+            ],
           ),
         ],
       ),
@@ -442,20 +480,106 @@ class _ActionButtons extends StatelessWidget {
 
   void _rollToVisit(BuildContext context) {
     final attractionsState = context.read<AttractionsState>();
-    final roll = attractionsState.rollToVisit();
-    final visited = attractionsState.getVisitedAttractions(roll);
+    final rolls = attractionsState.rollDice();
 
-    showModalBottomSheet(
-      context: context,
-      builder: (sheetContext) => _RollResultSheet(
-        roll: roll,
-        visited: visited,
+    if (rolls.length == 1) {
+      // Single die — apply immediately and show results
+      attractionsState.applyRoll(rolls.first);
+      final visited = attractionsState.getVisitedAttractions(rolls.first);
+      showModalBottomSheet(
+        context: context,
+        builder: (sheetContext) => _RollResultSheet(
+          roll: rolls.first,
+          visited: visited,
+        ),
+      );
+    } else {
+      // Multiple dice — let player pick which result to use
+      showModalBottomSheet(
+        context: context,
+        builder: (sheetContext) => _DicePickerSheet(
+          rolls: rolls,
+          attractionsState: attractionsState,
+        ),
+      );
+    }
+  }
+}
+
+/// Bottom sheet for choosing which die result to use
+class _DicePickerSheet extends StatelessWidget {
+  final List<int> rolls;
+  final AttractionsState attractionsState;
+
+  const _DicePickerSheet({
+    required this.rolls,
+    required this.attractionsState,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
+    return Padding(
+      padding: const EdgeInsets.all(16),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            'Choose a result',
+            style: theme.textTheme.titleMedium?.copyWith(
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 16),
+          Wrap(
+            spacing: 12,
+            runSpacing: 12,
+            alignment: WrapAlignment.center,
+            children: rolls.map((roll) {
+              return SizedBox(
+                width: 72,
+                height: 72,
+                child: Material(
+                  color: theme.colorScheme.surfaceContainerHigh,
+                  borderRadius: BorderRadius.circular(12),
+                  child: InkWell(
+                    borderRadius: BorderRadius.circular(12),
+                    onTap: () {
+                      Navigator.pop(context);
+                      attractionsState.applyRoll(roll);
+                      final visited =
+                          attractionsState.getVisitedAttractions(roll);
+                      showModalBottomSheet(
+                        context: context,
+                        builder: (sheetContext) => _RollResultSheet(
+                          roll: roll,
+                          visited: visited,
+                        ),
+                      );
+                    },
+                    child: Center(
+                      child: Text(
+                        '$roll',
+                        style: theme.textTheme.headlineLarge?.copyWith(
+                          fontWeight: FontWeight.bold,
+                          color: theme.colorScheme.primary,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              );
+            }).toList(),
+          ),
+          const SizedBox(height: 16),
+        ],
       ),
     );
   }
 }
 
-/// Bottom sheet showing roll result
+/// Bottom sheet showing roll result and visited attractions
 class _RollResultSheet extends StatelessWidget {
   final int roll;
   final List<OpenAttraction> visited;

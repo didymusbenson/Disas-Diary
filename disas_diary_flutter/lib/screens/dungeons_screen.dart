@@ -78,24 +78,6 @@ class _DungeonSelectionView extends StatelessWidget {
           ),
         ),
         actions: [
-          // Initiative toggle
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                'Initiative',
-                style: theme.textTheme.labelSmall?.copyWith(
-                  color: Colors.white70,
-                ),
-              ),
-              Switch(
-                value: state.hasInitiative,
-                onChanged: (_) =>
-                    context.read<DungeonsState>().toggleInitiative(),
-                materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-              ),
-            ],
-          ),
           // Reset button
           IconButton(
             icon: const Icon(Icons.restart_alt, size: 20),
@@ -306,23 +288,33 @@ class _ActiveDungeonView extends StatelessWidget {
           ),
         ),
         actions: [
-          if (state.isOnBottomRoom)
-            TextButton(
-              onPressed: () => _completeDungeon(context),
-              child: Text(
-                'Complete',
-                style: theme.textTheme.labelMedium?.copyWith(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
+          // Initiative toggle
+          Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                'Initiative',
+                style: theme.textTheme.labelSmall?.copyWith(
+                  color: Colors.white70,
                 ),
               ),
-            )
-          else
-            IconButton(
-              icon: const Icon(Icons.close, size: 20),
-              tooltip: 'Abandon dungeon',
-              onPressed: () => _showAbandonDialog(context),
-            ),
+              Switch(
+                value: state.hasInitiative,
+                onChanged: (_) =>
+                    context.read<DungeonsState>().toggleInitiative(),
+                materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                activeColor: theme.colorScheme.onPrimary,
+                activeTrackColor: theme.colorScheme.onPrimary.withValues(alpha: 0.38),
+                inactiveThumbColor: theme.colorScheme.onPrimary.withValues(alpha: 0.54),
+                inactiveTrackColor: theme.colorScheme.onPrimary.withValues(alpha: 0.12),
+              ),
+            ],
+          ),
+          IconButton(
+            icon: const Icon(Icons.close, size: 20),
+            tooltip: 'Abandon dungeon',
+            onPressed: () => _showAbandonDialog(context),
+          ),
         ],
       ),
       body: SafeArea(
@@ -375,21 +367,6 @@ class _ActiveDungeonView extends StatelessWidget {
     );
   }
 
-  void _completeDungeon(BuildContext context) {
-    context.read<DungeonsState>().completeDungeon();
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: const Text('Dungeon completed!'),
-        actions: [
-          FilledButton(
-            onPressed: () => Navigator.pop(context),
-            child: const Text('OK'),
-          ),
-        ],
-      ),
-    );
-  }
 }
 
 // ---------------------------------------------------------------------------
@@ -584,28 +561,12 @@ class _VentureButton extends StatelessWidget {
         width: double.infinity,
         child: FilledButton(
           onPressed: isBottom
-              ? () => _completeDungeon(context)
+              ? () => context.read<DungeonsState>().completeDungeon()
               : nextRooms.isNotEmpty
                   ? () => _venture(context, nextRooms)
                   : null,
-          child: Text(isBottom ? 'Complete Dungeon' : 'Venture'),
+          child: Text(isBottom ? 'Venture into next dungeon' : 'Venture'),
         ),
-      ),
-    );
-  }
-
-  void _completeDungeon(BuildContext context) {
-    context.read<DungeonsState>().completeDungeon();
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: const Text('Dungeon completed!'),
-        actions: [
-          FilledButton(
-            onPressed: () => Navigator.pop(context),
-            child: const Text('OK'),
-          ),
-        ],
       ),
     );
   }

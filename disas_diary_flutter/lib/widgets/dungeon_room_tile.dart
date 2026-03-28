@@ -33,8 +33,7 @@ class DungeonRoomTile extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       onLongPress: () => _showRoomDetail(context),
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 300),
+      child: Container(
         constraints: const BoxConstraints(minHeight: 56),
         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
         decoration: BoxDecoration(

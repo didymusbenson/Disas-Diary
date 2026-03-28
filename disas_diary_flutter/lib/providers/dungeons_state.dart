@@ -19,13 +19,8 @@ class DungeonsState extends ChangeNotifier {
 
   List<Dungeon> get dungeons => _dungeons;
 
-  /// Dungeons the player can choose. Undercity requires initiative.
-  List<Dungeon> get availableDungeons {
-    if (_gameState.hasInitiative) {
-      return _dungeons;
-    }
-    return _dungeons.where((d) => d.id != 'undercity').toList();
-  }
+  /// All dungeons the player can choose from.
+  List<Dungeon> get availableDungeons => _dungeons;
 
   /// The currently active dungeon, or null if none
   Dungeon? get activeDungeon {

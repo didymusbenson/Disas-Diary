@@ -18,6 +18,7 @@ class PersistenceService {
   static const String _attractionDecksKey = 'attraction_decks';
   static const String _attractionGameStateKey = 'attraction_game_state';
   static const String _dungeonGameStateKey = 'dungeon_game_state';
+  static const String _attractionDiceCountKey = 'attraction_dice_count';
 
   final SharedPreferences _prefs;
 
@@ -194,6 +195,16 @@ class PersistenceService {
   /// Clear attraction game state
   Future<void> clearAttractionGameState() async {
     await _prefs.remove(_attractionGameStateKey);
+  }
+
+  /// Save attraction dice count
+  Future<void> saveAttractionDiceCount(int count) async {
+    await _prefs.setInt(_attractionDiceCountKey, count);
+  }
+
+  /// Load attraction dice count (defaults to 1)
+  int loadAttractionDiceCount() {
+    return _prefs.getInt(_attractionDiceCountKey) ?? 1;
   }
 
   /// Save dungeon game state

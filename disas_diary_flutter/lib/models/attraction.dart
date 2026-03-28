@@ -50,7 +50,7 @@ class Attraction {
   /// Load all attractions from the bundled asset
   static Future<List<Attraction>> loadAll() async {
     final jsonString = await rootBundle.loadString(
-      'docs/featuredocs/attractions_data.json',
+      'assets/data/attractions_data.json',
     );
     final list = jsonDecode(jsonString) as List;
     return list
