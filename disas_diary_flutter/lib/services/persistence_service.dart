@@ -5,6 +5,7 @@ import '../models/grave_stepper_data.dart';
 import '../models/attraction_deck.dart';
 import '../models/attraction_game_state.dart';
 import '../models/dungeon_game_state.dart';
+import '../models/command_zone_state.dart';
 
 /// Service for persisting application state
 class PersistenceService {
@@ -19,6 +20,7 @@ class PersistenceService {
   static const String _attractionGameStateKey = 'attraction_game_state';
   static const String _dungeonGameStateKey = 'dungeon_game_state';
   static const String _attractionDiceCountKey = 'attraction_dice_count';
+  static const String _commandZoneStateKey = 'command_zone_state';
 
   final SharedPreferences _prefs;
 
@@ -231,6 +233,30 @@ class PersistenceService {
     await _prefs.remove(_dungeonGameStateKey);
   }
 
+  /// Save command zone state
+  Future<void> saveCommandZoneState(CommandZoneGameState state) async {
+    final json = jsonEncode(state.toJson());
+    await _prefs.setString(_commandZoneStateKey, json);
+  }
+
+  /// Load command zone state (null means no state saved)
+  CommandZoneGameState? loadCommandZoneState() {
+    final json = _prefs.getString(_commandZoneStateKey);
+    if (json == null) return null;
+
+    try {
+      final map = jsonDecode(json) as Map<String, dynamic>;
+      return CommandZoneGameState.fromJson(map);
+    } catch (e) {
+      return null;
+    }
+  }
+
+  /// Clear command zone state
+  Future<void> clearCommandZoneState() async {
+    await _prefs.remove(_commandZoneStateKey);
+  }
+
   /// Clear all persisted data
   Future<void> clearAll() async {
     await _prefs.remove(_itemKey);
@@ -240,6 +266,7 @@ class PersistenceService {
     await _prefs.remove(_manaPoolLocksKey);
     await _prefs.remove(_attractionGameStateKey);
     await _prefs.remove(_dungeonGameStateKey);
+    await _prefs.remove(_commandZoneStateKey);
     // Note: Theme preferences and attraction decks are intentionally NOT cleared on reset
   }
 

@@ -97,7 +97,7 @@ class _ManaPoolScreenState extends State<ManaPoolScreen> {
           'Mana Pool',
           style: theme.textTheme.titleMedium?.copyWith(
             fontWeight: FontWeight.bold,
-            color: Colors.white,
+            color: theme.colorScheme.onPrimary,
           ),
         ),
         actions: [

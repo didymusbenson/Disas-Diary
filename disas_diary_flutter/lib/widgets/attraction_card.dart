@@ -38,7 +38,7 @@ class AttractionCard extends StatelessWidget {
             alignment: Alignment.centerRight,
             padding: const EdgeInsets.only(right: 20),
             color: theme.colorScheme.error,
-            child: const Icon(Icons.delete, color: Colors.white),
+            child: Icon(Icons.delete, color: theme.colorScheme.onError),
           ),
           onDismissed: (_) => onJunkyard(),
           child: GestureDetector(
@@ -179,6 +179,8 @@ class _LightIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Container(
       width: 22,
       height: 22,
@@ -186,7 +188,7 @@ class _LightIndicator extends StatelessWidget {
         shape: BoxShape.circle,
         color: isLit ? color : Colors.transparent,
         border: Border.all(
-          color: isLit ? color : Colors.grey.shade400,
+          color: isLit ? color : theme.colorScheme.outlineVariant,
           width: 1.5,
         ),
       ),
@@ -196,7 +198,9 @@ class _LightIndicator extends StatelessWidget {
         style: TextStyle(
           fontSize: 11,
           fontWeight: FontWeight.bold,
-          color: isLit ? Colors.white : Colors.grey.shade500,
+          color: isLit
+              ? theme.colorScheme.onPrimary
+              : theme.colorScheme.onSurfaceVariant,
         ),
       ),
     );

@@ -43,7 +43,7 @@ class DungeonsScreen extends StatelessWidget {
         'Dungeons',
         style: theme.textTheme.titleMedium?.copyWith(
           fontWeight: FontWeight.bold,
-          color: Colors.white,
+          color: theme.colorScheme.onPrimary,
         ),
       ),
     );
@@ -74,7 +74,7 @@ class _DungeonSelectionView extends StatelessWidget {
           'Dungeons',
           style: theme.textTheme.titleMedium?.copyWith(
             fontWeight: FontWeight.bold,
-            color: Colors.white,
+            color: theme.colorScheme.onPrimary,
           ),
         ),
         actions: [
@@ -284,7 +284,7 @@ class _ActiveDungeonView extends StatelessWidget {
           dungeon.name,
           style: theme.textTheme.titleMedium?.copyWith(
             fontWeight: FontWeight.bold,
-            color: Colors.white,
+            color: theme.colorScheme.onPrimary,
           ),
         ),
         actions: [
@@ -295,7 +295,7 @@ class _ActiveDungeonView extends StatelessWidget {
               Text(
                 'Initiative',
                 style: theme.textTheme.labelSmall?.copyWith(
-                  color: Colors.white70,
+                  color: theme.colorScheme.onPrimary.withValues(alpha: 0.7),
                 ),
               ),
               Switch(
@@ -303,7 +303,7 @@ class _ActiveDungeonView extends StatelessWidget {
                 onChanged: (_) =>
                     context.read<DungeonsState>().toggleInitiative(),
                 materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                activeColor: theme.colorScheme.onPrimary,
+                activeThumbColor: theme.colorScheme.onPrimary,
                 activeTrackColor: theme.colorScheme.onPrimary.withValues(alpha: 0.38),
                 inactiveThumbColor: theme.colorScheme.onPrimary.withValues(alpha: 0.54),
                 inactiveTrackColor: theme.colorScheme.onPrimary.withValues(alpha: 0.12),

@@ -225,7 +225,9 @@ class AttractionsState extends ChangeNotifier {
   void junkyardAttraction(int battlefieldIndex) {
     if (_gameState == null) return;
     if (battlefieldIndex < 0 ||
-        battlefieldIndex >= _gameState!.battlefield.length) return;
+        battlefieldIndex >= _gameState!.battlefield.length) {
+      return;
+    }
 
     final removed = _gameState!.battlefield.removeAt(battlefieldIndex);
     _gameState!.junkyard.add(removed.entry);
@@ -238,7 +240,9 @@ class AttractionsState extends ChangeNotifier {
   void exileAttraction(int battlefieldIndex) {
     if (_gameState == null) return;
     if (battlefieldIndex < 0 ||
-        battlefieldIndex >= _gameState!.battlefield.length) return;
+        battlefieldIndex >= _gameState!.battlefield.length) {
+      return;
+    }
 
     final removed = _gameState!.battlefield.removeAt(battlefieldIndex);
     _gameState!.exile.add(removed.entry);
@@ -251,7 +255,9 @@ class AttractionsState extends ChangeNotifier {
   void togglePrizeClaimed(int battlefieldIndex) {
     if (_gameState == null) return;
     if (battlefieldIndex < 0 ||
-        battlefieldIndex >= _gameState!.battlefield.length) return;
+        battlefieldIndex >= _gameState!.battlefield.length) {
+      return;
+    }
 
     final current = _gameState!.battlefield[battlefieldIndex];
     _gameState!.battlefield[battlefieldIndex] = OpenAttraction(

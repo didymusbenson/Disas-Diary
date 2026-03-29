@@ -18,4 +18,10 @@ class ManaIcons {
 
   // Other symbols
   static const IconData acorn = IconData(0xe929, fontFamily: _fontFamily);
+
+  // Counter symbols
+  static const IconData toxic = IconData(0xe9bf, fontFamily: _fontFamily);
+  static const IconData energy = IconData(0xe907, fontFamily: _fontFamily);
+  static const IconData ticket = IconData(0xe9c4, fontFamily: _fontFamily);
+  static const IconData rad = IconData(0xea50, fontFamily: _fontFamily);
 }

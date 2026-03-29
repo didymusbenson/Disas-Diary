@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'about_screen.dart';
 import 'attractions_screen.dart';
+import 'command_zone_screen.dart';
 import 'disas_diary_screen.dart';
 import 'dungeons_screen.dart';
 import 'mana_pool_screen.dart';
@@ -21,7 +22,7 @@ class HomeScreen extends StatelessWidget {
           'Mana Burn',
           style: theme.textTheme.titleMedium?.copyWith(
             fontWeight: FontWeight.bold,
-            color: Colors.white,
+            color: theme.colorScheme.onPrimary,
           ),
         ),
         actions: [
@@ -72,6 +73,17 @@ class HomeScreen extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) => const ManaPoolScreen(),
+                ),
+              ),
+            ),
+            _ToolListItem(
+              title: 'Command Zone',
+              subtitle: 'Advanced life tracker',
+              icon: Icons.shield,
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const CommandZoneScreen(),
                 ),
               ),
             ),

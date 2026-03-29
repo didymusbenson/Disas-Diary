@@ -141,7 +141,7 @@ class _AttractionDeckBuilderScreenState
           _isEditing ? 'Edit: ${widget.deck!.name}' : 'New Deck',
           style: theme.textTheme.titleMedium?.copyWith(
             fontWeight: FontWeight.bold,
-            color: Colors.white,
+            color: theme.colorScheme.onPrimary,
           ),
         ),
         actions: [
@@ -155,8 +155,8 @@ class _AttractionDeckBuilderScreenState
               style: TextStyle(
                 color: _uniqueNamesSelected >= 10 &&
                         _nameController.text.trim().isNotEmpty
-                    ? Colors.white
-                    : Colors.white38,
+                    ? theme.colorScheme.onPrimary
+                    : theme.colorScheme.onPrimary.withValues(alpha: 0.38),
               ),
             ),
           ),

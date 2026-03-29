@@ -40,7 +40,7 @@ class AttractionsScreen extends StatelessWidget {
         'Attractions Deck',
         style: theme.textTheme.titleMedium?.copyWith(
           fontWeight: FontWeight.bold,
-          color: Colors.white,
+          color: theme.colorScheme.onPrimary,
         ),
       ),
     );
@@ -65,7 +65,7 @@ class _NoGameView extends StatelessWidget {
           'Attractions Deck',
           style: theme.textTheme.titleMedium?.copyWith(
             fontWeight: FontWeight.bold,
-            color: Colors.white,
+            color: theme.colorScheme.onPrimary,
           ),
         ),
         actions: [
@@ -219,7 +219,7 @@ class _ActiveGameView extends StatelessWidget {
           gameState.deckName,
           style: theme.textTheme.titleMedium?.copyWith(
             fontWeight: FontWeight.bold,
-            color: Colors.white,
+            color: theme.colorScheme.onPrimary,
           ),
         ),
         actions: [

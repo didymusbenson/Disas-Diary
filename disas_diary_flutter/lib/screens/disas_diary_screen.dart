@@ -26,7 +26,7 @@ class DisasDiaryScreen extends StatelessWidget {
           "Disa's Diary",
           style: theme.textTheme.titleMedium?.copyWith(
             fontWeight: FontWeight.bold,
-            color: Colors.white,
+            color: theme.colorScheme.onPrimary,
           ),
         ),
         actions: [
