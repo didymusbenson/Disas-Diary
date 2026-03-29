@@ -41,7 +41,7 @@ class AboutScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 12),
                   Text(
-                    'Mana Burn',
+                    "Disa's Diary",
                     style: theme.textTheme.headlineSmall?.copyWith(
                       fontWeight: FontWeight.bold,
                     ),
@@ -104,7 +104,7 @@ class AboutScreen extends StatelessWidget {
                 onTap: () {
                   showLicensePage(
                     context: context,
-                    applicationName: 'Mana Burn',
+                    applicationName: "Disa's Diary",
                     applicationVersion: '2.0.0',
                     applicationIcon: Padding(
                       padding: const EdgeInsets.all(8),

@@ -1,4 +1,4 @@
-// Basic Flutter widget test for Mana Burn
+// Basic Flutter widget test for Disa's Diary
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:provider/provider.dart';
@@ -19,7 +19,7 @@ void main() {
     await tester.pumpWidget(
       ChangeNotifierProvider(
         create: (_) => AppState(persistenceService),
-        child: const ManaBurnApp(),
+        child: const DisasDiaryApp(),
       ),
     );
 
@@ -30,7 +30,7 @@ void main() {
     expect(find.text('Tarmogoyf'), findsOneWidget);
 
     // Verify that the app title is displayed
-    expect(find.text('Mana Burn'), findsOneWidget);
+    expect(find.text("Disa's Diary"), findsOneWidget);
 
     // Verify card type toggles are present
     expect(find.text('Creature'), findsOneWidget);

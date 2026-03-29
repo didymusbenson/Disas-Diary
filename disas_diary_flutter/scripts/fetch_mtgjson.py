@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Download and cache MTGJSON data for Mana Burn.
+Download and cache MTGJSON data for Disa's Diary.
 
 Downloads AtomicCards.json.xz from MTGJSON API v5, decompresses it,
 and caches the result locally. Uses version checking to avoid
@@ -91,7 +91,7 @@ def main():
     DATA_DIR.mkdir(exist_ok=True)
 
     print("=" * 60)
-    print("Mana Burn - MTGJSON Data Fetcher")
+    print("Disa's Diary - MTGJSON Data Fetcher")
     print("=" * 60)
 
     local_version = get_local_version()

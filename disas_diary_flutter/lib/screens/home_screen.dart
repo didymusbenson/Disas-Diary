@@ -19,7 +19,7 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         toolbarHeight: 40,
         title: Text(
-          'Mana Burn',
+          "Disa's Diary",
           style: theme.textTheme.titleMedium?.copyWith(
             fontWeight: FontWeight.bold,
             color: theme.colorScheme.onPrimary,

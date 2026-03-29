@@ -46,20 +46,20 @@ void main() async {
           create: (_) => commandZoneState,
         ),
       ],
-      child: const ManaBurnApp(),
+      child: const DisasDiaryApp(),
     ),
   );
 }
 
-class ManaBurnApp extends StatelessWidget {
-  const ManaBurnApp({super.key});
+class DisasDiaryApp extends StatelessWidget {
+  const DisasDiaryApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     final appState = context.watch<AppState>();
 
     return MaterialApp(
-      title: 'Mana Burn',
+      title: "Disa's Diary",
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       themeMode: appState.themeMode,

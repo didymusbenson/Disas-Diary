@@ -3,7 +3,7 @@
 Extract card type information from cached MTGJSON AtomicCards data.
 
 Reads the locally cached AtomicCards.json (downloaded by fetch_mtgjson.py)
-and extracts card type data relevant to Mana Burn's tools:
+and extracts card type data relevant to Disa's Diary's tools:
 - All known card supertypes, types, and subtypes
 - Cards grouped by type for lookup
 - Type frequency counts
@@ -88,7 +88,7 @@ def extract_types(cards):
 
 def main():
     print("=" * 60)
-    print("Mana Burn - Card Type Extractor")
+    print("Disa's Diary - Card Type Extractor")
     print("=" * 60)
 
     cards = load_atomic_cards()
