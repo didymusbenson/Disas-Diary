@@ -42,7 +42,13 @@ class CommandZoneState extends ChangeNotifier {
   List<Map<int, int>> get commanderDamage => _state.commanderDamage;
   List<int> get commanderTax => _state.commanderTax;
   int get opponentCount => _state.opponentCount;
-  int get commanderCount => _state.commanderCount;
+
+  /// Whether any opponent has partner damage recorded
+  bool hasPartnerDamageFor(int opponentIndex) =>
+      commanderDamageFor(commanderIndex: 1, opponentIndex: opponentIndex) > 0;
+
+  /// Whether the user has partner tax
+  bool get hasPartnerTax => commanderTaxFor(1) > 0;
 
   // Settings
   int get startingLife => _state.startingLife;
@@ -381,41 +387,6 @@ class CommandZoneState extends ChangeNotifier {
     _persistAndNotify();
   }
 
-  /// Set the number of commanders (1 or 2 for partner support)
-  void setCommanderCount(int count) {
-    final clamped = count.clamp(
-        CommandZoneGameState.minCommanders, CommandZoneGameState.maxCommanders);
-
-    List<Map<int, int>> updatedDamage;
-    List<int> updatedTax;
-
-    if (clamped > _state.commanderDamage.length) {
-      // Adding a commander: append empty damage map and zero tax
-      updatedDamage = [
-        ...List<Map<int, int>>.from(
-            _state.commanderDamage.map((m) => Map<int, int>.from(m))),
-        {},
-      ];
-      updatedTax = [..._state.commanderTax, 0];
-    } else if (clamped < _state.commanderDamage.length) {
-      // Removing a commander: trim to new count
-      updatedDamage = _state.commanderDamage
-          .take(clamped)
-          .map((m) => Map<int, int>.from(m))
-          .toList();
-      updatedTax = _state.commanderTax.take(clamped).toList();
-    } else {
-      return; // No change
-    }
-
-    _state = _state.copyWith(
-      commanderCount: clamped,
-      commanderDamage: updatedDamage,
-      commanderTax: updatedTax,
-    );
-    _persistAndNotify();
-  }
-
   // --- Settings ---
 
   /// Set starting life and reset life total to new starting value
@@ -447,10 +418,6 @@ class CommandZoneState extends ChangeNotifier {
     if (!resetCommanderConfig) {
       newState = newState.copyWith(
         opponentCount: _state.opponentCount,
-        commanderCount: _state.commanderCount,
-        commanderDamage: List.generate(
-          _state.commanderCount, (_) => <int, int>{}),
-        commanderTax: List.filled(_state.commanderCount, 0),
       );
     }
 

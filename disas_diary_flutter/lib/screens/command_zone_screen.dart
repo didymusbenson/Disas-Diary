@@ -276,6 +276,8 @@ class _LifeTotalTileState extends State<_LifeTotalTile> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final isDead = widget.lifeTotal <= 0;
+    final warningColor = theme.colorScheme.error;
 
     return Container(
       height: CommandZoneScreen._lifeTileHeight,
@@ -283,8 +285,10 @@ class _LifeTotalTileState extends State<_LifeTotalTile> {
         color: theme.colorScheme.surfaceContainerHighest,
         borderRadius: BorderRadius.circular(CommandZoneScreen._tileBorderRadius),
         border: Border.all(
-          color: theme.colorScheme.outline,
-          width: CommandZoneScreen._tileBorderWidth,
+          color: isDead ? warningColor : theme.colorScheme.outline,
+          width: isDead
+              ? CommandZoneScreen._warningBorderWidth
+              : CommandZoneScreen._tileBorderWidth,
         ),
       ),
       clipBehavior: Clip.antiAlias,
@@ -337,7 +341,7 @@ class _LifeTotalTileState extends State<_LifeTotalTile> {
                     widget.lifeTotal.toString(),
                     style: theme.textTheme.displayLarge?.copyWith(
                       fontWeight: FontWeight.w900,
-                      color: theme.colorScheme.onSurface,
+                      color: isDead ? warningColor : theme.colorScheme.onSurface,
                     ),
                   ),
                 ),
@@ -452,9 +456,8 @@ class _CountersRow extends StatelessWidget {
     );
   }
 
-  /// Whether partner tax is active (commander 2 has tax > 0)
-  bool get _hasPartnerTax =>
-      state.commanderCount >= 2 && state.commanderTaxFor(1) > 0;
+  /// Whether partner tax is active (partner has tax > 0)
+  bool get _hasPartnerTax => state.hasPartnerTax;
 
   @override
   Widget build(BuildContext context) {
@@ -637,84 +640,205 @@ class _SharedCounterRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    final czState = context.read<CommandZoneState>();
     final value = def.valueGetter(state);
     final warning = def.isWarning(state);
-    final czState = context.read<CommandZoneState>();
 
-    return Column(
+    return _ModalTappableTile(
+      value: value,
+      label: def.fullName,
+      smallDelta: 1,
+      largeDelta: 5,
+      onAdjust: (delta) => def.onAdjust(czState, delta),
+      onReset: () => def.onReset(czState),
+      isWarning: warning,
+      warningMessage: warning ? def.warningMessage : null,
+    );
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Modal Tappable Tile — Reusable left/right tap tile for bottom sheet modals
+// ---------------------------------------------------------------------------
+
+class _ModalTappableTile extends StatefulWidget {
+  final int value;
+  final String label;
+  final int smallDelta;
+  final int largeDelta;
+  final void Function(int delta) onAdjust;
+  final VoidCallback? onReset;
+  final bool isWarning;
+  final String? warningMessage;
+
+  const _ModalTappableTile({
+    required this.value,
+    required this.label,
+    required this.smallDelta,
+    required this.largeDelta,
+    required this.onAdjust,
+    this.onReset,
+    this.isWarning = false,
+    this.warningMessage,
+  });
+
+  @override
+  State<_ModalTappableTile> createState() => _ModalTappableTileState();
+}
+
+class _ModalTappableTileState extends State<_ModalTappableTile> {
+  Timer? _repeatTimer;
+
+  @override
+  void dispose() {
+    _repeatTimer?.cancel();
+    super.dispose();
+  }
+
+  void _startLongPress(int delta) {
+    widget.onAdjust(delta);
+    HapticFeedback.mediumImpact();
+    _repeatTimer = Timer(CommandZoneScreen._longPressInitialDelay, () {
+      widget.onAdjust(delta);
+      HapticFeedback.mediumImpact();
+      _repeatTimer =
+          Timer.periodic(CommandZoneScreen._longPressRepeatInterval, (_) {
+        widget.onAdjust(delta);
+        HapticFeedback.mediumImpact();
+      });
+    });
+  }
+
+  void _stopLongPress() {
+    _repeatTimer?.cancel();
+    _repeatTimer = null;
+  }
+
+  static const double _tileHeight = 48;
+  static const double _tileMaxWidth = 160;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final warningColor = widget.isWarning ? theme.colorScheme.error : null;
+
+    final hasLabel = widget.label.isNotEmpty;
+
+    return Row(
       children: [
-        Row(
-          children: [
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
+        if (hasLabel)
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  widget.label,
+                  style: theme.textTheme.titleSmall?.copyWith(
+                    fontWeight: FontWeight.w600,
+                    color: warningColor ?? theme.colorScheme.onSurface,
+                  ),
+                ),
+                if (widget.isWarning && widget.warningMessage != null)
                   Text(
-                    def.fullName,
-                    style: theme.textTheme.titleSmall?.copyWith(
-                      fontWeight: FontWeight.w600,
-                      color: warning
-                          ? theme.colorScheme.error
-                          : theme.colorScheme.onSurface,
+                    widget.warningMessage!,
+                    style: theme.textTheme.bodySmall?.copyWith(
+                      color: theme.colorScheme.error,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
-                  if (warning && def.warningMessage != null)
-                    Text(
-                      def.warningMessage!,
-                      style: theme.textTheme.bodySmall?.copyWith(
-                        color: theme.colorScheme.error,
-                        fontWeight: FontWeight.bold,
-                      ),
+              ],
+            ),
+          ),
+        _buildTile(theme, warningColor, hasLabel),
+        if (widget.onReset != null)
+          TextButton(
+            onPressed: widget.onReset,
+            style: TextButton.styleFrom(
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              minimumSize: Size.zero,
+              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            ),
+            child: const Text('Reset'),
+          ),
+      ],
+    );
+  }
+
+  Widget _buildTile(ThemeData theme, Color? warningColor, bool constrained) {
+    final container = Container(
+      height: _tileHeight,
+      decoration: BoxDecoration(
+        color: theme.colorScheme.surfaceContainerHighest,
+        borderRadius:
+            BorderRadius.circular(CommandZoneScreen._tileBorderRadius),
+        border: Border.all(
+          color: warningColor ?? theme.colorScheme.outline,
+          width: widget.isWarning
+              ? CommandZoneScreen._warningBorderWidth
+              : CommandZoneScreen._tileBorderWidth,
+        ),
+      ),
+      clipBehavior: Clip.antiAlias,
+      child: Stack(
+        children: [
+          Row(
+            children: [
+              Expanded(
+                child: GestureDetector(
+                  onLongPressStart: (_) =>
+                      _startLongPress(-widget.largeDelta),
+                  onLongPressEnd: (_) => _stopLongPress(),
+                  child: Material(
+                    color: Colors.transparent,
+                    child: InkWell(
+                      onTap: widget.value > 0
+                          ? () => widget.onAdjust(-widget.smallDelta)
+                          : null,
+                      child: const SizedBox.expand(),
                     ),
-                ],
+                  ),
+                ),
               ),
-            ),
-            FilledButton.tonal(
-              onPressed: () => def.onAdjust(czState, -1),
-              style: FilledButton.styleFrom(
-                padding: EdgeInsets.zero,
-                minimumSize: const Size(CommandZoneScreen._modalButtonSize, CommandZoneScreen._modalButtonSize),
-                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+              Expanded(
+                child: GestureDetector(
+                  onLongPressStart: (_) =>
+                      _startLongPress(widget.largeDelta),
+                  onLongPressEnd: (_) => _stopLongPress(),
+                  child: Material(
+                    color: Colors.transparent,
+                    child: InkWell(
+                      onTap: () => widget.onAdjust(widget.smallDelta),
+                      child: const SizedBox.expand(),
+                    ),
+                  ),
+                ),
               ),
-              child: const Text('-1'),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12),
-              child: Text(
-                value.toString(),
-                style: theme.textTheme.headlineSmall?.copyWith(
-                  fontWeight: FontWeight.bold,
-                  color: warning
-                      ? theme.colorScheme.error
-                      : theme.colorScheme.onSurface,
+            ],
+          ),
+          Positioned.fill(
+            child: IgnorePointer(
+              child: Center(
+                child: Text(
+                  widget.value.toString(),
+                  style: theme.textTheme.headlineSmall?.copyWith(
+                    fontWeight: FontWeight.bold,
+                    color: warningColor ?? theme.colorScheme.onSurface,
+                  ),
                 ),
               ),
             ),
-            FilledButton.tonal(
-              onPressed: () => def.onAdjust(czState, 1),
-              style: FilledButton.styleFrom(
-                padding: EdgeInsets.zero,
-                minimumSize: const Size(CommandZoneScreen._modalButtonSize, CommandZoneScreen._modalButtonSize),
-                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-              ),
-              child: const Text('+1'),
-            ),
-            const SizedBox(width: 8),
-            TextButton(
-              onPressed: () => def.onReset(czState),
-              style: TextButton.styleFrom(
-                padding: const EdgeInsets.symmetric(horizontal: 8),
-                minimumSize: Size.zero,
-                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-              ),
-              child: const Text('Reset'),
-            ),
-          ],
-        ),
-        Divider(color: theme.colorScheme.outlineVariant),
-      ],
+          ),
+        ],
+      ),
     );
+
+    if (constrained) {
+      return ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: _tileMaxWidth),
+        child: container,
+      );
+    }
+    return Expanded(child: container);
   }
 }
 
@@ -1227,19 +1351,15 @@ class _CommanderSection extends StatelessWidget {
   const _CommanderSection({required this.state});
 
   int _totalDamageForOpponent(int opponentIndex) {
-    int total = 0;
-    for (int cmd = 0; cmd < state.commanderCount; cmd++) {
-      total += state.commanderDamageFor(
-        commanderIndex: cmd,
-        opponentIndex: opponentIndex,
-      );
-    }
-    return total;
+    return state.commanderDamageFor(
+            commanderIndex: 0, opponentIndex: opponentIndex) +
+        state.commanderDamageFor(
+            commanderIndex: 1, opponentIndex: opponentIndex);
   }
 
   /// Per rule 702.124d / 903.10a, lethality is per-commander, not combined.
   bool _isLethalForOpponent(int opponentIndex) {
-    for (int cmd = 0; cmd < state.commanderCount; cmd++) {
+    for (int cmd = 0; cmd < 2; cmd++) {
       if (state.commanderDamageFor(
             commanderIndex: cmd,
             opponentIndex: opponentIndex,
@@ -1282,7 +1402,6 @@ class _CommanderSection extends StatelessWidget {
         // Opponent damage squares
         _OpponentDamageGrid(
           opponentCount: state.opponentCount,
-          commanderCount: state.commanderCount,
           state: state,
           totalDamageForOpponent: _totalDamageForOpponent,
           isLethalForOpponent: _isLethalForOpponent,
@@ -1502,14 +1621,13 @@ class _TaxModal extends StatelessWidget {
     final theme = Theme.of(context);
     final state = context.watch<CommandZoneState>();
     final tax1 = state.commanderTaxFor(0);
-    final hasPartner = state.commanderCount >= 2 && state.commanderTaxFor(1) > 0;
+    final hasPartner = state.hasPartnerTax;
     final tax2 = state.commanderTaxFor(1);
 
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.all(CommandZoneScreen._modalPadding),
-        child: SingleChildScrollView(
-          child: Column(
+        child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
@@ -1520,36 +1638,26 @@ class _TaxModal extends StatelessWidget {
               ),
               const SizedBox(height: 16),
               _TaxModalSection(
-                label: hasPartner ? 'Commander 1' : 'Commander',
+                label: 'Commander',
                 value: tax1,
                 commanderIndex: 0,
               ),
               if (hasPartner) ...[
                 const SizedBox(height: 16),
                 _TaxModalSection(
-                  label: 'Commander 2 (Partner)',
+                  label: 'Partner',
                   value: tax2,
                   commanderIndex: 1,
                 ),
               ],
               const SizedBox(height: 16),
-              if (!hasPartner && state.commanderCount < 2)
-                FilledButton.tonal(
-                  onPressed: () {
-                    // Enable partner: set commander count to 2 and give partner 0 tax
-                    context.read<CommandZoneState>().setCommanderCount(2);
-                    context.read<CommandZoneState>().incrementCommanderTax(1);
-                  },
-                  child: const Text('Add Partner Tax'),
-                )
-              else if (!hasPartner && state.commanderCount >= 2)
+              if (!hasPartner)
                 FilledButton.tonal(
                   onPressed: () =>
                       context.read<CommandZoneState>().incrementCommanderTax(1),
                   child: const Text('Add Partner Tax'),
                 ),
             ],
-          ),
         ),
       ),
     );
@@ -1569,53 +1677,21 @@ class _TaxModalSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-
-    return Column(
-      children: [
-        Text(
-          label,
-          style: theme.textTheme.titleMedium?.copyWith(
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-        const SizedBox(height: 8),
-        Text(
-          value.toString(),
-          style: theme.textTheme.displaySmall?.copyWith(
-            fontWeight: FontWeight.bold,
-            color: theme.colorScheme.onSurface,
-          ),
-        ),
-        const SizedBox(height: 8),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            FilledButton.tonal(
-              onPressed: value > 0
-                  ? () => context
-                      .read<CommandZoneState>()
-                      .decrementCommanderTax(commanderIndex)
-                  : null,
-              child: const Text('-2'),
-            ),
-            const SizedBox(width: 16),
-            FilledButton.tonal(
-              onPressed: () => context
-                  .read<CommandZoneState>()
-                  .incrementCommanderTax(commanderIndex),
-              child: const Text('+2'),
-            ),
-            const SizedBox(width: 16),
-            TextButton(
-              onPressed: () => context
-                  .read<CommandZoneState>()
-                  .resetCommanderTax(commanderIndex),
-              child: const Text('Reset'),
-            ),
-          ],
-        ),
-      ],
+    return _ModalTappableTile(
+      value: value,
+      label: label,
+      smallDelta: CommandZoneGameState.commanderTaxIncrement,
+      largeDelta: CommandZoneGameState.commanderTaxIncrement,
+      onAdjust: (delta) {
+        final state = context.read<CommandZoneState>();
+        if (delta > 0) {
+          state.incrementCommanderTax(commanderIndex);
+        } else {
+          state.decrementCommanderTax(commanderIndex);
+        }
+      },
+      onReset: () =>
+          context.read<CommandZoneState>().resetCommanderTax(commanderIndex),
     );
   }
 }
@@ -1624,14 +1700,12 @@ class _TaxModalSection extends StatelessWidget {
 /// Item 4: max 4 per row, flex to fill width.
 class _OpponentDamageGrid extends StatelessWidget {
   final int opponentCount;
-  final int commanderCount;
   final CommandZoneState state;
   final int Function(int) totalDamageForOpponent;
   final bool Function(int) isLethalForOpponent;
 
   const _OpponentDamageGrid({
     required this.opponentCount,
-    required this.commanderCount,
     required this.state,
     required this.totalDamageForOpponent,
     required this.isLethalForOpponent,
@@ -1677,7 +1751,6 @@ class _OpponentDamageGrid extends StatelessWidget {
                     opponentIndex: rows[r][c],
                     totalDamage: totalDamageForOpponent(rows[r][c]),
                     isLethal: isLethalForOpponent(rows[r][c]),
-                    commanderCount: commanderCount,
                     state: state,
                     maxHeight: maxTileHeight,
                   ),
@@ -1695,37 +1768,36 @@ class _OpponentDamageSquare extends StatelessWidget {
   final int opponentIndex;
   final int totalDamage;
   final bool isLethal;
-  final int commanderCount;
   final CommandZoneState state;
   final double maxHeight;
-
 
   const _OpponentDamageSquare({
     required this.opponentIndex,
     required this.totalDamage,
     required this.isLethal,
-    required this.commanderCount,
     required this.state,
     required this.maxHeight,
   });
 
-  bool get _hasPartnerDamage {
-    if (commanderCount < 2) return false;
-    final cmd1 = state.commanderDamageFor(
-        commanderIndex: 0, opponentIndex: opponentIndex);
-    final cmd2 = state.commanderDamageFor(
-        commanderIndex: 1, opponentIndex: opponentIndex);
-    return cmd1 > 0 || cmd2 > 0;
-  }
+  bool get _hasPartnerDamage => state.hasPartnerDamageFor(opponentIndex);
 
   void _showDamageModal(BuildContext context) {
     showModalBottomSheet(
       context: context,
       builder: (_) => _OpponentDamageModal(
         opponentIndex: opponentIndex,
-        commanderCount: commanderCount,
       ),
     );
+  }
+
+  void _tapDamage(BuildContext context, int commanderIndex) {
+    final czState = context.read<CommandZoneState>();
+    czState.adjustCommanderDamage(
+      commanderIndex: commanderIndex,
+      opponentIndex: opponentIndex,
+      delta: 1,
+    );
+    czState.adjustLifeTotal(-1);
   }
 
   @override
@@ -1738,55 +1810,75 @@ class _OpponentDamageSquare extends StatelessWidget {
       constraints: BoxConstraints(maxHeight: maxHeight),
       child: GestureDetector(
         onLongPress: () => _showDamageModal(context),
-        child: Material(
-          color: Colors.transparent,
-          child: InkWell(
-            onTap: () {
-              // Tap: +1 damage to commander index 0 by default
-              context.read<CommandZoneState>().adjustCommanderDamage(
-                    commanderIndex: 0,
-                    opponentIndex: opponentIndex,
-                    delta: 1,
-                  );
-            },
+        child: Container(
+          decoration: BoxDecoration(
+            color: theme.colorScheme.surfaceContainerHighest,
             borderRadius:
                 BorderRadius.circular(CommandZoneScreen._tileBorderRadius),
-            child: Ink(
-              decoration: BoxDecoration(
-                color: theme.colorScheme.surfaceContainerHighest,
-                borderRadius:
-                    BorderRadius.circular(CommandZoneScreen._tileBorderRadius),
-                border: Border.all(
-                  color: isLethal ? warningColor : theme.colorScheme.outline,
-                  width: isLethal
-                      ? CommandZoneScreen._warningBorderWidth
-                      : CommandZoneScreen._tileBorderWidth,
-                ),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(CommandZoneScreen._counterSquarePadding),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Expanded(
-                      child: showPartner
-                          ? _buildPartnerDisplay(theme, warningColor)
-                          : _buildSingleDisplay(theme, warningColor),
-                    ),
-                    Text(
-                      'Opp ${opponentIndex + 1}',
-                      style: theme.textTheme.labelSmall?.copyWith(
-                        color: isLethal
-                            ? warningColor
-                            : theme.colorScheme.onSurfaceVariant,
-                        fontWeight: FontWeight.w500,
-                      ),
-                      maxLines: 1,
-                    ),
-                  ],
-                ),
-              ),
+            border: Border.all(
+              color: isLethal ? warningColor : theme.colorScheme.outline,
+              width: isLethal
+                  ? CommandZoneScreen._warningBorderWidth
+                  : CommandZoneScreen._tileBorderWidth,
             ),
+          ),
+          clipBehavior: Clip.antiAlias,
+          child: Stack(
+            children: [
+              // Tap zones
+              Row(
+                children: [
+                  Expanded(
+                    child: Material(
+                      color: Colors.transparent,
+                      child: InkWell(
+                        onTap: () => _tapDamage(context, 0),
+                        child: const SizedBox.expand(),
+                      ),
+                    ),
+                  ),
+                  if (showPartner)
+                    Expanded(
+                      child: Material(
+                        color: Colors.transparent,
+                        child: InkWell(
+                          onTap: () => _tapDamage(context, 1),
+                          child: const SizedBox.expand(),
+                        ),
+                      ),
+                    ),
+                ],
+              ),
+              // Display layer
+              Positioned.fill(
+                child: IgnorePointer(
+                  child: Padding(
+                    padding: const EdgeInsets.all(
+                        CommandZoneScreen._counterSquarePadding),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          child: showPartner
+                              ? _buildPartnerDisplay(theme, warningColor)
+                              : _buildSingleDisplay(theme, warningColor),
+                        ),
+                        Text(
+                          'Player ${opponentIndex + 2}',
+                          style: theme.textTheme.labelSmall?.copyWith(
+                            color: isLethal
+                                ? warningColor
+                                : theme.colorScheme.onSurfaceVariant,
+                            fontWeight: FontWeight.w500,
+                          ),
+                          maxLines: 1,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ),
@@ -1848,27 +1940,24 @@ class _OpponentDamageSquare extends StatelessWidget {
 
 class _OpponentDamageModal extends StatelessWidget {
   final int opponentIndex;
-  final int commanderCount;
 
   const _OpponentDamageModal({
     required this.opponentIndex,
-    required this.commanderCount,
   });
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final state = context.watch<CommandZoneState>();
+    final hasPartner = state.hasPartnerDamageFor(opponentIndex);
 
     // Per 702.124d / 903.10a: lethality is per-commander
-    int total = 0;
     bool isLethal = false;
-    for (int cmd = 0; cmd < commanderCount; cmd++) {
+    for (int cmd = 0; cmd < 2; cmd++) {
       final dmg = state.commanderDamageFor(
         commanderIndex: cmd,
         opponentIndex: opponentIndex,
       );
-      total += dmg;
       if (dmg >= CommandZoneScreen._lethalCommanderDamage) {
         isLethal = true;
       }
@@ -1877,12 +1966,11 @@ class _OpponentDamageModal extends StatelessWidget {
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.all(CommandZoneScreen._modalPadding),
-        child: SingleChildScrollView(
-          child: Column(
+        child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
-                'Opponent ${opponentIndex + 1} - Commander Damage',
+                'Player ${opponentIndex + 2} - Commander Damage',
               style: theme.textTheme.titleLarge?.copyWith(
                 fontWeight: FontWeight.bold,
               ),
@@ -1907,31 +1995,42 @@ class _OpponentDamageModal extends StatelessWidget {
                 ),
               ),
             ],
-            if (commanderCount > 1) ...[
-              const SizedBox(height: 8),
-              Text(
-                'Total: $total',
-                style: theme.textTheme.titleMedium?.copyWith(
-                  fontWeight: FontWeight.bold,
-                  color: isLethal
-                      ? theme.colorScheme.error
-                      : theme.colorScheme.onSurface,
-                ),
-              ),
-            ],
             const SizedBox(height: 16),
-            for (int cmd = 0; cmd < commanderCount; cmd++)
-              _CommanderDamageModalSection(
-                commanderIndex: cmd,
+            // Always show commander row
+            _CommanderDamageModalSection(
+              commanderIndex: 0,
+              opponentIndex: opponentIndex,
+              hasPartner: hasPartner,
+              damage: state.commanderDamageFor(
+                commanderIndex: 0,
                 opponentIndex: opponentIndex,
-                commanderCount: commanderCount,
+              ),
+            ),
+            if (hasPartner)
+              _CommanderDamageModalSection(
+                commanderIndex: 1,
+                opponentIndex: opponentIndex,
+                hasPartner: hasPartner,
                 damage: state.commanderDamageFor(
-                  commanderIndex: cmd,
+                  commanderIndex: 1,
                   opponentIndex: opponentIndex,
                 ),
               ),
+            if (!hasPartner)
+              FilledButton.tonal(
+                onPressed: () {
+                  // Kick-start partner damage for this opponent
+                  final czState = context.read<CommandZoneState>();
+                  czState.adjustCommanderDamage(
+                    commanderIndex: 1,
+                    opponentIndex: opponentIndex,
+                    delta: 1,
+                  );
+                  czState.adjustLifeTotal(-1);
+                },
+                child: const Text('Add Partner'),
+              ),
           ],
-          ),
         ),
       ),
     );
@@ -1941,101 +2040,51 @@ class _OpponentDamageModal extends StatelessWidget {
 class _CommanderDamageModalSection extends StatelessWidget {
   final int commanderIndex;
   final int opponentIndex;
-  final int commanderCount;
+  final bool hasPartner;
   final int damage;
 
   const _CommanderDamageModalSection({
     required this.commanderIndex,
     required this.opponentIndex,
-    required this.commanderCount,
+    required this.hasPartner,
     required this.damage,
   });
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final label = commanderCount > 1 ? 'Commander ${commanderIndex + 1}' : '';
+    final label = hasPartner
+        ? (commanderIndex == 0 ? 'Commander' : 'Partner')
+        : '';
 
     return Padding(
       padding: const EdgeInsets.only(bottom: 12),
-      child: Column(
-        children: [
-          if (label.isNotEmpty)
-            Text(
-              label,
-              style: theme.textTheme.titleSmall?.copyWith(
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-          const SizedBox(height: 4),
-          Text(
-            damage.toString(),
-            style: theme.textTheme.displaySmall?.copyWith(
-              fontWeight: FontWeight.bold,
-              color: theme.colorScheme.onSurface,
-            ),
-          ),
-          const SizedBox(height: 8),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              FilledButton.tonal(
-                onPressed: () => context
-                    .read<CommandZoneState>()
-                    .adjustCommanderDamage(
-                      commanderIndex: commanderIndex,
-                      opponentIndex: opponentIndex,
-                      delta: -5,
-                    ),
-                child: const Text('-5'),
-              ),
-              const SizedBox(width: 8),
-              FilledButton.tonal(
-                onPressed: () => context
-                    .read<CommandZoneState>()
-                    .adjustCommanderDamage(
-                      commanderIndex: commanderIndex,
-                      opponentIndex: opponentIndex,
-                      delta: -1,
-                    ),
-                child: const Text('-1'),
-              ),
-              const SizedBox(width: 16),
-              FilledButton.tonal(
-                onPressed: () => context
-                    .read<CommandZoneState>()
-                    .adjustCommanderDamage(
-                      commanderIndex: commanderIndex,
-                      opponentIndex: opponentIndex,
-                      delta: 1,
-                    ),
-                child: const Text('+1'),
-              ),
-              const SizedBox(width: 8),
-              FilledButton.tonal(
-                onPressed: () => context
-                    .read<CommandZoneState>()
-                    .adjustCommanderDamage(
-                      commanderIndex: commanderIndex,
-                      opponentIndex: opponentIndex,
-                      delta: 5,
-                    ),
-                child: const Text('+5'),
-              ),
-            ],
-          ),
-          const SizedBox(height: 4),
-          TextButton(
-            onPressed: () => context
-                .read<CommandZoneState>()
-                .setCommanderDamage(
-                  commanderIndex: commanderIndex,
-                  opponentIndex: opponentIndex,
-                  damage: 0,
-                ),
-            child: const Text('Reset to 0'),
-          ),
-        ],
+      child: _ModalTappableTile(
+        value: damage,
+        label: label,
+        smallDelta: 1,
+        largeDelta: 5,
+        onAdjust: (delta) {
+          final czState = context.read<CommandZoneState>();
+          czState.adjustCommanderDamage(
+            commanderIndex: commanderIndex,
+            opponentIndex: opponentIndex,
+            delta: delta,
+          );
+          czState.adjustLifeTotal(-delta);
+        },
+        onReset: () {
+          final czState = context.read<CommandZoneState>();
+          final current = czState.commanderDamageFor(
+            commanderIndex: commanderIndex,
+            opponentIndex: opponentIndex,
+          );
+          czState.setCommanderDamage(
+            commanderIndex: commanderIndex,
+            opponentIndex: opponentIndex,
+            damage: 0,
+          );
+          czState.adjustLifeTotal(current);
+        },
       ),
     );
   }

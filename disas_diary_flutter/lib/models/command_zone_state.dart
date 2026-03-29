@@ -22,12 +22,6 @@ class CommandZoneGameState {
   /// Default number of opponents (Commander is typically 4-player)
   static const int defaultOpponentCount = 3;
 
-  /// Maximum number of commanders (partner support)
-  static const int maxCommanders = 2;
-
-  /// Minimum number of commanders
-  static const int minCommanders = 1;
-
   /// Commander tax increment per cast
   static const int commanderTaxIncrement = 2;
 
@@ -65,17 +59,16 @@ class CommandZoneGameState {
   // --- Commander-Specific ---
 
   /// Commander damage per opponent, per commander
-  /// Index 0 = first commander, Index 1 = second commander (partner)
+  /// Always 2 entries: index 0 = commander, index 1 = partner
+  /// Partner damage is per-opponent (each opponent may independently have a partner)
   final List<Map<int, int>> commanderDamage;
 
-  /// Commander tax per commander (1 or 2 entries for partner support)
+  /// Commander tax: always 2 entries [commander, partner]
+  /// Partner tax shows when commanderTax[1] > 0
   final List<int> commanderTax;
 
   /// Number of opponents being tracked
   final int opponentCount;
-
-  /// Number of commanders (1 or 2 for partner support)
-  final int commanderCount;
 
   // --- Settings ---
 
@@ -97,7 +90,6 @@ class CommandZoneGameState {
     required this.commanderDamage,
     required this.commanderTax,
     required this.opponentCount,
-    required this.commanderCount,
     required this.startingLife,
   });
 
@@ -116,10 +108,9 @@ class CommandZoneGameState {
       hasInitiative: false,
       triggerTrackers: TriggerTracker.defaults(),
       ringTemptationLevel: minRingLevel,
-      commanderDamage: [{}],
-      commanderTax: [0],
+      commanderDamage: [{}, {}],
+      commanderTax: [0, 0],
       opponentCount: defaultOpponentCount,
-      commanderCount: minCommanders,
       startingLife: startingLife,
     );
   }
@@ -144,7 +135,6 @@ class CommandZoneGameState {
           .toList(),
       'commander_tax': commanderTax,
       'opponent_count': opponentCount,
-      'commander_count': commanderCount,
       'starting_life': startingLife,
     };
   }
@@ -193,15 +183,9 @@ class CommandZoneGameState {
       hasInitiative: json['has_initiative'] as bool,
       triggerTrackers: trackers,
       ringTemptationLevel: json['ring_temptation_level'] as int,
-      commanderDamage: (json['commander_damage'] as List)
-          .map((m) => (m as Map<String, dynamic>)
-              .map((key, value) => MapEntry(int.parse(key), value as int)))
-          .toList(),
-      commanderTax: (json['commander_tax'] as List)
-          .map((e) => e as int)
-          .toList(),
+      commanderDamage: _migrateDamageMaps(json['commander_damage'] as List),
+      commanderTax: _migrateTaxList(json['commander_tax'] as List),
       opponentCount: json['opponent_count'] as int,
-      commanderCount: json['commander_count'] as int,
       startingLife: json['starting_life'] as int,
     );
   }
@@ -223,7 +207,6 @@ class CommandZoneGameState {
     List<Map<int, int>>? commanderDamage,
     List<int>? commanderTax,
     int? opponentCount,
-    int? commanderCount,
     int? startingLife,
   }) {
     return CommandZoneGameState(
@@ -242,8 +225,28 @@ class CommandZoneGameState {
       commanderDamage: commanderDamage ?? this.commanderDamage,
       commanderTax: commanderTax ?? this.commanderTax,
       opponentCount: opponentCount ?? this.opponentCount,
-      commanderCount: commanderCount ?? this.commanderCount,
       startingLife: startingLife ?? this.startingLife,
     );
+  }
+
+  /// Ensure damage maps always have 2 entries (migration from old format)
+  static List<Map<int, int>> _migrateDamageMaps(List raw) {
+    final maps = raw
+        .map((m) => (m as Map<String, dynamic>)
+            .map((key, value) => MapEntry(int.parse(key), value as int)))
+        .toList();
+    while (maps.length < 2) {
+      maps.add(<int, int>{});
+    }
+    return maps;
+  }
+
+  /// Ensure tax list always has 2 entries (migration from old format)
+  static List<int> _migrateTaxList(List raw) {
+    final list = raw.map((e) => e as int).toList();
+    while (list.length < 2) {
+      list.add(0);
+    }
+    return list;
   }
 }
