@@ -19,6 +19,9 @@ dependencies:
   # Keep screen awake
   wakelock_plus: ^1.2.0
 
+  # URL launching (cross promotion links)
+  url_launcher: ^6.2.1
+
   # Artwork caching
   path_provider: ^2.1.1
   crypto: ^3.0.3

@@ -72,6 +72,11 @@ class AppTheme {
         ),
       ),
 
+      // Bottom sheet theme — always full width
+      bottomSheetTheme: const BottomSheetThemeData(
+        constraints: BoxConstraints(minWidth: double.infinity),
+      ),
+
       // App bar theme
       appBarTheme: const AppBarTheme(
         backgroundColor: primaryGreen,
@@ -143,6 +148,11 @@ class AppTheme {
           borderRadius: BorderRadius.circular(8),
           borderSide: const BorderSide(color: lightGreen, width: 2),
         ),
+      ),
+
+      // Bottom sheet theme — always full width
+      bottomSheetTheme: const BottomSheetThemeData(
+        constraints: BoxConstraints(minWidth: double.infinity),
       ),
 
       // App bar theme

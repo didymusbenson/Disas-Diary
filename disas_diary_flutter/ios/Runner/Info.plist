@@ -47,6 +47,11 @@
 			</array>
 		</dict>
 	</dict>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>LooseTie.Frenchvanilla</string>
+		<string>LooseTie.Doubling-Season</string>
+	</array>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UIIdleTimerDisabled</key>
